@@ -6,8 +6,8 @@ scriptencoding cp932
 
 set nocompatible
 source $VIMRUNTIME/vimrc_example.vim
-source $VIMRUNTIME/mswin.vim
-behave mswin
+"source $VIMRUNTIME/mswin.vim
+"behave mswin
 
 set diffexpr=MyDiff()
 function MyDiff()
@@ -178,7 +178,7 @@ nnoremap <silent> <Leader>tl :Tlist<CR>
 
 " TagExplorerの設定
 " 表示するファイルのフィルタ
-let TE_Include_File_Pattern='.*\.py$\|.*\.bas$\|.*\.rc2$\|.*\.rc$\|.*\.cpp$\|.*\.c$\|.*\.h$\|.*\.hpp$\|.*\.vim$\|.*\.bpr$\|.*\.html$'
+let TE_Include_File_Pattern='.*\.cls$\|.*\.py$\|.*\.bas$\|.*\.rc2$\|.*\.rc$\|.*\.cpp$\|.*\.c$\|.*\.h$\|.*\.hpp$\|.*\.vim$\|.*\.bpr$\|.*\.html$'
 
 " キーマップTAgExplorerの起動
 nnoremap <silent> <Leader>te :TagExplorer<CR>
@@ -268,9 +268,9 @@ inoremap <C-u>  <UP>
 " コマンドライン履歴を一つ戻る
 :cnoremap <C-u>		<Up>
 " 前の単語へ移動
-:cnoremap <C-v>	<S-Left>
+":cnoremap <C-v>	<S-Left>
 " 次の単語へ移動
-:cnoremap <C-w>	<S-Right>
+":cnoremap <C-w>	<S-Right>
 
 " 挿入モードでレジスタの文字列の貼り付け
 inoremap <C-p> <ESC>pa
@@ -334,6 +334,9 @@ let howm_fileformat      = 'dos'
 :inoreabbrev l1 //------------------------------------------------------------------------------
 :inoreabbrev l2 //==============================================================================
 :inoreabbrev l3 ////////////////////////////////////////////////////////////////////////////////
+:inoreabbrev vl1 '-------------------------------------------------------------------------------
+:inoreabbrev vl2 '===============================================================================
+:inoreabbrev vl3 '///////////////////////////////////////////////////////////////////////////////
 
 " toggle.vimでトグルさせる単語の追加
 :let g:toggle_pairs={'max':'min','min':'max'}
