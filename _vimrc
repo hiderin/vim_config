@@ -388,3 +388,16 @@ let QFix_PreviewFtypeHighlight = 1
 " QuickFixウィンドウから開いた後ウィンドウを閉じる
 let QFix_CloseOnJump = 1
 
+" SKK.vimの辞書設定
+set imdisable
+let skk_jisyo_encoding = 'utf-8'
+let skk_large_jisyo_encodint = 'euc-jp'
+"let skk_jisyo = '~/.skk-jisyo'
+let skk_jisyo = 'C:\Dropbox\skk\skki1_5u.dic'
+let skk_large_jisyo = 'C:\Dropbox\skk\SKK-JISYO.L'
+let skk_auto_save_jisyo = 1
+let skk_keep_state = 0
+let skk_egg_like_newline = 1
+let skk_show_annotation = 1
+let skk_use_face = 1
+
