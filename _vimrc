@@ -401,3 +401,7 @@ let skk_egg_like_newline = 1
 let skk_show_annotation = 1
 let skk_use_face = 1
 
+" Agit.vim
+"カーソル移動で一覧と差分を更新させない
+let g:agit_enable_auto_show_commit = 0
+
