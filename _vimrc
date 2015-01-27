@@ -38,22 +38,69 @@ endfunction
 "  set encoding=utf-8
 "endif
 
-"////////////////////////////////////////////////////////////////////////////////
-""pathogenでftdetectなどをロードさせるために一度ファイルタイプ判定をoffにする
-filetype off
+"===============================================================================
+"   プラグインマネージャ
+"===============================================================================
+filetype plugin indent off
 
-"pathogen.vimを使ってbundle配下のプラグインをpathに加える
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
-set helpfile=$VIMRUNTIME/doc/help.txt
+if has('vim_starting')
+        set runtimepath+=$VIMRUNTIME/bundle/automatic/neobundle.vim
+        call neobundle#begin(expand('$VIMRUNTIME/bundle/automatic'))
+endif
 
-":call rtputil#bundle()
-":call rtputil#helptags()
+"******************************************
+"*     neobundle で管理するプラグイン     *
+"******************************************
+NeoBundle 'git://github.com/Shougo/neobundle.vim.git'
 
-"ファイルタイプ設定をonにする
-filetype on
+"----- github Plugins -----
+NeoBundle 'Shougo/neocomplcache.git'
+NeoBundle 'Shougo/vimfiler.git'
+NeoBundle 'Shougo/unite.vim.git'
+NeoBundle 'Shougo/vimproc.git'
+NeoBundle 'Shougo/vimshell.git'
+NeoBundle 'Shougo/neomru.vim'
+NeoBundle 'cohama/agit.vim'
+"NeoBundle 'jlanzarotta/bufexplorer'
+"NeoBundle 'gregsexton/gitv'
+NeoBundle 'thinca/vim-poslist'
+"NeoBundle 'tyru/skk.vim'
+NeoBundle 'vim-scripts/taglist.vim'
+"NeoBundle 'tsaleh/vim-align.git'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'thinca/vim-visualstar'
+NeoBundle 'yuratomo/w3m.vim'
+"NeoBundle ''
 
-"////////////////////////////////////////////////////////////////////////////////
+"# [ pathogen ] NeoBundle管理外の自前インストールプラグインはPathogenで管理する
+NeoBundle 'git://github.com/tpope/vim-pathogen.git'
+if isdirectory(expand('$VIMRUNTIME/bundle/automatic/vim-pathogen'))
+        call pathogen#infect('$VIMRUNTIME/bundle/manual')
+endif
+
+if has('vim_starting')
+        call neobundle#end()
+endif
+
+filetype plugin indent on
+"===============================================================================
+
+""////////////////////////////////////////////////////////////////////////////////
+"""pathogenでftdetectなどをロードさせるために一度ファイルタイプ判定をoffにする
+"filetype off
+"
+""pathogen.vimを使ってbundle配下のプラグインをpathに加える
+"call pathogen#runtime_append_all_bundles()
+"call pathogen#helptags()
+"set helpfile=$VIMRUNTIME/doc/help.txt
+"
+"":call rtputil#bundle()
+"":call rtputil#helptags()
+"
+""ファイルタイプ設定をonにする
+"filetype on
+"
+""////////////////////////////////////////////////////////////////////////////////
 
 let mapleader = " "
 
@@ -178,10 +225,10 @@ nnoremap <silent> <Leader>tl :Tlist<CR>
 
 " TagExplorerの設定
 " 表示するファイルのフィルタ
-let TE_Include_File_Pattern='.*\.cls$\|.*\.py$\|.*\.bas$\|.*\.rc2$\|.*\.rc$\|.*\.cpp$\|.*\.c$\|.*\.h$\|.*\.hpp$\|.*\.vim$\|.*\.bpr$\|.*\.html$'
+let TE_Include_File_Pattern='.*\.md$\|.*\.cls$\|.*\.py$\|.*\.bas$\|.*\.rc2$\|.*\.rc$\|.*\.cpp$\|.*\.c$\|.*\.h$\|.*\.hpp$\|.*\.vim$\|.*\.bpr$\|.*\.html$'
 
 " キーマップTAgExplorerの起動
-nnoremap <silent> <Leader>te :TagExplorer<CR>
+"nnoremap <silent> <Leader>te :TagExplorer<CR>
 
 " 折り畳みの設定
 :set foldmethod=syntax
@@ -193,36 +240,36 @@ autocmd FileType * set comments=
 " Calendar.vimの日記用ディレクトリの用意
 ":let g:calendar_diary="C:\\DropBox\\Vim\\diary"
 
-"=====================プロジェクトの設定========================
-"ファイルが選択されたらウィンドウを閉じる
-:let g:proj_flags = "tcv"
-
-"<Leader>pでデフォルトのプロジェクトを開く
-:nmap <silent> <Leader>p <Plug>ToggleProject
-
-" フォールディングを展開した状態でプロジェクトを開く
-"autocmd BufAdd _vimprojects silent! %foldopen!
-
-"カレントディレクトリにプロジェクトファイルがあったら読み込む
-if getcwd() != $HOME
-	if filereadable(getcwd(). '/_vimprojects')
-		Project _vimprojects
-	endif
-endif
-
-"gitコマンドの登録
-" get add
-let g:proj_run1='!git add %f'
-let g:proj_run_fold1='*!git add %f'
-
-" get checkout
-let g:proj_run2='!git checkout -- %f'
-let g:proj_run_fold2='*!git checkout -- %f'
-
-" git status
-let g:proj_run3='!git status'
-
-"================================================================
+""=====================プロジェクトの設定========================
+""ファイルが選択されたらウィンドウを閉じる
+":let g:proj_flags = "tcv"
+"
+""<Leader>pでデフォルトのプロジェクトを開く
+":nmap <silent> <Leader>p <Plug>ToggleProject
+"
+"" フォールディングを展開した状態でプロジェクトを開く
+""autocmd BufAdd _vimprojects silent! %foldopen!
+"
+""カレントディレクトリにプロジェクトファイルがあったら読み込む
+"if getcwd() != $HOME
+"	if filereadable(getcwd(). '/_vimprojects')
+"		Project _vimprojects
+"	endif
+"endif
+"
+""gitコマンドの登録
+"" get add
+"let g:proj_run1='!git add %f'
+"let g:proj_run_fold1='*!git add %f'
+"
+"" get checkout
+"let g:proj_run2='!git checkout -- %f'
+"let g:proj_run_fold2='*!git checkout -- %f'
+"
+"" git status
+"let g:proj_run3='!git status'
+"
+""================================================================
 
 "----------------------------------------------------
 " Emacs風関係  ちょっと違うけど(^^;)
@@ -291,13 +338,15 @@ inoremap <C-p> <ESC>pa
 :let g:DrChipTopLvMenu = ''
 
 " 起動時のShowMarksをoffにする。
-:let g:showmarks_enable = 0
+":let g:showmarks_enable = 0
 
 " ちょっと便利系キーマップ
 nnoremap * *N
 noremap <CR> o<ESC>
 nnoremap <Leader>grc :tabnew<CR>:e $VIMRUNTIME/../_gvimrc<CR>
 nnoremap <Leader>trc :tabnew<CR>:e $VIMRUNTIME/../_vimrc<CR>
+nnoremap <Leader>vrc :vs $VIMRUNTIME/../_vimrc<CR>
+nnoremap <Leader>src :sp $VIMRUNTIME/../_vimrc<CR>
 nnoremap <Leader>prc :tabnew<CR>:e $VIMRUNTIME/../vimfiles\macros\printrc.vim<CR>
 nnoremap <Leader>tkh :tabnew<CR>:e $VIMRUNTIME/../../keyhac\config.py<CR>
 nnoremap <Leader>mru :MRU<CR>
@@ -339,7 +388,7 @@ let howm_fileformat      = 'dos'
 :inoreabbrev vl3 '///////////////////////////////////////////////////////////////////////////////
 
 " toggle.vimでトグルさせる単語の追加
-:let g:toggle_pairs={'max':'min','min':'max'}
+":let g:toggle_pairs={'max':'min','min':'max'}
 
 "BCB6用のヘルプファイルを開く
 nnoremap <silent> <Leader>hb :sil !$VIMRUNTIME/../BCB_HELP/Help/bcb6.hlp<CR>
@@ -405,3 +454,51 @@ let skk_use_face = 1
 "カーソル移動で一覧と差分を更新させない
 let g:agit_enable_auto_show_commit = 0
 
+"-------------------------------------------------------------------------------
+" Uniteの設定
+"-------------------------------------------------------------------------------
+"Uniteでのmigemoの使用
+nnoremap <silent> g/ :<C-u>Unite -buffer-name=search line -start-insert<CR>
+call unite#custom#source('line', 'matchers', 'matcher_migemo')
+" find の path を設定
+let g:unite_source_find_command='C:/MinGW/msys/1.0/bin/find.exe'
+"let g:unite_source_find_command='C:/WINDOWS/system32/find.exe'
+" insertモードでUniteを起動させる。
+"let g:unite_enable_start_insert=1
+" 最近使用したファイルの一覧
+nnoremap <silent> <Leader>mru :Unite file_mru<CR>
+" 現在のバッファの一覧
+nnoremap <silent> <Leader>be :Unite buffer<CR>
+" 現在のタブのバッファの一覧
+nnoremap <silent> <Leader>tbe :Unite buffer_tab<CR>
+"-------------------------------------------------------------------------------
+
+"-------------------------------------------------------------------------------
+" VimFilerの設定
+"-------------------------------------------------------------------------------
+"vimデフォルトのエクスプローラをvimfilerで置き換える
+let g:vimfiler_as_default_explorer = 1
+"セーフモードを無効にした状態で起動する
+let g:vimfiler_safe_mode_by_default = 0
+"現在開いているバッファのディレクトリを開く
+nnoremap <silent> <Leader>fe :<C-u>VimFilerBufferDir -quit<CR>
+"現在開いているバッファをIDE風に開く
+nnoremap <silent> <Leader>te :<C-u>VimFilerBufferDir -split -simple -winwidth=35 -no-quit<CR>
+
+augroup vimrc
+"ブックマークでエンターした時に:cdを実行
+  autocmd FileType vimfiler call unite#custom_default_action('directory', 'cd')
+"デフォルトのキーマッピングを変更
+  autocmd FileType vimfiler call s:vimfiler_my_settings()
+augroup END
+function! s:vimfiler_my_settings()
+  nmap <buffer> H <Plug>(vimfiler_switch_to_history_directory)
+  nmap <buffer> s <Plug>(vimfiler_popup_shell)
+  nmap <buffer> O <Plug>(vimfiler_sync_with_current_vimfiler)
+  nmap <buffer> o <Plug>(vimfiler_sync_with_another_vimfiler)
+  nmap <buffer> J :Unite bookmark<CR>
+"  nmap <buffer> / :Unite file -default-action=vimfiler line -start-insert<CR>
+endfunction
+
+"あふの呼び出し
+nnoremap <Leader>af :!\%VIMRUNTIME\%/../../afxw32_157/AFXW.EXE -L
