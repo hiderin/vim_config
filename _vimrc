@@ -503,3 +503,11 @@ function! s:w3m_my_settings()
   nmap <buffer> cr :W3mShowExtenalBrowser<CR>
 endfunction
 
+"--------------------------------------------------------------------------------
+" Calendar.vimの設定
+"--------------------------------------------------------------------------------
+"Googleのカレンダーを設定
+"let g:calendar_google_calendar = 1
+"let g:calendar_google_task = 1
+"Calendar.vimの 呼び出し
+nnoremap <silent> <Leader>cal :<C-u>Calendar<CR>
