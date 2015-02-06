@@ -96,7 +96,7 @@ filetype plugin indent on
 "===============================================================================
 
 
-let mapleader = " "
+"let mapleader = "g,"
 
 " カラー設定:
 :set t_Co=256
@@ -212,7 +212,7 @@ nnoremap <silent> <Leader>tl :Tlist<CR>
 
 " TagExplorerの設定
 " 表示するファイルのフィルタ
-let TE_Include_File_Pattern='.*\.md$\|.*\.cls$\|.*\.py$\|.*\.bas$\|.*\.rc2$\|.*\.rc$\|.*\.cpp$\|.*\.c$\|.*\.h$\|.*\.hpp$\|.*\.vim$\|.*\.bpr$\|.*\.html$'
+"let TE_Include_File_Pattern='.*\.md$\|.*\.cls$\|.*\.py$\|.*\.bas$\|.*\.rc2$\|.*\.rc$\|.*\.cpp$\|.*\.c$\|.*\.h$\|.*\.hpp$\|.*\.vim$\|.*\.bpr$\|.*\.html$'
 
 " キーマップTAgExplorerの起動
 "nnoremap <silent> <Leader>te :TagExplorer<CR>
@@ -336,7 +336,7 @@ nnoremap <Leader>vrc :vs $VIMRUNTIME/../_vimrc<CR>
 nnoremap <Leader>src :sp $VIMRUNTIME/../_vimrc<CR>
 nnoremap <Leader>prc :tabnew<CR>:e $VIMRUNTIME/../vimfiles\macros\printrc.vim<CR>
 nnoremap <Leader>tkh :tabnew<CR>:e $VIMRUNTIME/../../keyhac\config.py<CR>
-nnoremap <Leader>mru :MRU<CR>
+"nnoremap <Leader>mru :MRU<CR>
 nnoremap <Leader>cd  :cd %:h<CR>:pwd<CR>
 nnoremap <Leader>cp  :cd %:h<CR>:cd ..<CR>:pwd<CR>
 
@@ -448,7 +448,8 @@ let g:agit_enable_auto_show_commit = 0
 nnoremap <silent> g/ :<C-u>Unite -buffer-name=search line -start-insert<CR>
 call unite#custom#source('line', 'matchers', 'matcher_migemo')
 " find の path を設定
-let g:unite_source_find_command='C:/MinGW/msys/1.0/bin/find.exe'
+let g:unite_source_find_command='C:/Dropbox/MySys/portvim/vim73/vimfind.bat'
+"let g:unite_source_find_command='C:/MinGW/msys/1.0/bin/find.exe'
 "let g:unite_source_find_command='C:/WINDOWS/system32/find.exe'
 " insertモードでUniteを起動させる。
 "let g:unite_enable_start_insert=1
@@ -470,25 +471,38 @@ let g:vimfiler_safe_mode_by_default = 0
 "現在開いているバッファのディレクトリを開く
 nnoremap <silent> <Leader>fe :<C-u>VimFilerBufferDir -quit<CR>
 "現在開いているバッファをIDE風に開く
-nnoremap <silent> <Leader>te :<C-u>VimFilerBufferDir -split -simple -winwidth=35 -no-quit<CR>
+nnoremap <silent> <Leader>te :<C-u>VimFilerBufferDir -create -split -simple -winwidth=35 -force-quit<CR>
 
 augroup vimrc
 "ブックマークでエンターした時に:cdを実行
   autocmd FileType vimfiler call unite#custom_default_action('directory', 'cd')
+  autocmd FileType vimfiler call unite#custom_default_action('file', 'cd')
 "デフォルトのキーマッピングを変更
   autocmd FileType vimfiler call s:vimfiler_my_settings()
 augroup END
 function! s:vimfiler_my_settings()
   nmap <buffer> H <Plug>(vimfiler_switch_to_history_directory)
-  nmap <buffer> s <Plug>(vimfiler_popup_shell)
+  nmap <buffer> S <Plug>(vimfiler_popup_shell)
+  nmap <buffer> s <Plug>(vimfiler_select_sort_type)
   nmap <buffer> O <Plug>(vimfiler_sync_with_current_vimfiler)
   nmap <buffer> o <Plug>(vimfiler_sync_with_another_vimfiler)
+  nmap <buffer> <esc> <Plug>(vimfiler_toggle_mark_current_line)
   nmap <buffer> J :Unite bookmark<CR>
+  nmap <buffer> l <C-w>l
+  nmap <buffer> h <C-w>h
 "  nmap <buffer> / :Unite file -default-action=vimfiler line -start-insert<CR>
 endfunction
 
 "あふの呼び出し
-nnoremap <Leader>af :!\%VIMRUNTIME\%/../../afxw32_157/AFXW.EXE -L
+"nnoremap <Leader>af :!\%VIMRUNTIME\%/../../afxw32_157/AFXW.EXE -L
+nnoremap <Leader>af :!\%VIMRUNTIME\%/../../afxw32_157/AFXW.EXE -L"<C-R>*"<CR>
+"nnoremap <Leader>af call s:call_afxw_chose_dir()
+"function! s:call_afxw_chose_dir()
+"	call vimfiler#yank_full_path()
+"	let mycmd = !\%VIMRUNTIME\%/../../afxw32_157/AFXW.EXE -L <C-R>"<CR>
+"	silent execute mycmd
+"endfunction
+
 "--------------------------------------------------------------------------------
 " w3mの設定
 "--------------------------------------------------------------------------------
