@@ -489,3 +489,17 @@ endfunction
 
 "あふの呼び出し
 nnoremap <Leader>af :!\%VIMRUNTIME\%/../../afxw32_157/AFXW.EXE -L
+"--------------------------------------------------------------------------------
+" w3mの設定
+"--------------------------------------------------------------------------------
+"外部ブラウザ
+    let g:w3m#external_browser = '"C:\Dropbox\MySys\programfiles\GoogleChromePortable\GoogleChromePortable.exe"'
+
+augroup w3mrc
+"デフォルトのキーマッピングを変更
+  autocmd FileType w3m call s:w3m_my_settings()
+augroup END
+function! s:w3m_my_settings()
+  nmap <buffer> cr :W3mShowExtenalBrowser<CR>
+endfunction
+
