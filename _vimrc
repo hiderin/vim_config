@@ -95,35 +95,12 @@ call neobundle#end()
 filetype plugin indent on
 "===============================================================================
 
-""////////////////////////////////////////////////////////////////////////////////
-"""pathogenでftdetectなどをロードさせるために一度ファイルタイプ判定をoffにする
-"filetype off
-"
-""pathogen.vimを使ってbundle配下のプラグインをpathに加える
-"call pathogen#runtime_append_all_bundles()
-"call pathogen#helptags()
-"set helpfile=$VIMRUNTIME/doc/help.txt
-"
-"":call rtputil#bundle()
-"":call rtputil#helptags()
-"
-""ファイルタイプ設定をonにする
-"filetype on
-"
-""////////////////////////////////////////////////////////////////////////////////
 
 let mapleader = " "
 
 " カラー設定:
 :set t_Co=256
-"colorscheme cuideveloper
-"colorscheme developer
-"colorscheme murphy
-"colorscheme darkblue
 colorscheme desert2
-"colorscheme desert3
-"colorscheme generik
-"colorscheme molokai
 syntax on
 
 "入力モード時、ステータスラインのカラーを変更
