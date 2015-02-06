@@ -45,8 +45,9 @@ filetype plugin indent off
 
 if has('vim_starting')
         set runtimepath+=$VIMRUNTIME/bundle/automatic/neobundle.vim
-        call neobundle#begin(expand('$VIMRUNTIME/bundle/automatic'))
 endif
+
+call neobundle#begin(expand('$VIMRUNTIME/bundle/automatic'))
 
 "******************************************
 "*     neobundle で管理するプラグイン     *
@@ -70,17 +71,26 @@ NeoBundle 'vim-scripts/taglist.vim'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'thinca/vim-visualstar'
 NeoBundle 'yuratomo/w3m.vim'
+NeoBundle 'vim-scripts/EasyGrep'
+"NeoBundle 'mbbill/echofunc'
+NeoBundle 'vim-jp/vimdoc-ja'
+NeoBundle 'itchyny/calendar.vim'
 "NeoBundle ''
 
-"# [ pathogen ] NeoBundle管理外の自前インストールプラグインはPathogenで管理する
-NeoBundle 'git://github.com/tpope/vim-pathogen.git'
-if isdirectory(expand('$VIMRUNTIME/bundle/automatic/vim-pathogen'))
-        call pathogen#infect('$VIMRUNTIME/bundle/manual')
-endif
+"----- vim.org Plugins -----
+NeoBundle 'FuzzyFinder'
+NeoBundle 'NERD_tree'
 
-if has('vim_starting')
-        call neobundle#end()
-endif
+"----- Local Plugins -----
+NeoBundleLocal $VIMRUNTIME/bundle/manual
+
+"# [ pathogen ] NeoBundle管理外の自前インストールプラグインはPathogenで管理する
+"NeoBundle 'git://github.com/tpope/vim-pathogen.git'
+"if isdirectory(expand('$VIMRUNTIME/bundle/automatic/vim-pathogen'))
+"        call pathogen#infect('$VIMRUNTIME/bundle/manual')
+"endif
+
+call neobundle#end()
 
 filetype plugin indent on
 "===============================================================================
