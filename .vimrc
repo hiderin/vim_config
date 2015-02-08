@@ -1,4 +1,4 @@
- " ƒGƒ“ƒR[ƒfƒBƒ“
+ " ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‡ã‚£ãƒ³
 "source $VIMRUNTIME/encode.vim
 "scriptencoding utf-8
 scriptencoding cp932
@@ -39,7 +39,7 @@ endfunction
 "endif
 
 "===============================================================================
-"   ƒvƒ‰ƒOƒCƒ“ƒ}ƒl[ƒWƒƒ
+"   ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ãƒãƒãƒ¼ã‚¸ãƒ£
 "===============================================================================
 filetype plugin indent off
 
@@ -50,7 +50,7 @@ endif
 call neobundle#begin(expand('$VIMRUNTIME/bundle/automatic'))
 
 "******************************************
-"*     neobundle ‚ÅŠÇ—‚·‚éƒvƒ‰ƒOƒCƒ“     *
+"*     neobundle ã§ç®¡ç†ã™ã‚‹ãƒ—ãƒ©ã‚°ã‚¤ãƒ³     *
 "******************************************
 NeoBundle 'git://github.com/Shougo/neobundle.vim.git'
 
@@ -84,7 +84,7 @@ NeoBundle 'NERD_tree'
 "----- Local Plugins -----
 NeoBundleLocal $VIMRUNTIME/bundle/manual
 
-"# [ pathogen ] NeoBundleŠÇ—ŠO‚Ì©‘OƒCƒ“ƒXƒg[ƒ‹ƒvƒ‰ƒOƒCƒ“‚ÍPathogen‚ÅŠÇ—‚·‚é
+"# [ pathogen ] NeoBundleç®¡ç†å¤–ã®è‡ªå‰ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã¯Pathogenã§ç®¡ç†ã™ã‚‹
 "NeoBundle 'git://github.com/tpope/vim-pathogen.git'
 "if isdirectory(expand('$VIMRUNTIME/bundle/automatic/vim-pathogen'))
 "        call pathogen#infect('$VIMRUNTIME/bundle/manual')
@@ -96,14 +96,14 @@ filetype plugin indent on
 "===============================================================================
 
 
-"let mapleader = "g,"
+let mapleader = "."
 
-" ƒJƒ‰[İ’è:
+" ã‚«ãƒ©ãƒ¼è¨­å®š:
 :set t_Co=256
 colorscheme desert2
 syntax on
 
-"“ü—Íƒ‚[ƒhAƒXƒe[ƒ^ƒXƒ‰ƒCƒ“‚ÌƒJƒ‰[‚ğ•ÏX
+"å…¥åŠ›ãƒ¢ãƒ¼ãƒ‰æ™‚ã€ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ãƒ©ã‚¤ãƒ³ã®ã‚«ãƒ©ãƒ¼ã‚’å¤‰æ›´
 augroup InsertHook
 autocmd!
 autocmd InsertEnter * highlight StatusLine guifg=#ccdc90 guibg=#2E4340 ctermfg=blue ctermbg=green
@@ -112,44 +112,44 @@ augroup END
 
 highlight StatusLine guifg=#2E4340 guibg=#ccdc90 ctermfg=green ctermbg=blue
 
-"ƒJƒ‰[ƒXƒL[ƒ}‚ÌØ‚è‘Ö‚¦(ˆóü‚Ídeveloper‚ğg—p‚µ‚½‚¢)
-nnoremap <silent> <Leader>dv :colorscheme developer<CR> :set guifont=‚l‚r_ƒSƒVƒbƒN:h10:cSHIFTJIS<CR>
+"ã‚«ãƒ©ãƒ¼ã‚¹ã‚­ãƒ¼ãƒã®åˆ‡ã‚Šæ›¿ãˆ(å°åˆ·æ™‚ã¯developerã‚’ä½¿ç”¨ã—ãŸã„)
+nnoremap <silent> <Leader>dv :colorscheme developer<CR> :set guifont=ï¼­ï¼³_ã‚´ã‚·ãƒƒã‚¯:h10:cSHIFTJIS<CR>
 nnoremap <silent> <Leader>ds :colorscheme desert2<CR> :set guifont=MeiryoKe_Console:h10:cSHIFTJIS<CR>
 
-" vi‚Æ‚ÌŒİŠ·«‚ğ‚Æ‚ç‚È‚¢(vim‚Ì“Æ©Šg’£‹@”\‚ğg‚¤ˆ×)
+" viã¨ã®äº’æ›æ€§ã‚’ã¨ã‚‰ãªã„(vimã®ç‹¬è‡ªæ‹¡å¼µæ©Ÿèƒ½ã‚’ä½¿ã†ç‚º)
 set nocompatible
-" ‰üsƒR[ƒh‚Ì©“®”F¯
+" æ”¹è¡Œã‚³ãƒ¼ãƒ‰ã®è‡ªå‹•èªè­˜
 set fileformats=unix,dos,mac
 
-"s”Ô†•\¦
+"è¡Œç•ªå·è¡¨ç¤º
 set nu
 
-"ƒJ[ƒ\ƒ‹ƒ‰ƒCƒ“‚Ì•\¦
+"ã‚«ãƒ¼ã‚½ãƒ«ãƒ©ã‚¤ãƒ³ã®è¡¨ç¤º
 set cursorline
 
-" ƒJ[ƒ\ƒ‹‚Ìã‰º‚É•\¦‚·‚éÅ’áŒÀ‚Ìs”
+" ã‚«ãƒ¼ã‚½ãƒ«ã®ä¸Šä¸‹ã«è¡¨ç¤ºã™ã‚‹æœ€ä½é™ã®è¡Œæ•°
 set scrolloff=2
 
-"ƒ^ƒuİ’è
+"ã‚¿ãƒ–è¨­å®š
 set tabstop=4
 set shiftwidth=4
 
-"V‚µ‚¢s‚ğì‚Á‚½‚Æ‚«‚É‚“x‚È©“®ƒCƒ“ƒfƒ“ƒg‚ğs‚¤
+"æ–°ã—ã„è¡Œã‚’ä½œã£ãŸã¨ãã«é«˜åº¦ãªè‡ªå‹•ã‚¤ãƒ³ãƒ‡ãƒ³ãƒˆã‚’è¡Œã†
 set smartindent
 
-"=======================“ú–{Œê“ü—ÍŠÖŒW======================
-"“ú–{Œê“ü—Í‚ğƒŠƒZƒbƒg
+"=======================æ—¥æœ¬èªå…¥åŠ›é–¢ä¿‚======================
+"æ—¥æœ¬èªå…¥åŠ›ã‚’ãƒªã‚»ãƒƒãƒˆ
 au BufNewFile,BufRead * set iminsert=0
 
-" ‘}“üƒ‚[ƒh‚ÉIMEó‘Ô‚ğ•Û‘¶‚µ‚È‚¢
+" æŒ¿å…¥ãƒ¢ãƒ¼ãƒ‰æ™‚ã«IMEçŠ¶æ…‹ã‚’ä¿å­˜ã—ãªã„
 inoremap <silent> <ESC> <ESC>
 inoremap <silent> <C-{> <ESC>
 
-"u“ú–{Œê“ü—ÍŒÅ’èƒ‚[ƒhv‚Ìİ’è
+"ã€Œæ—¥æœ¬èªå…¥åŠ›å›ºå®šãƒ¢ãƒ¼ãƒ‰ã€ã®è¨­å®š
 inoremap <silent> <C-k> <C-^>
 
 
-" ƒRƒ}ƒ“ƒhƒ‚[ƒh‚Å‚ÌIME‚ğoff‚É‚·‚éB
+" ã‚³ãƒãƒ³ãƒ‰ãƒ¢ãƒ¼ãƒ‰ã§ã®IMEã‚’offã«ã™ã‚‹ã€‚
 let g:IMState = 0
 autocmd InsertEnter * let &iminsert = g:IMState
 autocmd InsertLeave * let g:IMState = &iminsert|set iminsert=0 imsearch=0
@@ -158,30 +158,30 @@ autocmd CmdwinLeave * let g:IMState = &iminsert|set iminsert=0 imsearch=0
 "autocmd CmdwinLeave * let &iminsert = g:IMState
 
 "
-" ƒtƒHƒ“ƒg‚Ìİ’è
+" ãƒ•ã‚©ãƒ³ãƒˆã®è¨­å®š
 "set ctermfont=MS_Gothic:h8:cSHIFTJIS
 "set ctermfontwide=MS_Gothic:h8:cSHIFTJIS
 "================================================================
-" ESC 2‰ñ‰Ÿ‚µ‚ÅŒŸõƒnƒCƒ‰ƒCƒg‚ğÁ‹
+" ESC 2å›æŠ¼ã—ã§æ¤œç´¢ãƒã‚¤ãƒ©ã‚¤ãƒˆã‚’æ¶ˆå»
 :nnoremap <Esc><Esc> :nohlsearch<CR>
 
-"TabAs––‚Ì”¼ŠpƒXƒy[ƒX‚ğ–¾¦“I‚É•\¦‚·‚éB
+"Tabã€è¡Œæœ«ã®åŠè§’ã‚¹ãƒšãƒ¼ã‚¹ã‚’æ˜ç¤ºçš„ã«è¡¨ç¤ºã™ã‚‹ã€‚
 set listchars=tab:^\ ,trail:_,eol:$
 au BufNewFile,BufRead *.*  set list
 
-" Å‰ºƒEƒBƒ“ƒhƒE‚É‚¢‚ÂƒXƒe[ƒ^ƒXs‚ª•\¦‚³‚ê‚é‚©‚ğİ’è‚·‚éB
-"               0: ‘S‚­•\¦‚µ‚È‚¢
-"               1: ƒEƒBƒ“ƒhƒE‚Ì”‚ª2ˆÈã‚Ì‚Æ‚«‚Ì‚İ•\¦
-"               2: í‚É•\¦
+" æœ€ä¸‹ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã«ã„ã¤ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹è¡ŒãŒè¡¨ç¤ºã•ã‚Œã‚‹ã‹ã‚’è¨­å®šã™ã‚‹ã€‚
+"               0: å…¨ãè¡¨ç¤ºã—ãªã„
+"               1: ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®æ•°ãŒ2ä»¥ä¸Šã®ã¨ãã®ã¿è¡¨ç¤º
+"               2: å¸¸ã«è¡¨ç¤º
 :set laststatus=2
 
-" ƒeƒLƒXƒg‚ÌÜ‚è•Ô‚µ–³‚µ
+" ãƒ†ã‚­ã‚¹ãƒˆã®æŠ˜ã‚Šè¿”ã—ç„¡ã—
 set nowrap
 
-"ctags‚Ìg—p
+"ctagsã®ä½¿ç”¨
 :set tags=tags
 
-" grep‚Ìİ’è
+" grepã®è¨­å®š
 "set grepprg=C:/DropBox/GnuWin32/bin/grep\ -nH
 "let mygrepprg='C:/DropBox/GnuWin32/bin/grep'
 "let mygrepprg='C:/cygwin/bin/grep'
@@ -197,54 +197,54 @@ set grepprg=findstr\ /n
 "let Grep_Xargs_Path = 'C:/DropBox/GnuWin32/bin/xargs.exe'
 "let Grep_Shell_Quote_Char = '"'
 
-"•ÏX’†‚Ìƒtƒ@ƒCƒ‹‚Å‚àA•Û‘¶‚µ‚È‚¢‚Å‘¼‚Ìƒtƒ@ƒCƒ‹‚ğ•\¦
+"å¤‰æ›´ä¸­ã®ãƒ•ã‚¡ã‚¤ãƒ«ã§ã‚‚ã€ä¿å­˜ã—ãªã„ã§ä»–ã®ãƒ•ã‚¡ã‚¤ãƒ«ã‚’è¡¨ç¤º
 set hidden
 
-"TagList‚Ìİ’è
-"•ÒW’†ƒtƒ@ƒCƒ‹‚Ì‚İ‚Ìƒ^ƒO‚ğ•\¦
+"TagListã®è¨­å®š
+"ç·¨é›†ä¸­ãƒ•ã‚¡ã‚¤ãƒ«ã®ã¿ã®ã‚¿ã‚°ã‚’è¡¨ç¤º
 let Tlist_Show_One_File = 1
-"taglist‚Ì‚İ‚Ì‚ÉI—¹
+"taglistã®ã¿ã®æ™‚ã«çµ‚äº†
 let Tlist_Exit_OnlyWindow = 1
-" tag‘I‘ğ‚Étaglist‚ğ•Â‚¶‚é
+" tagé¸æŠæ™‚ã«taglistã‚’é–‰ã˜ã‚‹
 let Tlist_Close_On_Select =1
-" ƒL[ƒ}ƒbƒv TagList‚Ì‹N“®
+" ã‚­ãƒ¼ãƒãƒƒãƒ— TagListã®èµ·å‹•
 nnoremap <silent> <Leader>tl :Tlist<CR>
 
-" TagExplorer‚Ìİ’è
-" •\¦‚·‚éƒtƒ@ƒCƒ‹‚ÌƒtƒBƒ‹ƒ^
+" TagExplorerã®è¨­å®š
+" è¡¨ç¤ºã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ•ã‚£ãƒ«ã‚¿
 "let TE_Include_File_Pattern='.*\.md$\|.*\.cls$\|.*\.py$\|.*\.bas$\|.*\.rc2$\|.*\.rc$\|.*\.cpp$\|.*\.c$\|.*\.h$\|.*\.hpp$\|.*\.vim$\|.*\.bpr$\|.*\.html$'
 
-" ƒL[ƒ}ƒbƒvTAgExplorer‚Ì‹N“®
+" ã‚­ãƒ¼ãƒãƒƒãƒ—TAgExplorerã®èµ·å‹•
 "nnoremap <silent> <Leader>te :TagExplorer<CR>
 
-" Ü‚èô‚İ‚Ìİ’è
+" æŠ˜ã‚Šç•³ã¿ã®è¨­å®š
 :set foldmethod=syntax
 :set nofoldenable
 
-" ƒRƒƒ“ƒg‚Ìİ’è‚ğ‰ğœ
+" ã‚³ãƒ¡ãƒ³ãƒˆã®è¨­å®šã‚’è§£é™¤
 autocmd FileType * set comments=
 
-" Calendar.vim‚Ì“ú‹L—pƒfƒBƒŒƒNƒgƒŠ‚Ì—pˆÓ
+" Calendar.vimã®æ—¥è¨˜ç”¨ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®ç”¨æ„
 ":let g:calendar_diary="C:\\DropBox\\Vim\\diary"
 
-""=====================ƒvƒƒWƒFƒNƒg‚Ìİ’è========================
-""ƒtƒ@ƒCƒ‹‚ª‘I‘ğ‚³‚ê‚½‚çƒEƒBƒ“ƒhƒE‚ğ•Â‚¶‚é
+""=====================ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã®è¨­å®š========================
+""ãƒ•ã‚¡ã‚¤ãƒ«ãŒé¸æŠã•ã‚ŒãŸã‚‰ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚’é–‰ã˜ã‚‹
 ":let g:proj_flags = "tcv"
 "
-""<Leader>p‚ÅƒfƒtƒHƒ‹ƒg‚ÌƒvƒƒWƒFƒNƒg‚ğŠJ‚­
+""<Leader>pã§ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã‚’é–‹ã
 ":nmap <silent> <Leader>p <Plug>ToggleProject
 "
-"" ƒtƒH[ƒ‹ƒfƒBƒ“ƒO‚ğ“WŠJ‚µ‚½ó‘Ô‚ÅƒvƒƒWƒFƒNƒg‚ğŠJ‚­
+"" ãƒ•ã‚©ãƒ¼ãƒ«ãƒ‡ã‚£ãƒ³ã‚°ã‚’å±•é–‹ã—ãŸçŠ¶æ…‹ã§ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã‚’é–‹ã
 ""autocmd BufAdd _vimprojects silent! %foldopen!
 "
-""ƒJƒŒƒ“ƒgƒfƒBƒŒƒNƒgƒŠ‚ÉƒvƒƒWƒFƒNƒgƒtƒ@ƒCƒ‹‚ª‚ ‚Á‚½‚ç“Ç‚İ‚Ş
+""ã‚«ãƒ¬ãƒ³ãƒˆãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã«ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆãƒ•ã‚¡ã‚¤ãƒ«ãŒã‚ã£ãŸã‚‰èª­ã¿è¾¼ã‚€
 "if getcwd() != $HOME
 "	if filereadable(getcwd(). '/_vimprojects')
 "		Project _vimprojects
 "	endif
 "endif
 "
-""gitƒRƒ}ƒ“ƒh‚Ì“o˜^
+""gitã‚³ãƒãƒ³ãƒ‰ã®ç™»éŒ²
 "" get add
 "let g:proj_run1='!git add %f'
 "let g:proj_run_fold1='*!git add %f'
@@ -259,24 +259,24 @@ autocmd FileType * set comments=
 ""================================================================
 
 "----------------------------------------------------
-" Emacs•—ŠÖŒW  ‚¿‚å‚Á‚Æˆá‚¤‚¯‚Ç(^^;)
+" Emacsé¢¨é–¢ä¿‚  ã¡ã‚‡ã£ã¨é•ã†ã‘ã©(^^;)
 "----------------------------------------------------
-" ƒRƒ}ƒ“ƒh“ü—Í’†’f
+" ã‚³ãƒãƒ³ãƒ‰å…¥åŠ›ä¸­æ–­
 "imap <silent> <C-g> <ESC><ESC><ESC><CR>i
 
-" ‰æ–Ê•ªŠ„
+" ç”»é¢åˆ†å‰²
 "imap <silent> <C-x>1 <ESC>:only<CR>i
 "imap <silent> <C-x>2 <ESC>:sp<CR>i
 "imap <silent> <C-x>3 <ESC>:vsp<CR>i
 "imap <silent> <C-x>o <ESC><C-w>w<CR>i
 "imap <silent> <C-x>p <ESC><C-w>p<CR>i
 
-" Á‹A•ÒW
+" æ¶ˆå»ã€ç·¨é›†
 "imap <C-k> <ESC>d$i
 "imap <C-y> <ESC>pi
 "imap <C-d> <ESC>xi
 
-" ˆÚ“®
+" ç§»å‹•
 inoremap <C-a>  <Home>
 inoremap <C-e>  <End>
 inoremap <C-b>  <Left>
@@ -286,85 +286,85 @@ inoremap <C-u>  <UP>
 "imap <ESC>< <ESC>ggi
 "imap <ESC>> <ESC>Gi
 
-"ƒRƒ}ƒ“ƒhƒ‰ƒCƒ“‚Å‚ÌƒL[ƒoƒCƒ“ƒh‚ğ Emacs ƒXƒ^ƒCƒ‹‚É‚µ‚Ü‚·: >
-" s“ª‚ÖˆÚ“®
+"ã‚³ãƒãƒ³ãƒ‰ãƒ©ã‚¤ãƒ³ã§ã®ã‚­ãƒ¼ãƒã‚¤ãƒ³ãƒ‰ã‚’ Emacs ã‚¹ã‚¿ã‚¤ãƒ«ã«ã—ã¾ã™: >
+" è¡Œé ­ã¸ç§»å‹•
 :cnoremap <C-A>		<Home>
-" ˆê•¶š–ß‚é
+" ä¸€æ–‡å­—æˆ»ã‚‹
 :cnoremap <C-B>		<Left>
-" ƒJ[ƒ\ƒ‹‚Ì‰º‚Ì•¶š‚ğíœ
+" ã‚«ãƒ¼ã‚½ãƒ«ã®ä¸‹ã®æ–‡å­—ã‚’å‰Šé™¤
 :cnoremap <C-D>		<Del>
-" s––‚ÖˆÚ“®
+" è¡Œæœ«ã¸ç§»å‹•
 :cnoremap <C-E>		<End>
-" ˆê•¶ši‚Ş
+" ä¸€æ–‡å­—é€²ã‚€
 :cnoremap <C-F>		<Right>
-" ƒRƒ}ƒ“ƒhƒ‰ƒCƒ“—š—ğ‚ğˆê‚Âi‚Ş
+" ã‚³ãƒãƒ³ãƒ‰ãƒ©ã‚¤ãƒ³å±¥æ­´ã‚’ä¸€ã¤é€²ã‚€
 :cnoremap <C-N>		<Down>
-" ƒRƒ}ƒ“ƒhƒ‰ƒCƒ“—š—ğ‚ğˆê‚Â–ß‚é
+" ã‚³ãƒãƒ³ãƒ‰ãƒ©ã‚¤ãƒ³å±¥æ­´ã‚’ä¸€ã¤æˆ»ã‚‹
 :cnoremap <C-u>		<Up>
-" ‘O‚Ì’PŒê‚ÖˆÚ“®
+" å‰ã®å˜èªã¸ç§»å‹•
 ":cnoremap <C-v>	<S-Left>
-" Ÿ‚Ì’PŒê‚ÖˆÚ“®
+" æ¬¡ã®å˜èªã¸ç§»å‹•
 ":cnoremap <C-w>	<S-Right>
 
-" ‘}“üƒ‚[ƒh‚ÅƒŒƒWƒXƒ^‚Ì•¶š—ñ‚Ì“\‚è•t‚¯
+" æŒ¿å…¥ãƒ¢ãƒ¼ãƒ‰ã§ãƒ¬ã‚¸ã‚¹ã‚¿ã®æ–‡å­—åˆ—ã®è²¼ã‚Šä»˜ã‘
 inoremap <C-p> <ESC>pa
 "=================================================================================== 
 
-"""‰¼‘zƒ^ƒuİ’è
+"""ä»®æƒ³ã‚¿ãƒ–è¨­å®š
 "":let g:miniBufExplMapWindowNavVim = 1
 "":let g:miniBufExplMapWindowNavArrows = 1
 "":let g:miniBufExplMapCTabSwitchBuffs = 1
 
-"" SrcExp‚Ìg—p
+"" SrcExpã®ä½¿ç”¨
 "let g:SrcExpl_UpdateTags = 1
-"" SrcExp‚ÌƒvƒŒƒrƒ…[‚ğè“®
+"" SrcExpã®ãƒ—ãƒ¬ãƒ“ãƒ¥ãƒ¼ã‚’æ‰‹å‹•
 "let g:SrcExpl_RefreshTime = 1
 
-" Align‚ğ“ú–{ŒêŠÂ‹«‚Åg—p‚·‚é‚½‚ß‚Ìİ’è
+" Alignã‚’æ—¥æœ¬èªç’°å¢ƒã§ä½¿ç”¨ã™ã‚‹ãŸã‚ã®è¨­å®š
 :let g:Align_xstrlen = 3
 :let g:DrChipTopLvMenu = ''
 
-" ‹N“®‚ÌShowMarks‚ğoff‚É‚·‚éB
+" èµ·å‹•æ™‚ã®ShowMarksã‚’offã«ã™ã‚‹ã€‚
 ":let g:showmarks_enable = 0
 
-" ‚¿‚å‚Á‚Æ•Ö—˜ŒnƒL[ƒ}ƒbƒv
+" ã¡ã‚‡ã£ã¨ä¾¿åˆ©ç³»ã‚­ãƒ¼ãƒãƒƒãƒ—
 nnoremap * *N
 noremap <CR> o<ESC>
-nnoremap <Leader>grc :tabnew<CR>:e $VIMRUNTIME/../_gvimrc<CR>
-nnoremap <Leader>trc :tabnew<CR>:e $VIMRUNTIME/../_vimrc<CR>
-nnoremap <Leader>vrc :vs $VIMRUNTIME/../_vimrc<CR>
-nnoremap <Leader>src :sp $VIMRUNTIME/../_vimrc<CR>
+nnoremap <Leader>grc :tabnew<CR>:e $VIMRUNTIME/../.gvimrc<CR>
+nnoremap <Leader>trc :tabnew<CR>:e $VIMRUNTIME/../.vimrc<CR>
+nnoremap <Leader>vrc :vs $VIMRUNTIME/../.vimrc<CR>
+nnoremap <Leader>src :sp $VIMRUNTIME/../.vimrc<CR>
 nnoremap <Leader>prc :tabnew<CR>:e $VIMRUNTIME/../vimfiles\macros\printrc.vim<CR>
 nnoremap <Leader>tkh :tabnew<CR>:e $VIMRUNTIME/../../keyhac\config.py<CR>
 "nnoremap <Leader>mru :MRU<CR>
 nnoremap <Leader>cd  :cd %:h<CR>:pwd<CR>
 nnoremap <Leader>cp  :cd %:h<CR>:cd ..<CR>:pwd<CR>
 
-" Git Bush‚ÌŒÄ‚Ño‚µ
+" Git Bushã®å‘¼ã³å‡ºã—
 nnoremap <Leader>git :!sh --login -i<CR>
 
-"fugitive.vim‚Ìgit commit‚Ì‰æ–Ê‚ğutf-8‚É•ÏŠ·‚µ‚Ä‚©‚ç•Â‚¶‚é
+"fugitive.vimã®git commitã®ç”»é¢ã‚’utf-8ã«å¤‰æ›ã—ã¦ã‹ã‚‰é–‰ã˜ã‚‹
 nnoremap <Leader>cmt  :set fenc=utf-8<CR>:wq<CR>
 
 
-" poslist.vim‚Ìİ’è
+" poslist.vimã®è¨­å®š
 nmap <C-o> <Plug>(poslist-prev-pos)
 nmap <C-i> <Plug>(poslist-next-pos)
 nmap <Leader><C-o> <Plug>(poslist-prev-buf)
 nmap <Leader><C-i> <Plug>(poslist-next-buf)
 let g:poslist_histsize = 1000
 
-"QfixHowm‚Ìİ’è
-" ƒL[ƒ}ƒbƒvƒŠ[ƒ_[
+"QfixHowmã®è¨­å®š
+" ã‚­ãƒ¼ãƒãƒƒãƒ—ãƒªãƒ¼ãƒ€ãƒ¼
 let QFixHowm_Key = 'g'
 
-" howm_dir‚Íƒtƒ@ƒCƒ‹‚ğ•Û‘¶‚µ‚½‚¢ƒfƒBƒŒƒNƒgƒŠ‚ğİ’è
+" howm_dirã¯ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ä¿å­˜ã—ãŸã„ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’è¨­å®š
 let howm_dir             = 'howm'
 let howm_filename        = '%Y/%m/%Y-%m-%d-%H%M%S.txt'
 let howm_fileencoding    = 'cp932'
 let howm_fileformat      = 'dos'
 
-" ƒ‰ƒCƒ“‚Ì’Zk“ü—Í
+" ãƒ©ã‚¤ãƒ³ã®çŸ­ç¸®å…¥åŠ›
 :inoreabbrev sl /*******************************************************************************
 :inoreabbrev el *******************************************************************************/
 :inoreabbrev l1 //------------------------------------------------------------------------------
@@ -374,57 +374,57 @@ let howm_fileformat      = 'dos'
 :inoreabbrev vl2 '===============================================================================
 :inoreabbrev vl3 '///////////////////////////////////////////////////////////////////////////////
 
-" toggle.vim‚ÅƒgƒOƒ‹‚³‚¹‚é’PŒê‚Ì’Ç‰Á
+" toggle.vimã§ãƒˆã‚°ãƒ«ã•ã›ã‚‹å˜èªã®è¿½åŠ 
 ":let g:toggle_pairs={'max':'min','min':'max'}
 
-"BCB6—p‚Ìƒwƒ‹ƒvƒtƒ@ƒCƒ‹‚ğŠJ‚­
+"BCB6ç”¨ã®ãƒ˜ãƒ«ãƒ—ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã
 nnoremap <silent> <Leader>hb :sil !$VIMRUNTIME/../BCB_HELP/Help/bcb6.hlp<CR>
 
-" ƒoƒbƒNƒAƒbƒv‚ğ‚Æ‚ç‚È‚¢
+" ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ã‚’ã¨ã‚‰ãªã„
 set nobackup
-" ƒtƒ@ƒCƒ‹‚Ìã‘‚«‚Ì‘O‚ÉƒoƒbƒNƒAƒbƒv‚ğì‚é
-" (‚½‚¾‚µAbackup ‚ªƒIƒ“‚Å‚È‚¢ŒÀ‚èAƒoƒbƒNƒAƒbƒv‚Íã‘‚«‚É¬Œ÷‚µ‚½Œãíœ‚³‚ê‚é)
+" ãƒ•ã‚¡ã‚¤ãƒ«ã®ä¸Šæ›¸ãã®å‰ã«ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ã‚’ä½œã‚‹
+" (ãŸã ã—ã€backup ãŒã‚ªãƒ³ã§ãªã„é™ã‚Šã€ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ã¯ä¸Šæ›¸ãã«æˆåŠŸã—ãŸå¾Œå‰Šé™¤ã•ã‚Œã‚‹)
 set writebackup
 
 "----------------------------------------------------
-" ŒŸõŠÖŒW
+" æ¤œç´¢é–¢ä¿‚
 "----------------------------------------------------
-" ƒRƒ}ƒ“ƒhAŒŸõƒpƒ^[ƒ“‚ğ100ŒÂ‚Ü‚Å—š—ğ‚Éc‚·
+" ã‚³ãƒãƒ³ãƒ‰ã€æ¤œç´¢ãƒ‘ã‚¿ãƒ¼ãƒ³ã‚’100å€‹ã¾ã§å±¥æ­´ã«æ®‹ã™
 set history=100
-" ŒŸõ‚Ì‚É‘å•¶š¬•¶š‚ğ‹æ•Ê‚µ‚È‚¢
+" æ¤œç´¢ã®æ™‚ã«å¤§æ–‡å­—å°æ–‡å­—ã‚’åŒºåˆ¥ã—ãªã„
 set ignorecase
-" ŒŸõ‚Ì‚É‘å•¶š¬•¶š‚ğ‹æ•Ê‚·‚é
+" æ¤œç´¢ã®æ™‚ã«å¤§æ–‡å­—å°æ–‡å­—ã‚’åŒºåˆ¥ã™ã‚‹
 "set noignorecase
-" ŒŸõ‚Ì‚É‘å•¶š‚ªŠÜ‚Ü‚ê‚Ä‚¢‚éê‡‚Í‹æ•Ê‚µ‚ÄŒŸõ‚·‚é
+" æ¤œç´¢ã®æ™‚ã«å¤§æ–‡å­—ãŒå«ã¾ã‚Œã¦ã„ã‚‹å ´åˆã¯åŒºåˆ¥ã—ã¦æ¤œç´¢ã™ã‚‹
 set smartcase
-" ÅŒã‚Ü‚ÅŒŸõ‚µ‚½‚çæ“ª‚É–ß‚é
+" æœ€å¾Œã¾ã§æ¤œç´¢ã—ãŸã‚‰å…ˆé ­ã«æˆ»ã‚‹
 set wrapscan
 
-" ƒCƒ“ƒNƒŠƒƒ“ƒ^ƒ‹ƒT[ƒ`‚ğg‚í‚È‚¢
+" ã‚¤ãƒ³ã‚¯ãƒªãƒ¡ãƒ³ã‚¿ãƒ«ã‚µãƒ¼ãƒã‚’ä½¿ã‚ãªã„
 "set noincsearch
-" ƒCƒ“ƒNƒŠƒƒ“ƒ^ƒ‹ƒT[ƒ`
+" ã‚¤ãƒ³ã‚¯ãƒªãƒ¡ãƒ³ã‚¿ãƒ«ã‚µãƒ¼ãƒ
 set incsearch
 
-" ‘¼‚Å‘‚«Š·‚¦‚ç‚ê‚½‚ç©“®‚Å“Ç‚İ’¼‚·
+" ä»–ã§æ›¸ãæ›ãˆã‚‰ã‚ŒãŸã‚‰è‡ªå‹•ã§èª­ã¿ç›´ã™
 set autoread
 
-" QuickFixƒEƒBƒ“ƒhƒE‚Ì‚‚³
+" QuickFixã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®é«˜ã•
 let QFix_Height = 10
-" QuickFixƒEƒBƒ“ƒhƒE‚Ì•
+" QuickFixã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®å¹…
 let QFix_Width = 0
-" QuickFixƒEƒBƒ“ƒhƒE‚ÌŠJ‚«•û
+" QuickFixã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®é–‹ãæ–¹
 "let QFix_CopenCmd = ''
-" QuickFixƒEƒBƒ“ƒhƒE‚ÅƒJ[ƒ\ƒ‹ƒ‰ƒCƒ“‚ğ•\¦
+" QuickFixã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã§ã‚«ãƒ¼ã‚½ãƒ«ãƒ©ã‚¤ãƒ³ã‚’è¡¨ç¤º
 let QFix_CursorLine = 1
-" ƒJƒŒƒ“ƒgƒEƒBƒ“ƒhƒE‚ÌÅ’á•(Vimİ’è’l)
+" ã‚«ãƒ¬ãƒ³ãƒˆã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®æœ€ä½å¹…(Vimè¨­å®šå€¤)
 "set winwidth=20
-" QuickFixƒEƒBƒ“ƒhƒE‚ÌƒvƒŒƒrƒ…[‚Åfiletype•Ê‚ÌƒnƒCƒ‰ƒCƒg‚ğ—LŒø‚É‚·‚é
+" QuickFixã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®ãƒ—ãƒ¬ãƒ“ãƒ¥ãƒ¼ã§filetypeåˆ¥ã®ãƒã‚¤ãƒ©ã‚¤ãƒˆã‚’æœ‰åŠ¹ã«ã™ã‚‹
 let QFix_PreviewFtypeHighlight = 1
 
-" QuickFixƒEƒBƒ“ƒhƒE‚©‚çŠJ‚¢‚½ŒãƒEƒBƒ“ƒhƒE‚ğ•Â‚¶‚é
+" QuickFixã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‹ã‚‰é–‹ã„ãŸå¾Œã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚’é–‰ã˜ã‚‹
 let QFix_CloseOnJump = 1
 
-" SKK.vim‚Ì«‘İ’è
+" SKK.vimã®è¾æ›¸è¨­å®š
 set imdisable
 let skk_jisyo_encoding = 'utf-8'
 let skk_large_jisyo_encodint = 'euc-jp'
@@ -438,46 +438,46 @@ let skk_show_annotation = 1
 let skk_use_face = 1
 
 " Agit.vim
-"ƒJ[ƒ\ƒ‹ˆÚ“®‚Åˆê——‚Æ·•ª‚ğXV‚³‚¹‚È‚¢
+"ã‚«ãƒ¼ã‚½ãƒ«ç§»å‹•ã§ä¸€è¦§ã¨å·®åˆ†ã‚’æ›´æ–°ã•ã›ãªã„
 let g:agit_enable_auto_show_commit = 0
 
 "-------------------------------------------------------------------------------
-" Unite‚Ìİ’è
+" Uniteã®è¨­å®š
 "-------------------------------------------------------------------------------
-"Unite‚Å‚Ìmigemo‚Ìg—p
+"Uniteã§ã®migemoã®ä½¿ç”¨
 nnoremap <silent> g/ :<C-u>Unite -buffer-name=search line -start-insert<CR>
 call unite#custom#source('line', 'matchers', 'matcher_migemo')
-" find ‚Ì path ‚ğİ’è
+" find ã® path ã‚’è¨­å®š
 let g:unite_source_find_command='C:/Dropbox/MySys/portvim/vim73/vimfind.bat'
 "let g:unite_source_find_command='C:/MinGW/msys/1.0/bin/find.exe'
 "let g:unite_source_find_command='C:/WINDOWS/system32/find.exe'
-" insertƒ‚[ƒh‚ÅUnite‚ğ‹N“®‚³‚¹‚éB
+" insertãƒ¢ãƒ¼ãƒ‰ã§Uniteã‚’èµ·å‹•ã•ã›ã‚‹ã€‚
 "let g:unite_enable_start_insert=1
-" Å‹ßg—p‚µ‚½ƒtƒ@ƒCƒ‹‚Ìˆê——
+" æœ€è¿‘ä½¿ç”¨ã—ãŸãƒ•ã‚¡ã‚¤ãƒ«ã®ä¸€è¦§
 nnoremap <silent> <Leader>mru :Unite file_mru<CR>
-" Œ»İ‚Ìƒoƒbƒtƒ@‚Ìˆê——
+" ç¾åœ¨ã®ãƒãƒƒãƒ•ã‚¡ã®ä¸€è¦§
 nnoremap <silent> <Leader>be :Unite buffer<CR>
-" Œ»İ‚Ìƒ^ƒu‚Ìƒoƒbƒtƒ@‚Ìˆê——
+" ç¾åœ¨ã®ã‚¿ãƒ–ã®ãƒãƒƒãƒ•ã‚¡ã®ä¸€è¦§
 nnoremap <silent> <Leader>tbe :Unite buffer_tab<CR>
 "-------------------------------------------------------------------------------
 
 "-------------------------------------------------------------------------------
-" VimFiler‚Ìİ’è
+" VimFilerã®è¨­å®š
 "-------------------------------------------------------------------------------
-"vimƒfƒtƒHƒ‹ƒg‚ÌƒGƒNƒXƒvƒ[ƒ‰‚ğvimfiler‚Å’u‚«Š·‚¦‚é
+"vimãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®ã‚¨ã‚¯ã‚¹ãƒ—ãƒ­ãƒ¼ãƒ©ã‚’vimfilerã§ç½®ãæ›ãˆã‚‹
 let g:vimfiler_as_default_explorer = 1
-"ƒZ[ƒtƒ‚[ƒh‚ğ–³Œø‚É‚µ‚½ó‘Ô‚Å‹N“®‚·‚é
+"ã‚»ãƒ¼ãƒ•ãƒ¢ãƒ¼ãƒ‰ã‚’ç„¡åŠ¹ã«ã—ãŸçŠ¶æ…‹ã§èµ·å‹•ã™ã‚‹
 let g:vimfiler_safe_mode_by_default = 0
-"Œ»İŠJ‚¢‚Ä‚¢‚éƒoƒbƒtƒ@‚ÌƒfƒBƒŒƒNƒgƒŠ‚ğŠJ‚­
+"ç¾åœ¨é–‹ã„ã¦ã„ã‚‹ãƒãƒƒãƒ•ã‚¡ã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’é–‹ã
 nnoremap <silent> <Leader>fe :<C-u>VimFilerBufferDir -quit<CR>
-"Œ»İŠJ‚¢‚Ä‚¢‚éƒoƒbƒtƒ@‚ğIDE•—‚ÉŠJ‚­
+"ç¾åœ¨é–‹ã„ã¦ã„ã‚‹ãƒãƒƒãƒ•ã‚¡ã‚’IDEé¢¨ã«é–‹ã
 nnoremap <silent> <Leader>te :<C-u>VimFilerBufferDir -create -split -simple -winwidth=35 -force-quit<CR>
 
 augroup vimrc
-"ƒuƒbƒNƒ}[ƒN‚ÅƒGƒ“ƒ^[‚µ‚½‚É:cd‚ğÀs
+"ãƒ–ãƒƒã‚¯ãƒãƒ¼ã‚¯ã§ã‚¨ãƒ³ã‚¿ãƒ¼ã—ãŸæ™‚ã«:cdã‚’å®Ÿè¡Œ
   autocmd FileType vimfiler call unite#custom_default_action('directory', 'cd')
   autocmd FileType vimfiler call unite#custom_default_action('file', 'cd')
-"ƒfƒtƒHƒ‹ƒg‚ÌƒL[ƒ}ƒbƒsƒ“ƒO‚ğ•ÏX
+"ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®ã‚­ãƒ¼ãƒãƒƒãƒ”ãƒ³ã‚°ã‚’å¤‰æ›´
   autocmd FileType vimfiler call s:vimfiler_my_settings()
 augroup END
 function! s:vimfiler_my_settings()
@@ -493,7 +493,7 @@ function! s:vimfiler_my_settings()
 "  nmap <buffer> / :Unite file -default-action=vimfiler line -start-insert<CR>
 endfunction
 
-"‚ ‚Ó‚ÌŒÄ‚Ño‚µ
+"ã‚ãµã®å‘¼ã³å‡ºã—
 "nnoremap <Leader>af :!\%VIMRUNTIME\%/../../afxw32_157/AFXW.EXE -L
 nnoremap <Leader>af :!\%VIMRUNTIME\%/../../afxw32_157/AFXW.EXE -L"<C-R>*"<CR>
 "nnoremap <Leader>af call s:call_afxw_chose_dir()
@@ -504,13 +504,13 @@ nnoremap <Leader>af :!\%VIMRUNTIME\%/../../afxw32_157/AFXW.EXE -L"<C-R>*"<CR>
 "endfunction
 
 "--------------------------------------------------------------------------------
-" w3m‚Ìİ’è
+" w3mã®è¨­å®š
 "--------------------------------------------------------------------------------
-"ŠO•”ƒuƒ‰ƒEƒU
+"å¤–éƒ¨ãƒ–ãƒ©ã‚¦ã‚¶
     let g:w3m#external_browser = '"C:\Dropbox\MySys\programfiles\GoogleChromePortable\GoogleChromePortable.exe"'
 
 augroup w3mrc
-"ƒfƒtƒHƒ‹ƒg‚ÌƒL[ƒ}ƒbƒsƒ“ƒO‚ğ•ÏX
+"ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®ã‚­ãƒ¼ãƒãƒƒãƒ”ãƒ³ã‚°ã‚’å¤‰æ›´
   autocmd FileType w3m call s:w3m_my_settings()
 augroup END
 function! s:w3m_my_settings()
@@ -518,10 +518,10 @@ function! s:w3m_my_settings()
 endfunction
 
 "--------------------------------------------------------------------------------
-" Calendar.vim‚Ìİ’è
+" Calendar.vimã®è¨­å®š
 "--------------------------------------------------------------------------------
-"Google‚ÌƒJƒŒƒ“ƒ_[‚ğİ’è
+"Googleã®ã‚«ãƒ¬ãƒ³ãƒ€ãƒ¼ã‚’è¨­å®š
 "let g:calendar_google_calendar = 1
 "let g:calendar_google_task = 1
-"Calendar.vim‚Ì ŒÄ‚Ño‚µ
+"Calendar.vimã® å‘¼ã³å‡ºã—
 nnoremap <silent> <Leader>cal :<C-u>Calendar<CR>

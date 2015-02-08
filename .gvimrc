@@ -1,49 +1,49 @@
-"ƒEƒBƒ“ƒhƒE‚ğÅ‘å‰»‚µ‚Ä‹N“®
+"ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚’æœ€å¤§åŒ–ã—ã¦èµ·å‹•
 au GUIEnter * simalt ~x
 
-" ƒtƒHƒ“ƒg‚Ìİ’è
-"set guifont=‚l‚r_ƒSƒVƒbƒN:h10:cSHIFTJIS
-"set guifont=‚l‚r_–¾’©:h10:cSHIFTJIS
-"set guifontwide=‚l‚r_ƒSƒVƒbƒN:h10
+" ãƒ•ã‚©ãƒ³ãƒˆã®è¨­å®š
+"set guifont=ï¼­ï¼³_ã‚´ã‚·ãƒƒã‚¯:h10:cSHIFTJIS
+"set guifont=ï¼­ï¼³_æ˜æœ:h10:cSHIFTJIS
+"set guifontwide=ï¼­ï¼³_ã‚´ã‚·ãƒƒã‚¯:h10
 "set guifont=Envy_Code_R:h10
 "set guifontwide=Envy_Code_R:h10
-"set guifont=Osaka|“™•:h10:cSHIFTJIS
+"set guifont=Osakaï¼ç­‰å¹…:h10:cSHIFTJIS
 "set guifont=MeiryoKe_Gothic:h10:cSHIFTJIS
 set guifont=MeiryoKe_Console:h10:cSHIFTJIS
 
-"ƒJ[ƒ\ƒ‹‚ğs“ªAs––‚Å~‚Ü‚ç‚È‚¢‚æ‚¤‚É‚·‚é
+"ã‚«ãƒ¼ã‚½ãƒ«ã‚’è¡Œé ­ã€è¡Œæœ«ã§æ­¢ã¾ã‚‰ãªã„ã‚ˆã†ã«ã™ã‚‹
 "set whichwrap=b,s,h,l,<,>,[,]
 
 
 highlight StatusLine guifg=#2E4340 guibg=#ccdc90 ctermfg=green ctermbg=blue
 
-" ƒƒjƒ…[‚Ì•\¦–¼‚Ì•ÏX
-:let g:DrChipTopLvlMenu = "{ƒƒjƒ…[‚Ì•\¦–¼}"
+" ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã®è¡¨ç¤ºåã®å¤‰æ›´
+:let g:DrChipTopLvlMenu = "{ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã®è¡¨ç¤ºå}"
 
-" ‚¿‚å‚Á‚Æ•Ö—˜ŒnƒL[ƒ}ƒbƒv
+" ã¡ã‚‡ã£ã¨ä¾¿åˆ©ç³»ã‚­ãƒ¼ãƒãƒƒãƒ—
 
-" ˆóü—pİ’èƒtƒ@ƒCƒ‹‚ğ“Ç‚İ‚İ
+" å°åˆ·ç”¨è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ã‚’èª­ã¿è¾¼ã¿
 if version >=703
 	:source $VIMRUNTIME/../vimfiles/macros/printrc.vim
 else
 	:source App/vim/vimfiles/macros/printrc.vim
 endif
 
-" ƒr[ƒv‰¹‚Ì•Ï‚í‚è‚É‰æ–Êƒtƒ‰ƒbƒVƒ…
+" ãƒ“ãƒ¼ãƒ—éŸ³ã®å¤‰ã‚ã‚Šã«ç”»é¢ãƒ•ãƒ©ãƒƒã‚·ãƒ¥
 set visualbell
 
-" ƒr[ƒv‰¹‚ğ–Â‚ç‚³‚È‚¢
+" ãƒ“ãƒ¼ãƒ—éŸ³ã‚’é³´ã‚‰ã•ãªã„
 set vb t_vb=
 
-"‘SŠpƒXƒy[ƒX‚ğ‹Šo‰»
+"å…¨è§’ã‚¹ãƒšãƒ¼ã‚¹ã‚’è¦–è¦šåŒ–
 "highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=#666666
-au BufNewFile,BufRead * match ZenkakuSpace /@/
+au BufNewFile,BufRead * match ZenkakuSpace /ã€€/
 
-" ƒƒjƒ…[ƒo[•W€‚Å”ñ•\¦
+" ãƒ¡ãƒ‹ãƒ¥ãƒ¼ãƒãƒ¼æ¨™æº–ã§éè¡¨ç¤º
 set guioptions-=T
 set guioptions-=m
 
-" ƒƒjƒ…[ƒo[‚Ì•\¦”ñ•\¦
+" ãƒ¡ãƒ‹ãƒ¥ãƒ¼ãƒãƒ¼ã®è¡¨ç¤ºéè¡¨ç¤º
 function MyMenuToggle()
 	if &guioptions =~# 'T'
 		set guioptions-=T
@@ -58,7 +58,7 @@ endfunction
 
 map <silent> <F2> :call MyMenuToggle()<CR>
 
-"ƒ[ƒJƒ‹İ’è‚Ì“Ç‚İ‚İ
+"ãƒ­ãƒ¼ã‚«ãƒ«è¨­å®šã®èª­ã¿è¾¼ã¿
 if version >=703
 	source c:/vimLocalSet.vim
 else
