@@ -24,7 +24,7 @@ highlight StatusLine guifg=#2E4340 guibg=#ccdc90 ctermfg=green ctermbg=blue
 
 " 印刷用設定ファイルを読み込み
 if version >=703
-	:source $VIMRUNTIME/../vimfiles/macros/printrc.vim
+	:source $VIMRUNTIME/macros/printrc.vim
 else
 	:source App/vim/vimfiles/macros/printrc.vim
 endif
