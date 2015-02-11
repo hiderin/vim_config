@@ -1,8 +1,14 @@
  " エンコーディン
-"source $VIMRUNTIME/encode.vim
-"scriptencoding utf-8
-scriptencoding cp932
-:set fileencodings=ucs-bom,iso-2022-jp-3,iso-2022-jp,euc-jp,eucjp-ms,euc-jisx0213,euc-jp,sjis,utf-8,cp932
+if !has('unix')
+	scriptencoding cp932
+	:set fileencodings=ucs-bom,iso-2022-jp-3,iso-2022-jp,euc-jp,eucjp-ms,euc-jisx0213,euc-jp,sjis,utf-8,cp932
+else
+	source $VIMRUNTIME/encode.vim
+	scriptencoding utf-8
+	:set fileencodings=ucs-bom,iso-2022-jp-3,iso-2022-jp,eucjp-ms,euc-jisx0213,euc-jp,sjis,cp932,utf-8
+	set mouse=a
+	let $LANG='ja_JP.UTF-8'
+endif
 
 set nocompatible
 source $VIMRUNTIME/vimrc_example.vim
@@ -37,70 +43,74 @@ endfunction
 "if has('gui_running') && !has('unix')
 "  set encoding=utf-8
 "endif
-
-"===============================================================================
-"   プラグインマネージャ
-"===============================================================================
-filetype plugin indent off
-
-if has('vim_starting')
-        set runtimepath+=$VIMRUNTIME/bundle/automatic/neobundle.vim
-endif
-
-call neobundle#begin(expand('$VIMRUNTIME/bundle/automatic'))
-
-"******************************************
-"*     neobundle で管理するプラグイン     *
-"******************************************
-NeoBundle 'git://github.com/Shougo/neobundle.vim.git'
-
-"----- github Plugins -----
-NeoBundle 'Shougo/neocomplcache.git'
-NeoBundle 'Shougo/vimfiler.git'
-NeoBundle 'Shougo/unite.vim.git'
-NeoBundle 'Shougo/vimproc.git'
-NeoBundle 'Shougo/vimshell.git'
-NeoBundle 'Shougo/neomru.vim'
-NeoBundle 'cohama/agit.vim'
-"NeoBundle 'jlanzarotta/bufexplorer'
-"NeoBundle 'gregsexton/gitv'
-NeoBundle 'thinca/vim-poslist'
-"NeoBundle 'tyru/skk.vim'
-NeoBundle 'vim-scripts/taglist.vim'
-"NeoBundle 'tsaleh/vim-align.git'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'thinca/vim-visualstar'
-NeoBundle 'yuratomo/w3m.vim'
-NeoBundle 'vim-scripts/EasyGrep'
-"NeoBundle 'mbbill/echofunc'
-NeoBundle 'vim-jp/vimdoc-ja'
-NeoBundle 'itchyny/calendar.vim'
-"NeoBundle ''
-
-"----- vim.org Plugins -----
-NeoBundle 'FuzzyFinder'
-NeoBundle 'NERD_tree'
-
-"----- Local Plugins -----
-NeoBundleLocal $VIMRUNTIME/bundle/manual
-
-"# [ pathogen ] NeoBundle管理外の自前インストールプラグインはPathogenで管理する
-"NeoBundle 'git://github.com/tpope/vim-pathogen.git'
-"if isdirectory(expand('$VIMRUNTIME/bundle/automatic/vim-pathogen'))
-"        call pathogen#infect('$VIMRUNTIME/bundle/manual')
+"
+""===============================================================================
+""   プラグインマネージャ
+""===============================================================================
+"filetype plugin indent off
+"
+"if has('vim_starting')
+"        set runtimepath+=$VIMRUNTIME/bundle/automatic/neobundle.vim
 "endif
-
-call neobundle#end()
-
-filetype plugin indent on
-"===============================================================================
-
-
+"
+"call neobundle#begin(expand('$VIMRUNTIME/bundle/automatic'))
+"
+""******************************************
+""*     neobundle で管理するプラグイン     *
+""******************************************
+"NeoBundle 'git://github.com/Shougo/neobundle.vim.git'
+"
+""----- github Plugins -----
+""NeoBundle 'Shougo/neocomplcache.git'
+""NeoBundle 'Shougo/vimfiler.git'
+""NeoBundle 'Shougo/unite.vim.git'
+""NeoBundle 'Shougo/vimproc.git'
+""NeoBundle 'Shougo/vimshell.git'
+""NeoBundle 'Shougo/neomru.vim'
+""NeoBundle 'cohama/agit.vim'
+"""NeoBundle 'jlanzarotta/bufexplorer'
+"""NeoBundle 'gregsexton/gitv'
+""NeoBundle 'thinca/vim-poslist'
+"""NeoBundle 'tyru/skk.vim'
+""NeoBundle 'vim-scripts/taglist.vim'
+"""NeoBundle 'tsaleh/vim-align.git'
+""NeoBundle 'tpope/vim-fugitive'
+""NeoBundle 'thinca/vim-visualstar'
+""NeoBundle 'yuratomo/w3m.vim'
+""NeoBundle 'vim-scripts/EasyGrep'
+"""NeoBundle 'mbbill/echofunc'
+""NeoBundle 'vim-jp/vimdoc-ja'
+""NeoBundle 'itchyny/calendar.vim'
+"""NeoBundle ''
+"
+""----- vim.org Plugins -----
+""NeoBundle 'FuzzyFinder'
+""NeoBundle 'NERD_tree'
+"
+""----- Local Plugins -----
+"NeoBundleLocal $VIMRUNTIME/bundle/manual
+"
+""# [ pathogen ] NeoBundle管理外の自前インストールプラグインはPathogenで管理する
+""NeoBundle 'git://github.com/tpope/vim-pathogen.git'
+""if isdirectory(expand('$VIMRUNTIME/bundle/automatic/vim-pathogen'))
+""        call pathogen#infect('$VIMRUNTIME/bundle/manual')
+""endif
+"
+"call neobundle#end()
+"
+"filetype plugin indent on
+""===============================================================================
+"
 let mapleader = "."
 
 " カラー設定:
 :set t_Co=256
-colorscheme desert2
+if !has('unix')
+	colorscheme desert2
+else
+	colorscheme ctermdesert2
+endif
+
 syntax on
 
 "入力モード時、ステータスラインのカラーを変更
@@ -182,20 +192,22 @@ set nowrap
 :set tags=tags
 
 " grepの設定
-"set grepprg=C:/DropBox/GnuWin32/bin/grep\ -nH
-"let mygrepprg='C:/DropBox/GnuWin32/bin/grep'
-"let mygrepprg='C:/cygwin/bin/grep'
-let mygrepprg='findstr'
-"set grepprg=c:/cygwin/bin/grep\ -nH
-"set grepprg=grep\ -nH
-set grepprg=findstr\ /n
-"set grepprg=jvgrep
-"let Grep_Path = 'C:/DropBox/GnuWin32/bin/grep.exe'
-"let Fgrep_Path = 'C:/DropBox/GnuWin32/bin/grep.exe -F'
-"let Egrep_Path = 'C:/DropBox/GnuWin32/bin/grep.exe -E'
-"let Grep_Find_Path = 'C:/DropBox/GnuWin32/bin/find.exe'
-"let Grep_Xargs_Path = 'C:/DropBox/GnuWin32/bin/xargs.exe'
-"let Grep_Shell_Quote_Char = '"'
+if !has('unix')
+	"set grepprg=C:/DropBox/GnuWin32/bin/grep\ -nH
+	"let mygrepprg='C:/DropBox/GnuWin32/bin/grep'
+	"let mygrepprg='C:/cygwin/bin/grep'
+	let mygrepprg='findstr'
+	"set grepprg=c:/cygwin/bin/grep\ -nH
+	"set grepprg=grep\ -nH
+	set grepprg=findstr\ /n
+	"set grepprg=jvgrep
+	"let Grep_Path = 'C:/DropBox/GnuWin32/bin/grep.exe'
+	"let Fgrep_Path = 'C:/DropBox/GnuWin32/bin/grep.exe -F'
+	"let Egrep_Path = 'C:/DropBox/GnuWin32/bin/grep.exe -E'
+	"let Grep_Find_Path = 'C:/DropBox/GnuWin32/bin/find.exe'
+	"let Grep_Xargs_Path = 'C:/DropBox/GnuWin32/bin/xargs.exe'
+	"let Grep_Shell_Quote_Char = '"'
+endif
 
 "変更中のファイルでも、保存しないで他のファイルを表示
 set hidden
@@ -330,12 +342,19 @@ inoremap <C-p> <ESC>pa
 " ちょっと便利系キーマップ
 nnoremap * *N
 noremap <CR> o<ESC>
-nnoremap <Leader>grc :tabnew<CR>:e $VIMRUNTIME/../.gvimrc<CR>
-nnoremap <Leader>trc :tabnew<CR>:e $VIMRUNTIME/../.vimrc<CR>
-nnoremap <Leader>vrc :vs $VIMRUNTIME/../.vimrc<CR>
-nnoremap <Leader>src :sp $VIMRUNTIME/../.vimrc<CR>
-nnoremap <Leader>prc :tabnew<CR>:e $VIMRUNTIME/../vimfiles\macros\printrc.vim<CR>
-nnoremap <Leader>tkh :tabnew<CR>:e $VIMRUNTIME/../../keyhac\config.py<CR>
+if !has('unix')
+	nnoremap <Leader>grc :tabnew<CR>:e $VIMRUNTIME/../.gvimrc<CR>
+	nnoremap <Leader>trc :tabnew<CR>:e $VIMRUNTIME/../.vimrc<CR>
+	nnoremap <Leader>vrc :vs $VIMRUNTIME/../.vimrc<CR>
+	nnoremap <Leader>src :sp $VIMRUNTIME/../.vimrc<CR>
+	nnoremap <Leader>prc :tabnew<CR>:e $VIMRUNTIME/macros\printrc.vim<CR>
+	nnoremap <Leader>tkh :tabnew<CR>:e $VIMRUNTIME/../../keyhac/config.py<CR>
+else
+	nnoremap <Leader>grc :tabnew<CR>:e $HOME/.gvimrc<CR>
+	nnoremap <Leader>trc :tabnew<CR>:e $HOME/.vimrc<CR>
+	nnoremap <Leader>prc :tabnew<CR>:e $VIMRUNTIME/../vimfiles\macros\printrc.vim<CR>
+	nnoremap <Leader>tkh :tabnew<CR>:e $VIMRUNTIME/../../keyhac\config.py<CR>
+endif
 "nnoremap <Leader>mru :MRU<CR>
 nnoremap <Leader>cd  :cd %:h<CR>:pwd<CR>
 nnoremap <Leader>cp  :cd %:h<CR>:cd ..<CR>:pwd<CR>
@@ -378,7 +397,7 @@ let howm_fileformat      = 'dos'
 ":let g:toggle_pairs={'max':'min','min':'max'}
 
 "BCB6用のヘルプファイルを開く
-nnoremap <silent> <Leader>hb :sil !$VIMRUNTIME/../BCB_HELP/Help/bcb6.hlp<CR>
+"nnoremap <silent> <Leader>hb :sil !$VIMRUNTIME/../BCB_HELP/Help/bcb6.hlp<CR>
 
 " バックアップをとらない
 set nobackup
@@ -424,13 +443,33 @@ let QFix_PreviewFtypeHighlight = 1
 " QuickFixウィンドウから開いた後ウィンドウを閉じる
 let QFix_CloseOnJump = 1
 
+if has('unix')
+	" 現バッファのファイルをインテントを使用して外部アプリで開く
+	nnoremap <silent> gka :AndroidIntent<CR>
+
+	command! -nargs=* AndroidIntent :call AndroidIntent(<q-args>)
+	function! AndroidIntent(file)
+	  let file = a:file == '' ? expand('%:p') : fnamemodify(a:file, ':p')
+	  let cmd = 'am start --user 0 -a android.intent.action.VIEW -t text/plain -d '.file
+	  let ret = system(cmd)
+	endfunction
+
+	"終了時に端末表示色を再設定
+	au VimLeave * let saved_t_Co=&t_Co|let &t_Co=1|let &t_Co=saved_t_Co 
+
+endif
+
 " SKK.vimの辞書設定
 set imdisable
 let skk_jisyo_encoding = 'utf-8'
 let skk_large_jisyo_encodint = 'euc-jp'
-"let skk_jisyo = '~/.skk-jisyo'
-let skk_jisyo = 'C:\Dropbox\skk\skki1_5u.dic'
-let skk_large_jisyo = 'C:\Dropbox\skk\SKK-JISYO.L'
+if !has('unix')
+	let skk_jisyo = 'C:\Dropbox\skk\skki1_5u.dic'
+	let skk_large_jisyo = 'C:\Dropbox\skk\SKK-JISYO.L'
+else
+	let skk_jisyo = '~/.skk-jisyo'
+	let skk_large_jisyo = '$VIMRUNTIME/SKK-JISYO.L'
+endif
 let skk_auto_save_jisyo = 1
 let skk_keep_state = 0
 let skk_egg_like_newline = 1
@@ -439,89 +478,89 @@ let skk_use_face = 1
 
 " Agit.vim
 "カーソル移動で一覧と差分を更新させない
-let g:agit_enable_auto_show_commit = 0
+"let g:agit_enable_auto_show_commit = 0
 
 "-------------------------------------------------------------------------------
 " Uniteの設定
 "-------------------------------------------------------------------------------
-"Uniteでのmigemoの使用
-nnoremap <silent> g/ :<C-u>Unite -buffer-name=search line -start-insert<CR>
-call unite#custom#source('line', 'matchers', 'matcher_migemo')
-" find の path を設定
-let g:unite_source_find_command='C:/Dropbox/MySys/portvim/vim73/vimfind.bat'
-"let g:unite_source_find_command='C:/MinGW/msys/1.0/bin/find.exe'
-"let g:unite_source_find_command='C:/WINDOWS/system32/find.exe'
-" insertモードでUniteを起動させる。
-"let g:unite_enable_start_insert=1
-" 最近使用したファイルの一覧
-nnoremap <silent> <Leader>mru :Unite file_mru<CR>
-" 現在のバッファの一覧
-nnoremap <silent> <Leader>be :Unite buffer<CR>
-" 現在のタブのバッファの一覧
-nnoremap <silent> <Leader>tbe :Unite buffer_tab<CR>
-"-------------------------------------------------------------------------------
-
-"-------------------------------------------------------------------------------
-" VimFilerの設定
-"-------------------------------------------------------------------------------
-"vimデフォルトのエクスプローラをvimfilerで置き換える
-let g:vimfiler_as_default_explorer = 1
-"セーフモードを無効にした状態で起動する
-let g:vimfiler_safe_mode_by_default = 0
-"現在開いているバッファのディレクトリを開く
-nnoremap <silent> <Leader>fe :<C-u>VimFilerBufferDir -quit<CR>
-"現在開いているバッファをIDE風に開く
-nnoremap <silent> <Leader>te :<C-u>VimFilerBufferDir -create -split -simple -winwidth=35 -force-quit<CR>
-
-augroup vimrc
-"ブックマークでエンターした時に:cdを実行
-  autocmd FileType vimfiler call unite#custom_default_action('directory', 'cd')
-  autocmd FileType vimfiler call unite#custom_default_action('file', 'cd')
-"デフォルトのキーマッピングを変更
-  autocmd FileType vimfiler call s:vimfiler_my_settings()
-augroup END
-function! s:vimfiler_my_settings()
-  nmap <buffer> H <Plug>(vimfiler_switch_to_history_directory)
-  nmap <buffer> S <Plug>(vimfiler_popup_shell)
-  nmap <buffer> s <Plug>(vimfiler_select_sort_type)
-  nmap <buffer> O <Plug>(vimfiler_sync_with_current_vimfiler)
-  nmap <buffer> o <Plug>(vimfiler_sync_with_another_vimfiler)
-  nmap <buffer> <esc> <Plug>(vimfiler_toggle_mark_current_line)
-  nmap <buffer> J :Unite bookmark<CR>
-  nmap <buffer> l <C-w>l
-  nmap <buffer> h <C-w>h
-"  nmap <buffer> / :Unite file -default-action=vimfiler line -start-insert<CR>
-endfunction
-
-"あふの呼び出し
-"nnoremap <Leader>af :!\%VIMRUNTIME\%/../../afxw32_157/AFXW.EXE -L
-nnoremap <Leader>af :!\%VIMRUNTIME\%/../../afxw32_157/AFXW.EXE -L"<C-R>*"<CR>
-"nnoremap <Leader>af call s:call_afxw_chose_dir()
-"function! s:call_afxw_chose_dir()
-"	call vimfiler#yank_full_path()
-"	let mycmd = !\%VIMRUNTIME\%/../../afxw32_157/AFXW.EXE -L <C-R>"<CR>
-"	silent execute mycmd
+""Uniteでのmigemoの使用
+"nnoremap <silent> g/ :<C-u>Unite -buffer-name=search line -start-insert<CR>
+"call unite#custom#source('line', 'matchers', 'matcher_migemo')
+"" find の path を設定
+"let g:unite_source_find_command='C:/Dropbox/MySys/portvim/vim73/vimfind.bat'
+""let g:unite_source_find_command='C:/MinGW/msys/1.0/bin/find.exe'
+""let g:unite_source_find_command='C:/WINDOWS/system32/find.exe'
+"" insertモードでUniteを起動させる。
+""let g:unite_enable_start_insert=1
+"" 最近使用したファイルの一覧
+"nnoremap <silent> <Leader>mru :Unite file_mru<CR>
+"" 現在のバッファの一覧
+"nnoremap <silent> <Leader>be :Unite buffer<CR>
+"" 現在のタブのバッファの一覧
+"nnoremap <silent> <Leader>tbe :Unite buffer_tab<CR>
+""-------------------------------------------------------------------------------
+"
+""-------------------------------------------------------------------------------
+"" VimFilerの設定
+""-------------------------------------------------------------------------------
+""vimデフォルトのエクスプローラをvimfilerで置き換える
+"let g:vimfiler_as_default_explorer = 1
+""セーフモードを無効にした状態で起動する
+"let g:vimfiler_safe_mode_by_default = 0
+""現在開いているバッファのディレクトリを開く
+"nnoremap <silent> <Leader>fe :<C-u>VimFilerBufferDir -quit<CR>
+""現在開いているバッファをIDE風に開く
+"nnoremap <silent> <Leader>te :<C-u>VimFilerBufferDir -create -split -simple -winwidth=35 -force-quit<CR>
+"
+"augroup vimrc
+""ブックマークでエンターした時に:cdを実行
+"  autocmd FileType vimfiler call unite#custom_default_action('directory', 'cd')
+"  autocmd FileType vimfiler call unite#custom_default_action('file', 'cd')
+""デフォルトのキーマッピングを変更
+"  autocmd FileType vimfiler call s:vimfiler_my_settings()
+"augroup END
+"function! s:vimfiler_my_settings()
+"  nmap <buffer> H <Plug>(vimfiler_switch_to_history_directory)
+"  nmap <buffer> S <Plug>(vimfiler_popup_shell)
+"  nmap <buffer> s <Plug>(vimfiler_select_sort_type)
+"  nmap <buffer> O <Plug>(vimfiler_sync_with_current_vimfiler)
+"  nmap <buffer> o <Plug>(vimfiler_sync_with_another_vimfiler)
+"  nmap <buffer> <esc> <Plug>(vimfiler_toggle_mark_current_line)
+"  nmap <buffer> J :Unite bookmark<CR>
+"  nmap <buffer> l <C-w>l
+"  nmap <buffer> h <C-w>h
+""  nmap <buffer> / :Unite file -default-action=vimfiler line -start-insert<CR>
 "endfunction
-
-"--------------------------------------------------------------------------------
-" w3mの設定
-"--------------------------------------------------------------------------------
-"外部ブラウザ
-    let g:w3m#external_browser = '"C:\Dropbox\MySys\programfiles\GoogleChromePortable\GoogleChromePortable.exe"'
-
-augroup w3mrc
-"デフォルトのキーマッピングを変更
-  autocmd FileType w3m call s:w3m_my_settings()
-augroup END
-function! s:w3m_my_settings()
-  nmap <buffer> cr :W3mShowExtenalBrowser<CR>
-endfunction
-
-"--------------------------------------------------------------------------------
-" Calendar.vimの設定
-"--------------------------------------------------------------------------------
-"Googleのカレンダーを設定
-"let g:calendar_google_calendar = 1
-"let g:calendar_google_task = 1
-"Calendar.vimの 呼び出し
-nnoremap <silent> <Leader>cal :<C-u>Calendar<CR>
+"
+""あふの呼び出し
+""nnoremap <Leader>af :!\%VIMRUNTIME\%/../../afxw32_157/AFXW.EXE -L
+"nnoremap <Leader>af :!\%VIMRUNTIME\%/../../afxw32_157/AFXW.EXE -L"<C-R>*"<CR>
+""nnoremap <Leader>af call s:call_afxw_chose_dir()
+""function! s:call_afxw_chose_dir()
+""	call vimfiler#yank_full_path()
+""	let mycmd = !\%VIMRUNTIME\%/../../afxw32_157/AFXW.EXE -L <C-R>"<CR>
+""	silent execute mycmd
+""endfunction
+"
+""--------------------------------------------------------------------------------
+"" w3mの設定
+""--------------------------------------------------------------------------------
+""外部ブラウザ
+"    let g:w3m#external_browser = '"C:\Dropbox\MySys\programfiles\GoogleChromePortable\GoogleChromePortable.exe"'
+"
+"augroup w3mrc
+""デフォルトのキーマッピングを変更
+"  autocmd FileType w3m call s:w3m_my_settings()
+"augroup END
+"function! s:w3m_my_settings()
+"  nmap <buffer> cr :W3mShowExtenalBrowser<CR>
+"endfunction
+"
+""--------------------------------------------------------------------------------
+"" Calendar.vimの設定
+""--------------------------------------------------------------------------------
+""Googleのカレンダーを設定
+""let g:calendar_google_calendar = 1
+""let g:calendar_google_task = 1
+""Calendar.vimの 呼び出し
+"nnoremap <silent> <Leader>cal :<C-u>Calendar<CR>
