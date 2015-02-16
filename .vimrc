@@ -471,7 +471,9 @@ let g:vimfiler_safe_mode_by_default = 0
 "現在開いているバッファのディレクトリを開く
 nnoremap <silent> <Leader>fe :<C-u>VimFilerBufferDir -quit<CR>
 "現在開いているバッファをIDE風に開く
-nnoremap <silent> <Leader>te :<C-u>VimFilerBufferDir -create -split -simple -winwidth=35 -force-quit<CR>
+nnoremap <silent> <Leader>te :<C-u>VimFilerBufferDir -create -split -simple -winwidth=35 -no-quit<CR>
+"ディレクトリの履歴数を300にする
+let g:vimfiler_max_directories_history=300
 
 augroup vimrc
 "ブックマークでエンターした時に:cdを実行
