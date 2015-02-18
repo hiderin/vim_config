@@ -96,7 +96,7 @@ filetype plugin indent on
 "===============================================================================
 
 
-let mapleader = "."
+let mapleader = ","
 
 " カラー設定:
 :set t_Co=256
