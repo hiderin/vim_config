@@ -71,6 +71,9 @@ NeoBundle 'vim-scripts/taglist.vim'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'thinca/vim-visualstar'
 NeoBundle 'thinca/vim-ref'
+NeoBundle 'tyru/vim-altercmd'
+NeoBundle 'mattn/webapi-vim'
+NeoBundle 'mattn/excitetranslate-vim'
 NeoBundle 'yuratomo/w3m.vim'
 NeoBundle 'vim-scripts/EasyGrep'
 "NeoBundle 'mbbill/echofunc'
@@ -528,3 +531,54 @@ endfunction
 "let g:calendar_google_task = 1
 "Calendar.vimの 呼び出し
 nnoremap <silent> <Leader>cal :<C-u>Calendar<CR>
+
+"--------------------------------------------------------------------------------
+" 辞書関係の設定 vim-ref
+"--------------------------------------------------------------------------------
+
+" vim-ref のバッファを q で閉じられるようにする
+autocmd FileType ref-* nnoremap <buffer> <silent> q :<C-u>close<CR>
+
+" 辞書定義
+let g:ref_source_webdict_sites = {
+\   'je': {
+\     'url': 'http://dictionary.infoseek.ne.jp/jeword/%s',
+\     'keyword_encoding': 'shift-jis',
+\     'output_encoding': 'shift-jis',
+\   },
+\   'ej': {
+\     'url': 'http://dictionary.infoseek.ne.jp/ejword/%s',
+\     'output_encoding': 'shift-jis',
+\   },
+\ }
+
+" デフォルトサイト
+let g:ref_source_webdict_sites.default = 'ej'
+
+"" 出力に対するフィルタ
+"" 最初の数行を削除
+"function! g:ref_source_webdict_sites.je.filter(output)
+"  return join(split(a:output, "\n")[15 :], "\n")
+"endfunction
+"
+"function! g:ref_source_webdict_sites.ej.filter(output)
+"  return join(split(a:output, "\n")[15 :], "\n")
+"endfunction
+
+" 英単語辞呼び出しのエイリアス
+call altercmd#load()
+CAlterCommand ej Ref webdict ej
+CAlterCommand je Ref webdict je
+
+"Kのマッピング
+nmap K <Plug>(ref-keyword)
+"エンコーディングの設定
+"let g:ref_refe_encoding = 'Shift-JIS'
+let g:ref_source_webdict_encoding='shift-jis'
+"--------------------------------------------------------------------------------
+" 翻訳関係の設定 excitetranslate-vim
+"--------------------------------------------------------------------------------
+" 開いたバッファを q で閉じれるようにする
+autocmd BufEnter ==Translate==\ Excite nnoremap <buffer> <silent> q :<C-u>close<CR>
+" 翻訳のエイリアス
+CAlterCommand trans ExciteTranslate
