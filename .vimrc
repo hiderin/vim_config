@@ -1,8 +1,14 @@
- " エンコーディン
-"source $VIMRUNTIME/encode.vim
-"scriptencoding utf-8
-scriptencoding cp932
-:set fileencodings=ucs-bom,iso-2022-jp-3,iso-2022-jp,euc-jp,eucjp-ms,euc-jisx0213,euc-jp,sjis,utf-8,cp932
+ " エンコーディング
+if !has('unix')
+	scriptencoding cp932
+	:set fileencodings=ucs-bom,iso-2022-jp-3,iso-2022-jp,euc-jp,eucjp-ms,euc-jisx0213,euc-jp,sjis,utf-8,cp932
+else
+	source $VIMRUNTIME/encode.vim
+	scriptencoding utf-8
+	:set fileencodings=ucs-bom,iso-2022-jp-3,iso-2022-jp,eucjp-ms,euc-jisx0213,euc-jp,sjis,cp932,utf-8
+	set mouse=a
+	let $LANG='ja_JP.UTF-8'
+endif
 
 set nocompatible
 source $VIMRUNTIME/vimrc_example.vim
@@ -11,33 +17,47 @@ source $VIMRUNTIME/vimrc_example.vim
 
 set diffexpr=MyDiff()
 function MyDiff()
-  let opt = '-a --binary '
-  if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
-  if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
-  let arg1 = v:fname_in
-  if arg1 =~ ' ' | let arg1 = '"' . arg1 . '"' | endif
-  let arg2 = v:fname_new
-  if arg2 =~ ' ' | let arg2 = '"' . arg2 . '"' | endif
-  let arg3 = v:fname_out
-  if arg3 =~ ' ' | let arg3 = '"' . arg3 . '"' | endif
-  let eq = ''
-  if $VIMRUNTIME =~ ' '
-    if &sh =~ '\<cmd'
-      let cmd = '""' . $VIMRUNTIME . '\diff"'
-      let eq = '"'
-    else
-      let cmd = substitute($VIMRUNTIME, ' ', '" ', '') . '\diff"'
-    endif
-  else
-    let cmd = $VIMRUNTIME . '\diff'
-  endif
-  silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
+	let opt = '-a --binary '
+	if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
+	if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
+	let arg1 = v:fname_in
+	if arg1 =~ ' ' | let arg1 = '"' . arg1 . '"' | endif
+	let arg2 = v:fname_new
+	if arg2 =~ ' ' | let arg2 = '"' . arg2 . '"' | endif
+	let arg3 = v:fname_out
+	if arg3 =~ ' ' | let arg3 = '"' . arg3 . '"' | endif
+	let eq = ''
+	if !has('unix')
+		if $VIMRUNTIME =~ ' '
+		  if &sh =~ '\<cmd'
+			let cmd = '""' . $VIMRUNTIME . '\diff"'
+			let eq = '"'
+		  else
+			let cmd = substitute($VIMRUNTIME, ' ', '" ', '') . '\diff"'
+		  endif
+		else
+		  let cmd = $VIMRUNTIME . '\diff'
+		endif
+		silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
+	else
+		if $VIMRUNTIME =~ ' '
+		  if &sh =~ '/<cmd'
+			let cmd = '""' . $VIMRUNTIME . '/diff"'
+			let eq = '"'
+		  else
+			let cmd = substitute($VIMRUNTIME, ' ', '" ', '') . '/diff"'
+		  endif
+		else
+		  let cmd = $VIMRUNTIME . '/diff'
+		endif
+		silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
+	endif
 endfunction
 
 "if has('gui_running') && !has('unix')
 "  set encoding=utf-8
 "endif
-
+"
 "===============================================================================
 "   プラグインマネージャ
 "===============================================================================
@@ -55,35 +75,37 @@ call neobundle#begin(expand('$VIMRUNTIME/bundle/automatic'))
 NeoBundle 'git://github.com/Shougo/neobundle.vim.git'
 
 "----- github Plugins -----
-NeoBundle 'Shougo/neocomplcache.git'
-NeoBundle 'Shougo/vimfiler.git'
-NeoBundle 'Shougo/unite.vim.git'
-NeoBundle 'Shougo/vimproc.git'
-NeoBundle 'Shougo/vimshell.git'
-NeoBundle 'Shougo/neomru.vim'
-NeoBundle 'cohama/agit.vim'
-"NeoBundle 'jlanzarotta/bufexplorer'
-"NeoBundle 'gregsexton/gitv'
-NeoBundle 'thinca/vim-poslist'
-"NeoBundle 'tyru/skk.vim'
-NeoBundle 'vim-scripts/taglist.vim'
-"NeoBundle 'tsaleh/vim-align.git'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'thinca/vim-visualstar'
-NeoBundle 'thinca/vim-ref'
-NeoBundle 'tyru/vim-altercmd'
-NeoBundle 'mattn/webapi-vim'
-NeoBundle 'mattn/excitetranslate-vim'
-NeoBundle 'yuratomo/w3m.vim'
-NeoBundle 'vim-scripts/EasyGrep'
-"NeoBundle 'mbbill/echofunc'
-NeoBundle 'vim-jp/vimdoc-ja'
-NeoBundle 'itchyny/calendar.vim'
+NeoBundle 'git://github.com/Shougo/neocomplcache.git'
+NeoBundle 'git://github.com/Shougo/vimfiler.git'
+NeoBundle 'git://github.com/Shougo/unite.vim.git'
+NeoBundle 'git://github.com/Shougo/vimproc.git'
+NeoBundle 'git://github.com/Shougo/vimshell.git'
+NeoBundle 'git://github.com/Shougo/neomru.vim'
+NeoBundle 'git://github.com/cohama/agit.vim'
+"NeoBundle 'git://github.com/jlanzarotta/bufexplorer'
+"NeoBundle 'git://github.com/gregsexton/gitv'
+NeoBundle 'git://github.com/thinca/vim-poslist'
+"NeoBundle 'git://github.com/tyru/skk.vim'
+NeoBundle 'git://github.com/vim-scripts/taglist.vim'
+"NeoBundle 'git://github.com/tsaleh/vim-align.git'
+NeoBundle 'git://github.com/tpope/vim-fugitive'
+NeoBundle 'git://github.com/thinca/vim-visualstar'
+NeoBundle 'git://github.com/thinca/vim-ref'
+NeoBundle 'git://github.com/tyru/vim-altercmd'
+NeoBundle 'git://github.com/mattn/webapi-vim'
+NeoBundle 'git://github.com/mattn/excitetranslate-vim'
+NeoBundle 'git://github.com/vim-scripts/EasyGrep'
+"NeoBundle 'git://github.com/mbbill/echofunc'
+NeoBundle 'git://github.com/vim-jp/vimdoc-ja'
+NeoBundle 'git://github.com/itchyny/calendar.vim'
+if !has('unix')
+	NeoBundle 'git://github.com/yuratomo/w3m.vim'
+endif
 "NeoBundle ''
 
 "----- vim.org Plugins -----
-NeoBundle 'FuzzyFinder'
-NeoBundle 'NERD_tree'
+"NeoBundle 'FuzzyFinder'
+"NeoBundle 'NERD_tree'
 
 "----- Local Plugins -----
 NeoBundleLocal $VIMRUNTIME/bundle/manual
@@ -98,13 +120,17 @@ call neobundle#end()
 
 filetype plugin indent on
 "===============================================================================
-
-
+let g:neobundle_default_git_protocol="git"
 let mapleader = ","
 
 " カラー設定:
 :set t_Co=256
-colorscheme desert2
+if !has('unix')
+	colorscheme desert2
+else
+	colorscheme ctermdesert2
+endif
+
 syntax on
 
 "入力モード時、ステータスラインのカラーを変更
@@ -186,20 +212,22 @@ set nowrap
 :set tags=tags
 
 " grepの設定
-"set grepprg=C:/DropBox/GnuWin32/bin/grep\ -nH
-"let mygrepprg='C:/DropBox/GnuWin32/bin/grep'
-"let mygrepprg='C:/cygwin/bin/grep'
-let mygrepprg='findstr'
-"set grepprg=c:/cygwin/bin/grep\ -nH
-"set grepprg=grep\ -nH
-set grepprg=findstr\ /n
-"set grepprg=jvgrep
-"let Grep_Path = 'C:/DropBox/GnuWin32/bin/grep.exe'
-"let Fgrep_Path = 'C:/DropBox/GnuWin32/bin/grep.exe -F'
-"let Egrep_Path = 'C:/DropBox/GnuWin32/bin/grep.exe -E'
-"let Grep_Find_Path = 'C:/DropBox/GnuWin32/bin/find.exe'
-"let Grep_Xargs_Path = 'C:/DropBox/GnuWin32/bin/xargs.exe'
-"let Grep_Shell_Quote_Char = '"'
+if !has('unix')
+	"set grepprg=C:/DropBox/GnuWin32/bin/grep\ -nH
+	"let mygrepprg='C:/DropBox/GnuWin32/bin/grep'
+	"let mygrepprg='C:/cygwin/bin/grep'
+	let mygrepprg='findstr'
+	"set grepprg=c:/cygwin/bin/grep\ -nH
+	"set grepprg=grep\ -nH
+	set grepprg=findstr\ /n
+	"set grepprg=jvgrep
+	"let Grep_Path = 'C:/DropBox/GnuWin32/bin/grep.exe'
+	"let Fgrep_Path = 'C:/DropBox/GnuWin32/bin/grep.exe -F'
+	"let Egrep_Path = 'C:/DropBox/GnuWin32/bin/grep.exe -E'
+	"let Grep_Find_Path = 'C:/DropBox/GnuWin32/bin/find.exe'
+	"let Grep_Xargs_Path = 'C:/DropBox/GnuWin32/bin/xargs.exe'
+	"let Grep_Shell_Quote_Char = '"'
+endif
 
 "変更中のファイルでも、保存しないで他のファイルを表示
 set hidden
@@ -334,20 +362,24 @@ inoremap <C-p> <ESC>pa
 " ちょっと便利系キーマップ
 nnoremap * *N
 noremap <CR> o<ESC>
-nnoremap <Leader>grc :tabnew<CR>:e $VIMRUNTIME/../.gvimrc<CR>
-nnoremap <Leader>trc :tabnew<CR>:e $VIMRUNTIME/../.vimrc<CR>
-nnoremap <Leader>vrc :vs $VIMRUNTIME/../.vimrc<CR>
-nnoremap <Leader>src :sp $VIMRUNTIME/../.vimrc<CR>
-nnoremap <Leader>prc :tabnew<CR>:e $VIMRUNTIME/../vimfiles\macros\printrc.vim<CR>
-nnoremap <Leader>tkh :tabnew<CR>:e $VIMRUNTIME/../../keyhac\config.py<CR>
+if !has('unix')
+	nnoremap <Leader>grc :tabnew<CR>:e $VIMRUNTIME/../.gvimrc<CR>
+	nnoremap <Leader>trc :tabnew<CR>:e $VIMRUNTIME/../.vimrc<CR>
+	nnoremap <Leader>vrc :vs $VIMRUNTIME/../.vimrc<CR>
+	nnoremap <Leader>src :sp $VIMRUNTIME/../.vimrc<CR>
+	nnoremap <Leader>prc :tabnew<CR>:e $VIMRUNTIME/macros\printrc.vim<CR>
+	nnoremap <Leader>tkh :tabnew<CR>:e $VIMRUNTIME/../../keyhac/config.py<CR>
+else
+	nnoremap <Leader>grc :tabnew<CR>:e /sdcard/mysys/portvim/.gvimrc<CR>
+	nnoremap <Leader>trc :tabnew<CR>:e /sdcard/mysys/portvim/.vimrc<CR>
+	nnoremap <Leader>vrc :vs /sdcard/mysys/portvim/.vimrc<CR>
+	nnoremap <Leader>src :sp /sdcard/mysys/portvim/.vimrc<CR>
+	nnoremap <Leader>prc :tabnew<CR>:e /sdcard/mysys/portvim/vim73/macros/printrc.vim<CR>
+	nnoremap <Leader>tkh :tabnew<CR>:e /sdcard/mysys/keyhac/config.py<CR>
+endif
 "nnoremap <Leader>mru :MRU<CR>
 nnoremap <Leader>cd  :cd %:h<CR>:pwd<CR>
 nnoremap <Leader>cp  :cd %:h<CR>:cd ..<CR>:pwd<CR>
-
-" 新しいウィンドウを下に開く
-set splitbelow
-" 新しいウィンドウを右に開く
-set splitright
 
 " Git Bushの呼び出し
 nnoremap <Leader>git :!sh --login -i<CR>
@@ -387,7 +419,7 @@ let howm_fileformat      = 'dos'
 ":let g:toggle_pairs={'max':'min','min':'max'}
 
 "BCB6用のヘルプファイルを開く
-nnoremap <silent> <Leader>hb :sil !$VIMRUNTIME/../BCB_HELP/Help/bcb6.hlp<CR>
+"nnoremap <silent> <Leader>hb :sil !$VIMRUNTIME/../BCB_HELP/Help/bcb6.hlp<CR>
 
 " バックアップをとらない
 set nobackup
@@ -433,13 +465,33 @@ let QFix_PreviewFtypeHighlight = 1
 " QuickFixウィンドウから開いた後ウィンドウを閉じる
 let QFix_CloseOnJump = 1
 
+if has('unix')
+	" 現バッファのファイルをインテントを使用して外部アプリで開く
+	nnoremap <silent> gka :AndroidIntent<CR>
+
+	command! -nargs=* AndroidIntent :call AndroidIntent(<q-args>)
+	function! AndroidIntent(file)
+	  let file = a:file == '' ? expand('%:p') : fnamemodify(a:file, ':p')
+	  let cmd = 'am start --user 0 -a android.intent.action.VIEW -t text/plain -d '.file
+	  let ret = system(cmd)
+	endfunction
+
+	"終了時に端末表示色を再設定
+	au VimLeave * let saved_t_Co=&t_Co|let &t_Co=1|let &t_Co=saved_t_Co 
+
+endif
+
 " SKK.vimの辞書設定
 set imdisable
 let skk_jisyo_encoding = 'utf-8'
 let skk_large_jisyo_encodint = 'euc-jp'
-"let skk_jisyo = '~/.skk-jisyo'
-let skk_jisyo = 'C:\Dropbox\skk\skki1_5u.dic'
-let skk_large_jisyo = 'C:\Dropbox\skk\SKK-JISYO.L'
+if !has('unix')
+	let skk_jisyo = 'C:\Dropbox\skk\skki1_5u.dic'
+	let skk_large_jisyo = 'C:\Dropbox\skk\SKK-JISYO.L'
+else
+	let skk_jisyo = '~/.skk-jisyo'
+	let skk_large_jisyo = '$VIMRUNTIME/SKK-JISYO.L'
+endif
 let skk_auto_save_jisyo = 1
 let skk_keep_state = 0
 let skk_egg_like_newline = 1
@@ -457,7 +509,11 @@ let g:agit_enable_auto_show_commit = 0
 nnoremap <silent> g/ :<C-u>Unite -buffer-name=search line -start-insert<CR>
 call unite#custom#source('line', 'matchers', 'matcher_migemo')
 " find の path を設定
-let g:unite_source_find_command='C:/Dropbox/MySys/portvim/vim73/vimfind.bat'
+if !has('unix')
+	let g:unite_source_find_command='C:/Dropbox/MySys/portvim/vim73/vimfind.bat'
+else
+	let g:unite_source_find_command='find'
+endif
 "let g:unite_source_find_command='C:/MinGW/msys/1.0/bin/find.exe'
 "let g:unite_source_find_command='C:/WINDOWS/system32/find.exe'
 " insertモードでUniteを起動させる。
@@ -480,9 +536,7 @@ let g:vimfiler_safe_mode_by_default = 0
 "現在開いているバッファのディレクトリを開く
 nnoremap <silent> <Leader>fe :<C-u>VimFilerBufferDir -quit<CR>
 "現在開いているバッファをIDE風に開く
-nnoremap <silent> <Leader>te :<C-u>VimFilerBufferDir -create -split -simple -winwidth=35 -no-quit<CR>
-"ディレクトリの履歴数を300にする
-let g:vimfiler_max_directories_history=300
+nnoremap <silent> <Leader>te :<C-u>VimFilerBufferDir -create -split -simple -winwidth=35 -force-quit<CR>
 
 augroup vimrc
 "ブックマークでエンターした時に:cdを実行
@@ -504,29 +558,33 @@ function! s:vimfiler_my_settings()
 "  nmap <buffer> / :Unite file -default-action=vimfiler line -start-insert<CR>
 endfunction
 
-"あふの呼び出し
-"nnoremap <Leader>af :!\%VIMRUNTIME\%/../../afxw32_157/AFXW.EXE -L
-nnoremap <Leader>af :!\%VIMRUNTIME\%/../../afxw32_157/AFXW.EXE -L"<C-R>*"<CR>
-"nnoremap <Leader>af call s:call_afxw_chose_dir()
-"function! s:call_afxw_chose_dir()
-"	call vimfiler#yank_full_path()
-"	let mycmd = !\%VIMRUNTIME\%/../../afxw32_157/AFXW.EXE -L <C-R>"<CR>
-"	silent execute mycmd
-"endfunction
+if !has('unix')
+	"あふの呼び出し
+	"nnoremap <Leader>af :!\%VIMRUNTIME\%/../../afxw32_157/AFXW.EXE -L
+	nnoremap <Leader>af :!\%VIMRUNTIME\%/../../afxw32_157/AFXW.EXE -L"<C-R>*"<CR>
+	"nnoremap <Leader>af call s:call_afxw_chose_dir()
+	"function! s:call_afxw_chose_dir()
+	"	call vimfiler#yank_full_path()
+	"	let mycmd = !\%VIMRUNTIME\%/../../afxw32_157/AFXW.EXE -L <C-R>"<CR>
+	"	silent execute mycmd
+	"endfunction
+endif
 
-"--------------------------------------------------------------------------------
-" w3mの設定
-"--------------------------------------------------------------------------------
-"外部ブラウザ
-    let g:w3m#external_browser = '"C:\Dropbox\MySys\programfiles\FirefoxPortable\FirefoxPortable.exe"'
+""--------------------------------------------------------------------------------
+"" w3mの設定
+""--------------------------------------------------------------------------------
+if !has('unix')
+	"外部ブラウザ
+		let g:w3m#external_browser = '"C:\Dropbox\MySys\programfiles\GoogleChromePortable\GoogleChromePortable.exe"'
 
-augroup w3mrc
-"デフォルトのキーマッピングを変更
-  autocmd FileType w3m call s:w3m_my_settings()
-augroup END
-function! s:w3m_my_settings()
-  nmap <buffer> cr :W3mShowExtenalBrowser<CR>
-endfunction
+	augroup w3mrc
+	"デフォルトのキーマッピングを変更
+	  autocmd FileType w3m call s:w3m_my_settings()
+	augroup END
+	function! s:w3m_my_settings()
+	  nmap <buffer> cr :W3mShowExtenalBrowser<CR>
+	endfunction
+endif
 
 "--------------------------------------------------------------------------------
 " Calendar.vimの設定
