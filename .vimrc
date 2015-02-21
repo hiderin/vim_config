@@ -353,7 +353,7 @@ set splitright
 nnoremap <Leader>git :!sh --login -i<CR>
 
 "fugitive.vimのgit commitの画面をutf-8に変換してから閉じる
-nnoremap <Leader>cmt  :set fenc=utf-8<CR>:wq<CR>
+nnoremap <Leader>cmt  :set fenc=utf-8<CR>:wq!<CR>
 
 
 " poslist.vimの設定
