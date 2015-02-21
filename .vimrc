@@ -518,7 +518,7 @@ nnoremap <Leader>af :!\%VIMRUNTIME\%/../../afxw32_157/AFXW.EXE -L"<C-R>*"<CR>
 " w3mの設定
 "--------------------------------------------------------------------------------
 "外部ブラウザ
-    let g:w3m#external_browser = '"C:\Dropbox\MySys\programfiles\GoogleChromePortable\GoogleChromePortable.exe"'
+    let g:w3m#external_browser = '"C:\Dropbox\MySys\programfiles\FirefoxPortable\FirefoxPortable.exe"'
 
 augroup w3mrc
 "デフォルトのキーマッピングを変更
