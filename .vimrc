@@ -381,6 +381,11 @@ endif
 nnoremap <Leader>cd  :cd %:h<CR>:pwd<CR>
 nnoremap <Leader>cp  :cd %:h<CR>:cd ..<CR>:pwd<CR>
 
+" 新しいウィンドウを下に開く
+set splitbelow
+" 新しいウィンドウを右に開く
+set splitright
+
 " Git Bushの呼び出し
 nnoremap <Leader>git :!sh --login -i<CR>
 
