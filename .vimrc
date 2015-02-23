@@ -580,7 +580,7 @@ endif
 ""--------------------------------------------------------------------------------
 if !has('unix')
 	"外部ブラウザ
-		let g:w3m#external_browser = '"C:\Dropbox\MySys\programfiles\GoogleChromePortable\GoogleChromePortable.exe"'
+		let g:w3m#external_browser = '"C:\Dropbox\MySys\programfiles\FirefoxPortable\FirefoxPortable.exe"'
 
 	augroup w3mrc
 	"デフォルトのキーマッピングを変更
