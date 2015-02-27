@@ -77,7 +77,8 @@ NeoBundle 'git://github.com/Shougo/neobundle.vim.git'
 "----- github Plugins -----
 if !has('unix')
 	NeoBundle 'git://github.com/yuratomo/w3m.vim'
-	NeoBundle 'git://github.com/Shougo/vimfiler.git'
+"	NeoBundle 'git://github.com/Shougo/vimfiler.git'
+	NeoBundle 'git://github.com/Shougo/vimfiler.vim.git'
 	NeoBundle 'git://github.com/Shougo/unite.vim.git'
 else
 	NeoBundle 'git://github.com/hiderin/vimfiler.vim.git', 'myorigin'
