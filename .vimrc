@@ -367,15 +367,23 @@ if !has('unix')
 	nnoremap <Leader>trc :tabnew<CR>:e $VIMRUNTIME/../.vimrc<CR>
 	nnoremap <Leader>vrc :vs $VIMRUNTIME/../.vimrc<CR>
 	nnoremap <Leader>src :sp $VIMRUNTIME/../.vimrc<CR>
+	nnoremap <Leader>hrc :e $VIMRUNTIME/../.vimrc<CR>
 	nnoremap <Leader>prc :tabnew<CR>:e $VIMRUNTIME/macros\printrc.vim<CR>
 	nnoremap <Leader>tkh :tabnew<CR>:e $VIMRUNTIME/../../keyhac/config.py<CR>
+	nnoremap <Leader>vkh :vs $VIMRUNTIME/../../keyhac/config.py<CR>
+	nnoremap <Leader>skh :sp $VIMRUNTIME/../../keyhac/config.py<CR>
+	nnoremap <Leader>hkh :e $VIMRUNTIME/../../keyhac/config.py<CR>
 else
 	nnoremap <Leader>grc :tabnew<CR>:e /sdcard/mysys/portvim/.gvimrc<CR>
 	nnoremap <Leader>trc :tabnew<CR>:e /sdcard/mysys/portvim/.vimrc<CR>
 	nnoremap <Leader>vrc :vs /sdcard/mysys/portvim/.vimrc<CR>
 	nnoremap <Leader>src :sp /sdcard/mysys/portvim/.vimrc<CR>
+	nnoremap <Leader>hrc :e /sdcard/mysys/portvim/.vimrc<CR>
 	nnoremap <Leader>prc :tabnew<CR>:e /sdcard/mysys/portvim/vim73/macros/printrc.vim<CR>
 	nnoremap <Leader>tkh :tabnew<CR>:e /sdcard/mysys/keyhac/config.py<CR>
+	nnoremap <Leader>vkh :vs /sdcard/mysys/keyhac/config.py<CR>
+	nnoremap <Leader>skh :sp /sdcard/mysys/keyhac/config.py<CR>
+	nnoremap <Leader>hkh :e /sdcard/mysys/keyhac/config.py<CR>
 endif
 "nnoremap <Leader>mru :MRU<CR>
 nnoremap <Leader>cd  :cd %:h<CR>:pwd<CR>
