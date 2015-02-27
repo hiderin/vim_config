@@ -75,9 +75,15 @@ call neobundle#begin(expand('$VIMRUNTIME/bundle/automatic'))
 NeoBundle 'git://github.com/Shougo/neobundle.vim.git'
 
 "----- github Plugins -----
+if !has('unix')
+	NeoBundle 'git://github.com/yuratomo/w3m.vim'
+	NeoBundle 'git://github.com/Shougo/vimfiler.git'
+	NeoBundle 'git://github.com/Shougo/unite.vim.git'
+else
+"	NeoBundle 'git://github.com/hiderin/vimfiler.git', 'myorigin'
+"	NeoBundle 'git://github.com/hiderin/unite.vim.git', 'myorigin'
+endif
 NeoBundle 'git://github.com/Shougo/neocomplcache.git'
-NeoBundle 'git://github.com/Shougo/vimfiler.git'
-NeoBundle 'git://github.com/Shougo/unite.vim.git'
 NeoBundle 'git://github.com/Shougo/vimproc.git'
 NeoBundle 'git://github.com/Shougo/vimshell.git'
 NeoBundle 'git://github.com/Shougo/neomru.vim'
@@ -98,9 +104,6 @@ NeoBundle 'git://github.com/vim-scripts/EasyGrep'
 "NeoBundle 'git://github.com/mbbill/echofunc'
 NeoBundle 'git://github.com/vim-jp/vimdoc-ja'
 NeoBundle 'git://github.com/itchyny/calendar.vim'
-if !has('unix')
-	NeoBundle 'git://github.com/yuratomo/w3m.vim'
-endif
 "NeoBundle ''
 
 "----- vim.org Plugins -----
