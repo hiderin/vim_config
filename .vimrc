@@ -1,4 +1,8 @@
  " エンコーディング
+if has("win32")
+  "set encoding より上に書くこと
+  let &termencoding = &encoding
+endif
 if !has('unix')
 	scriptencoding cp932
 	:set fileencodings=ucs-bom,iso-2022-jp-3,iso-2022-jp,euc-jp,eucjp-ms,euc-jisx0213,euc-jp,sjis,utf-8,cp932
@@ -622,12 +626,12 @@ autocmd FileType ref-* nnoremap <buffer> <silent> q :<C-u>close<CR>
 let g:ref_source_webdict_sites = {
 \   'je': {
 \     'url': 'http://dictionary.infoseek.ne.jp/jeword/%s',
-\     'keyword_encoding': 'shift-jis',
-\     'output_encoding': 'shift-jis',
+\     'keyword_encoding': 'euc-jp',
+\     'output_encoding': 'euc-jp',
 \   },
 \   'ej': {
 \     'url': 'http://dictionary.infoseek.ne.jp/ejword/%s',
-\     'output_encoding': 'shift-jis',
+\     'output_encoding': 'euc-jp',
 \   },
 \ }
 
@@ -652,8 +656,8 @@ CAlterCommand je Ref webdict je
 "Kのマッピング
 nmap K <Plug>(ref-keyword)
 "エンコーディングの設定
-"let g:ref_refe_encoding = 'Shift-JIS'
-let g:ref_source_webdict_encoding='shift-jis'
+let g:ref_refe_encoding = 'euc-jp'
+let g:ref_source_webdict_encoding='utf-8'
 "--------------------------------------------------------------------------------
 " 翻訳関係の設定 excitetranslate-vim
 "--------------------------------------------------------------------------------
