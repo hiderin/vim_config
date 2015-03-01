@@ -125,6 +125,8 @@ call neobundle#end()
 filetype plugin indent on
 "===============================================================================
 let g:neobundle_default_git_protocol="git"
+NeoBundleCheck
+
 let mapleader = ","
 
 " カラー設定:
