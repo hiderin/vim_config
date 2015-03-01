@@ -592,7 +592,8 @@ endif
 ""--------------------------------------------------------------------------------
 if !has('unix')
 	"外部ブラウザ
-		let g:w3m#external_browser = '"C:\Dropbox\MySys\programfiles\FirefoxPortable\FirefoxPortable.exe"'
+"		let g:w3m#external_browser = '"C:\Dropbox\MySys\programfiles\FirefoxPortable\FirefoxPortable.exe"'
+		let g:w3m#external_browser = '$VIMRUNTIME/../../"clnch\clnch.exe" --execute='
 
 	augroup w3mrc
 	"デフォルトのキーマッピングを変更
