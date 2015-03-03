@@ -663,3 +663,12 @@ let g:ref_source_webdict_encoding='shift-jis'
 autocmd BufEnter ==Translate==\ Excite nnoremap <buffer> <silent> q :<C-u>close<CR>
 " 翻訳のエイリアス
 CAlterCommand trans ExciteTranslate
+
+"--------------------------------------------------------------------------------
+" Neocomplcacheの設定
+"--------------------------------------------------------------------------------
+"自動補間 ON OFFのエイリアス
+"自動補間 ON
+CAlterCommand neoce NeoComplCacheEnable
+"自動補間 OFF
+CAlterCommand neocd NeoComplCacheDisable
