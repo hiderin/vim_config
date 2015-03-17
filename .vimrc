@@ -92,8 +92,8 @@ NeoBundle 'git://github.com/cohama/agit.vim'
 "NeoBundle 'git://github.com/jlanzarotta/bufexplorer'
 "NeoBundle 'git://github.com/gregsexton/gitv'
 NeoBundle 'git://github.com/thinca/vim-poslist'
-NeoBundle 'git://github.com/tyru/skk.vim'
-"NeoBundle 'git://github.com/tyru/eskk.vim'
+"NeoBundle 'git://github.com/tyru/skk.vim'
+NeoBundle 'git://github.com/tyru/eskk.vim'
 NeoBundle 'git://github.com/vim-scripts/taglist.vim'
 "NeoBundle 'git://github.com/tsaleh/vim-align.git'
 NeoBundle 'git://github.com/tpope/vim-fugitive'
@@ -502,34 +502,30 @@ if has('unix')
 endif
 
 "" SKK.vimの辞書設定
-"set imdisable
-"if !has('unix')
-"	let g:eskk#directory = "$VIMRUNTIME\.eskk"
-"	let g:eskk#dictionary = { 'path': "$VIMRUNTIME\..\..\skk\skki1_5u.dic", 'sorted': 0, 'encoding': 'utf-8', }
-"	let g:eskk#large_dictionary = { 'path': "$VIMRUNTIME\..\..\skk\SKK-JISYO.L", 'sorted': 1, 'encoding': 'euc-jp', }
-"else
-"	let g:eskk#directory = "~/.eskk"
-"	let g:eskk#dictionary = { 'path': "~/.skk-jisyo", 'sorted': 0, 'encoding': 'utf-8', }
-"	let g:eskk#large_dictionary = { 'path': "$VIMRUNTIME/SKK-JISYO.L", 'sorted': 1, 'encoding': 'euc-jp', }
-"endif
-"let g:eskk#enable_completion = 1
+set imdisable
+	let g:eskk#directory = "$VIMRUNTIME/skkdict"
+"	let g:eskk#dictionary = { 'path': "$VIMRUNTIME/skkdict/skki1_5u.dic", 'sorted': 0, 'encoding': 'utf-16le', }
+	let g:eskk#dictionary = { 'path': "$VIMRUNTIME/skkdict/.skk-jisyo", 'sorted': 0, 'encoding': 'utf-8', }
+	let g:eskk#large_dictionary = { 'path': "$VIMRUNTIME/skkdict/SKK-JISYO.L", 'sorted': 1, 'encoding': 'euc-jp', }
+let g:eskk#enable_completion = 1
 
 " SKK.vimの辞書設定
-set imdisable
-let skk_jisyo_encoding = 'utf-8'
-let skk_large_jisyo_encodint = 'euc-jp'
-"if !has('unix')
-"	let skk_jisyo = 'C:\Dropbox\skk\skki1_5u.dic'
-"	let skk_large_jisyo = 'C:\Dropbox\skk\SKK-JISYO.L'
-"else
-	let skk_jisyo = '$VIMRUNTIME/skkdict/.skk-jisyo'
-	let skk_large_jisyo = '$VIMRUNTIME/skkdict/SKK-JISYO.L'
-"endif
-let skk_auto_save_jisyo = 1
-let skk_keep_state = 0
-let skk_egg_like_newline = 1
-let skk_show_annotation = 1
-let skk_use_face = 1
+"set imdisable
+""let skk_jisyo_encoding = 'utf-8'
+"let skk_jisyo_encoding = 'utf-16le'
+"let skk_large_jisyo_encodint = 'euc-jp'
+""if !has('unix')
+""	let skk_jisyo = 'C:\Dropbox\skk\skki1_5u.dic'
+""	let skk_large_jisyo = 'C:\Dropbox\skk\SKK-JISYO.L'
+""else
+"	let skk_jisyo = '$VIMRUNTIME/skkdict/.skk-jisyo'
+"	let skk_large_jisyo = '$VIMRUNTIME/skkdict/SKK-JISYO.L'
+""endif
+"let skk_auto_save_jisyo = 1
+"let skk_keep_state = 0
+"let skk_egg_like_newline = 1
+"let skk_show_annotation = 1
+"let skk_use_face = 1
 
 " Agit.vim
 "カーソル移動で一覧と差分を更新させない
