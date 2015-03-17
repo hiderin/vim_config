@@ -1,9 +1,9 @@
  " エンコーディング
+source $VIMRUNTIME/encode.vim
 if !has('unix')
 	scriptencoding cp932
 	:set fileencodings=ucs-bom,iso-2022-jp-3,iso-2022-jp,euc-jp,eucjp-ms,euc-jisx0213,euc-jp,sjis,utf-8,cp932
 else
-	source $VIMRUNTIME/encode.vim
 	scriptencoding utf-8
 	:set fileencodings=ucs-bom,iso-2022-jp-3,iso-2022-jp,eucjp-ms,euc-jisx0213,euc-jp,sjis,cp932,utf-8
 	set mouse=a
@@ -518,13 +518,13 @@ endif
 set imdisable
 let skk_jisyo_encoding = 'utf-8'
 let skk_large_jisyo_encodint = 'euc-jp'
-if !has('unix')
-	let skk_jisyo = 'C:\Dropbox\skk\skki1_5u.dic'
-	let skk_large_jisyo = 'C:\Dropbox\skk\SKK-JISYO.L'
-else
+"if !has('unix')
+"	let skk_jisyo = 'C:\Dropbox\skk\skki1_5u.dic'
+"	let skk_large_jisyo = 'C:\Dropbox\skk\SKK-JISYO.L'
+"else
 	let skk_jisyo = '$VIMRUNTIME/skkdict/.skk-jisyo'
 	let skk_large_jisyo = '$VIMRUNTIME/skkdict/SKK-JISYO.L'
-endif
+"endif
 let skk_auto_save_jisyo = 1
 let skk_keep_state = 0
 let skk_egg_like_newline = 1
