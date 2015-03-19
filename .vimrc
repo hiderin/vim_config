@@ -1,7 +1,8 @@
  " エンコーディング
-source $VIMRUNTIME/encode.vim
+"source $VIMRUNTIME/encode.vim
 if !has('unix')
-	scriptencoding cp932
+"	scriptencoding cp932
+	:set encoding=cp932
 	:set fileencodings=ucs-bom,iso-2022-jp-3,iso-2022-jp,euc-jp,eucjp-ms,euc-jisx0213,euc-jp,sjis,utf-8,cp932
 else
 	scriptencoding utf-8
@@ -15,44 +16,6 @@ source $VIMRUNTIME/vimrc_example.vim
 "source $VIMRUNTIME/mswin.vim
 "behave mswin
 
-set diffexpr=MyDiff()
-function MyDiff()
-	let opt = '-a --binary '
-	if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
-	if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
-	let arg1 = v:fname_in
-	if arg1 =~ ' ' | let arg1 = '"' . arg1 . '"' | endif
-	let arg2 = v:fname_new
-	if arg2 =~ ' ' | let arg2 = '"' . arg2 . '"' | endif
-	let arg3 = v:fname_out
-	if arg3 =~ ' ' | let arg3 = '"' . arg3 . '"' | endif
-	let eq = ''
-	if !has('unix')
-		if $VIMRUNTIME =~ ' '
-		  if &sh =~ '\<cmd'
-			let cmd = '""' . $VIMRUNTIME . '\diff"'
-			let eq = '"'
-		  else
-			let cmd = substitute($VIMRUNTIME, ' ', '" ', '') . '\diff"'
-		  endif
-		else
-		  let cmd = $VIMRUNTIME . '\diff'
-		endif
-		silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
-	else
-		if $VIMRUNTIME =~ ' '
-		  if &sh =~ '/<cmd'
-			let cmd = '""' . $VIMRUNTIME . '/diff"'
-			let eq = '"'
-		  else
-			let cmd = substitute($VIMRUNTIME, ' ', '" ', '') . '/diff"'
-		  endif
-		else
-		  let cmd = $VIMRUNTIME . '/diff'
-		endif
-		silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
-	endif
-endfunction
 
 "if has('gui_running') && !has('unix')
 "  set encoding=utf-8
@@ -503,10 +466,10 @@ endif
 
 "" SKK.vimの辞書設定
 set imdisable
-	let g:eskk#directory = "$VIMRUNTIME/skkdict"
-"	let g:eskk#dictionary = { 'path': "$VIMRUNTIME/skkdict/skki1_5u.dic", 'sorted': 0, 'encoding': 'utf-16le', }
-	let g:eskk#dictionary = { 'path': "$VIMRUNTIME/skkdict/.skk-jisyo", 'sorted': 0, 'encoding': 'utf-8', }
-	let g:eskk#large_dictionary = { 'path': "$VIMRUNTIME/skkdict/SKK-JISYO.L", 'sorted': 1, 'encoding': 'euc-jp', }
+	let g:eskk#directory = "$VIMRUNTIME/../../skk"
+"	let g:eskk#dictionary = { 'path': "$VIMRUNTIME/../../skk/skki1_5u.dic", 'sorted': 0, 'encoding': 'utf-16le', }
+	let g:eskk#dictionary = { 'path': "$VIMRUNTIME/../../skk/.skk-jisyo", 'sorted': 0, 'encoding': 'utf-8', }
+	let g:eskk#large_dictionary = { 'path': "$VIMRUNTIME/../../skk/SKK-JISYO.L", 'sorted': 1, 'encoding': 'euc-jp', }
 let g:eskk#enable_completion = 1
 
 " SKK.vimの辞書設定
@@ -518,8 +481,8 @@ let g:eskk#enable_completion = 1
 ""	let skk_jisyo = 'C:\Dropbox\skk\skki1_5u.dic'
 ""	let skk_large_jisyo = 'C:\Dropbox\skk\SKK-JISYO.L'
 ""else
-"	let skk_jisyo = '$VIMRUNTIME/skkdict/.skk-jisyo'
-"	let skk_large_jisyo = '$VIMRUNTIME/skkdict/SKK-JISYO.L'
+"	let skk_jisyo = '$VIMRUNTIME/../../skk/.skk-jisyo'
+"	let skk_large_jisyo = '$VIMRUNTIME/../../skk/SKK-JISYO.L'
 ""endif
 "let skk_auto_save_jisyo = 1
 "let skk_keep_state = 0
@@ -539,7 +502,7 @@ nnoremap <silent> g/ :<C-u>Unite -buffer-name=search line -start-insert<CR>
 call unite#custom#source('line', 'matchers', 'matcher_migemo')
 " find の path を設定
 if !has('unix')
-	let g:unite_source_find_command='C:/Dropbox/MySys/portvim/vim73/vimfind.bat'
+	let g:unite_source_find_command='$VIMRUNTIME/vimfind.bat'
 else
 	let g:unite_source_find_command='find'
 endif
