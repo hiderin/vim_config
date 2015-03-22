@@ -599,12 +599,12 @@ autocmd FileType ref-* nnoremap <buffer> <silent> q :<C-u>close<CR>
 let g:ref_source_webdict_sites = {
 \   'je': {
 \     'url': 'http://dictionary.infoseek.ne.jp/jeword/%s',
-\     'keyword_encoding': 'shift-jis',
-\     'output_encoding': 'shift-jis',
+\     'keyword_encoding': 'utf-8',
+\     'output_encoding': 'euc-jp',
 \   },
 \   'ej': {
 \     'url': 'http://dictionary.infoseek.ne.jp/ejword/%s',
-\     'output_encoding': 'shift-jis',
+\     'output_encoding': 'euc-jp',
 \   },
 \ }
 
