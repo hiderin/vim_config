@@ -502,7 +502,7 @@ nnoremap <silent> g/ :<C-u>Unite -buffer-name=search line -start-insert<CR>
 call unite#custom#source('line', 'matchers', 'matcher_migemo')
 " find の path を設定
 if !has('unix')
-	let g:unite_source_find_command='$VIMRUNTIME/vimfind.bat'
+	let g:unite_source_find_command='vimfind.bat'
 else
 	let g:unite_source_find_command='find'
 endif
