@@ -543,7 +543,6 @@ function! s:vimfiler_my_settings()
   nmap <buffer> s <Plug>(vimfiler_select_sort_type)
   nmap <buffer> O <Plug>(vimfiler_sync_with_current_vimfiler)
   nmap <buffer> o <Plug>(vimfiler_sync_with_another_vimfiler)
-  nmap <buffer> <esc> <Plug>(vimfiler_toggle_mark_current_line)
   nmap <buffer> J :Unite bookmark<CR>
   nmap <buffer> l <C-w>l
   nmap <buffer> h <C-w>h
