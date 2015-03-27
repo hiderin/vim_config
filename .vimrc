@@ -509,7 +509,7 @@ endif
 "let g:unite_source_find_command='C:/MinGW/msys/1.0/bin/find.exe'
 "let g:unite_source_find_command='C:/WINDOWS/system32/find.exe'
 " insertモードでUniteを起動させる。
-"let g:unite_enable_start_insert=1
+let g:unite_enable_start_insert=1
 " 最近使用したファイルの一覧
 nnoremap <silent> <Leader>mru :Unite file_mru<CR>
 " 現在のバッファの一覧
