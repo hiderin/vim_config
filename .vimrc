@@ -285,7 +285,7 @@ inoremap <C-e>  <End>
 inoremap <C-b>  <Left>
 inoremap <C-f>  <Right>
 inoremap <C-n>  <Down>
-inoremap <C-u>  <UP>
+inoremap <C-p>  <UP>
 "imap <ESC>< <ESC>ggi
 "imap <ESC>> <ESC>Gi
 
@@ -303,7 +303,7 @@ inoremap <C-u>  <UP>
 " コマンドライン履歴を一つ進む
 :cnoremap <C-N>		<Down>
 " コマンドライン履歴を一つ戻る
-:cnoremap <C-u>		<Up>
+:cnoremap <C-p>		<Up>
 " 前の単語へ移動
 ":cnoremap <C-v>	<S-Left>
 " 次の単語へ移動
