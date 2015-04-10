@@ -47,6 +47,7 @@ if !has('unix')
 else
 	NeoBundle 'git://github.com/hiderin/vimfiler.vim.git'
 	NeoBundle 'git://github.com/hiderin/unite.vim.git'
+	NeoBundle 'git://github.com/hiderin/w3m.vim'
 endif
 NeoBundle 'git://github.com/Shougo/neocomplcache.git'
 NeoBundle 'git://github.com/Shougo/vimproc.git'
@@ -344,6 +345,17 @@ if !has('unix')
 	nnoremap <Leader>vkh :vs $VIMRUNTIME/../../keyhac/config.py<CR>
 	nnoremap <Leader>skh :sp $VIMRUNTIME/../../keyhac/config.py<CR>
 	nnoremap <Leader>hkh :e $VIMRUNTIME/../../keyhac/config.py<CR>
+elseif version == 703
+	nnoremap <Leader>grc :tabnew<CR>:e $HOME/repos/vim_config/.gvimrc<CR>
+	nnoremap <Leader>trc :tabnew<CR>:e $HOME/repos/vim_config/.vimrc<CR>
+	nnoremap <Leader>vrc :vs $HOME/repos/vim_config/.vimrc<CR>
+	nnoremap <Leader>src :sp $HOME/repos/vim_config/.vimrc<CR>
+	nnoremap <Leader>hrc :e $HOME/repos/vim_config/.vimrc<CR>
+"	nnoremap <Leader>prc :tabnew<CR>:e /sdcard/mysys/portvim/vim73/macros/printrc.vim<CR>
+"	nnoremap <Leader>tkh :tabnew<CR>:e /sdcard/mysys/keyhac/config.py<CR>
+"	nnoremap <Leader>vkh :vs /sdcard/mysys/keyhac/config.py<CR>
+"	nnoremap <Leader>skh :sp /sdcard/mysys/keyhac/config.py<CR>
+"	nnoremap <Leader>hkh :e /sdcard/mysys/keyhac/config.py<CR>
 else
 	nnoremap <Leader>grc :tabnew<CR>:e /sdcard/mysys/portvim/.gvimrc<CR>
 	nnoremap <Leader>trc :tabnew<CR>:e /sdcard/mysys/portvim/.vimrc<CR>
