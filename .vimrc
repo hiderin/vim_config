@@ -581,6 +581,16 @@ if !has('unix')
 	"endfunction
 endif
 
+" VimFiler関連付けの設定
+if !has('unix')
+	"ウィンドウズの設定
+elseif version==703
+	"Ubuntu(ノートPC)の設定
+	call vimfiler#set_execute_file('xls','wine "/home/user/Wine-Dirs/Program-Files/Microsoft Office/Office/EXCEL.EXE"')
+else
+	"Andoroidの設定
+endif
+
 ""--------------------------------------------------------------------------------
 "" w3mの設定
 ""--------------------------------------------------------------------------------
