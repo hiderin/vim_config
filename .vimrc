@@ -502,6 +502,13 @@ let g:eskk#enable_completion = 1
 "カーソル移動で一覧と差分を更新させない
 let g:agit_enable_auto_show_commit = 0
 
+augroup agit_rc
+"デフォルトのキーマッピングを変更
+  autocmd FileType agit call s:agit_my_settings()
+augroup END
+function! s:agit_my_settings()
+  nmap <buffer> cp <Plug>(agit-git-cherry-pick)
+endfunction
 "-------------------------------------------------------------------------------
 " Uniteの設定
 "-------------------------------------------------------------------------------
