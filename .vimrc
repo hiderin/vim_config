@@ -70,6 +70,7 @@ NeoBundle 'git://github.com/vim-scripts/EasyGrep'
 "NeoBundle 'git://github.com/mbbill/echofunc'
 NeoBundle 'git://github.com/vim-jp/vimdoc-ja'
 NeoBundle 'git://github.com/itchyny/calendar.vim'
+NeoBundle 'git://github.com/Sunitha/SkypeShell.git'
 "NeoBundle ''
 
 "----- vim.org Plugins -----
@@ -668,3 +669,6 @@ let g:neocomplcache_enable_smart_case = 1
 " Plugin key-mappings.
 inoremap <expr><C-g>     neocomplcache#undo_completion()
 inoremap <expr><C-l>     neocomplcache#complete_common_string()
+
+
+nmap <Leader>sk :VimShellInteractive irb.bat -r skype<CR>
