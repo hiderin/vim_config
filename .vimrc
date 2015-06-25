@@ -349,6 +349,8 @@ if !has('unix')
 	nnoremap <Leader>skh :sp $VIMRUNTIME/../../keyhac/config.py<CR>
 	nnoremap <Leader>hkh :e $VIMRUNTIME/../../keyhac/config.py<CR>
 elseif version == 703
+" 印刷用設定ファイルを読み込み
+	:source .printrc.vim
 	nnoremap <Leader>grc :tabnew<CR>:e $HOME/repos/vim_config/.gvimrc<CR>
 	nnoremap <Leader>trc :tabnew<CR>:e $HOME/repos/vim_config/.vimrc<CR>
 	nnoremap <Leader>vrc :vs $HOME/repos/vim_config/.vimrc<CR>
