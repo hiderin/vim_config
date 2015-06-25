@@ -352,7 +352,7 @@ elseif version == 703
 	nnoremap <Leader>vrc :vs $HOME/repos/vim_config/.vimrc<CR>
 	nnoremap <Leader>src :sp $HOME/repos/vim_config/.vimrc<CR>
 	nnoremap <Leader>hrc :e $HOME/repos/vim_config/.vimrc<CR>
-"	nnoremap <Leader>prc :tabnew<CR>:e /sdcard/mysys/portvim/vim73/macros/printrc.vim<CR>
+	nnoremap <Leader>prc :tabnew<CR>:e .printrc.vim<CR>
 "	nnoremap <Leader>tkh :tabnew<CR>:e /sdcard/mysys/keyhac/config.py<CR>
 "	nnoremap <Leader>vkh :vs /sdcard/mysys/keyhac/config.py<CR>
 "	nnoremap <Leader>skh :sp /sdcard/mysys/keyhac/config.py<CR>
@@ -594,7 +594,7 @@ if !has('unix')
 	"ウィンドウズの設定
 elseif version==703
 	"Ubuntu(ノートPC)の設定
-	call vimfiler#set_execute_file('xls','wine "/home/user/Wine-Dirs/Program-Files/Microsoft Office/Office/EXCEL.EXE"')
+	call vimfiler#set_execute_file('xls','wine "/home/user/Wine-Dirs/Program-Files/Microsoft_Office/Office/EXCEL.EXE"')
 else
 	"Andoroidの設定
 endif
