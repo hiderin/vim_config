@@ -214,6 +214,8 @@ let Tlist_Exit_OnlyWindow = 1
 let Tlist_Close_On_Select =1
 " キーマップ TagListの起動
 nnoremap <silent> <Leader>tl :Tlist<CR>
+" タグリスト起動時にタグリストウィンドウにジャンプ
+let Tlist_GainFocus_On_ToggleOpen = 1
 
 " TagExplorerの設定
 " 表示するファイルのフィルタ
