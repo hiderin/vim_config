@@ -698,3 +698,11 @@ inoremap <expr><C-l>     neocomplcache#complete_common_string()
 
 
 nmap <Leader>sk :VimShellInteractive irb.bat -r skype<CR>
+
+" ビジュアルモードで選択したテキストが&#12289;クリップボードに入るようにする
+" http://nanasi.jp/articles/howto/editing/clipboard.html
+set clipboard=autoselect
+
+" 無名レジスタに入るデータを&#12289;*レジスタにも入れる&#12290;
+set clipboard+=unnamed
+set clipboard=unnamedplus
