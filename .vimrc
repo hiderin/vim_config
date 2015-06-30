@@ -689,7 +689,7 @@ CAlterCommand neoce NeoComplCacheEnable
 "自動補間 OFF
 CAlterCommand neocd NeoComplCacheDisable
 " Use neocomplcache.
-let g:neocomplcache_enable_at_startup = 1
+"let g:neocomplcache_enable_at_startup = 1
 " Use smartcase.
 let g:neocomplcache_enable_smart_case = 1
 " Plugin key-mappings.
