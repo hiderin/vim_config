@@ -383,7 +383,7 @@ set splitbelow
 set splitright
 
 " Git Bushの呼び出し
-nnoremap <Leader>git :!sh --login -i<CR>
+nnoremap <Leader>git :cd %:h<CR>:!sh --login -i<CR>
 
 "fugitive.vimのgit commitの画面をutf-8に変換してから閉じる
 nnoremap <Leader>cmt  :set fenc=utf-8<CR>:wq!<CR>
