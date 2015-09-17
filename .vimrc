@@ -708,3 +708,7 @@ if has('unix') && version ==703
 	set clipboard+=unnamed
 	set clipboard=unnamedplus
 endif
+
+
+" Neo_Lib3への移動
+CAlterCommand neolibdir cd G:\Neo_Lib3\
