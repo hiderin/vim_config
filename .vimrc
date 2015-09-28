@@ -72,6 +72,7 @@ NeoBundle 'git://github.com/vim-scripts/EasyGrep'
 NeoBundle 'git://github.com/vim-jp/vimdoc-ja'
 NeoBundle 'git://github.com/itchyny/calendar.vim'
 NeoBundle 'git://github.com/Sunitha/SkypeShell.git'
+NeoBundle 'git://github.com/tpope/vim-surround'
 "NeoBundle ''
 
 "----- vim.org Plugins -----
