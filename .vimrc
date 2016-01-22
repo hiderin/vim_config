@@ -377,6 +377,7 @@ endif
 "nnoremap <Leader>mru :MRU<CR>
 nnoremap <Leader>cd  :cd %:h<CR>:pwd<CR>
 nnoremap <Leader>cp  :cd %:h<CR>:cd ..<CR>:pwd<CR>
+nnoremap <Leader>vf  :VimFilerDouble -tab -create<CR>
 
 " 新しいウィンドウを下に開く
 set splitbelow
