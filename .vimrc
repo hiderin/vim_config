@@ -72,6 +72,7 @@ NeoBundle 'git://github.com/vim-scripts/EasyGrep'
 NeoBundle 'git://github.com/vim-jp/vimdoc-ja'
 NeoBundle 'git://github.com/itchyny/calendar.vim'
 NeoBundle 'git://github.com/Sunitha/SkypeShell.git'
+NeoBundle 'git://github.com/tpope/vim-surround'
 "NeoBundle ''
 
 "----- vim.org Plugins -----
@@ -376,6 +377,7 @@ endif
 "nnoremap <Leader>mru :MRU<CR>
 nnoremap <Leader>cd  :cd %:h<CR>:pwd<CR>
 nnoremap <Leader>cp  :cd %:h<CR>:cd ..<CR>:pwd<CR>
+nnoremap <Leader>vf  :VimFilerDouble -tab -create<CR>
 
 " 新しいウィンドウを下に開く
 set splitbelow
@@ -487,7 +489,7 @@ set imdisable
 if !has('unix')
 	let g:eskk#directory = "$VIMRUNTIME/../../skk"
 "	let g:eskk#dictionary = { 'path': "$VIMRUNTIME/../../skk/skki1_5u.dic", 'sorted': 0, 'encoding': 'utf-16le', }
-	let g:eskk#dictionary = { 'path': "$VIMRUNTIME/../../skk/.skk-jisyo", 'sorted': 0, 'encoding': 'utf-8', }
+	let g:eskk#dictionary = { 'path': "$VIMRUNTIME/../../skk/.skk-jisyo", 'sorted': 0, 'encoding': 'sjis', }
 	let g:eskk#large_dictionary = { 'path': "$VIMRUNTIME/../../skk/SKK-JISYO.L", 'sorted': 1, 'encoding': 'euc-jp', }
 else
 	let g:eskk#directory = "~/.eskk"
@@ -708,3 +710,7 @@ if has('unix') && version ==703
 	set clipboard+=unnamed
 	set clipboard=unnamedplus
 endif
+
+
+" Neo_Lib3への移動
+CAlterCommand neolibdir cd G:\Neo_Lib3\
