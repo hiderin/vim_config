@@ -357,10 +357,10 @@ elseif version == 703
 	nnoremap <Leader>src :sp $HOME/repos/vim_config/.vimrc<CR>
 	nnoremap <Leader>hrc :e $HOME/repos/vim_config/.vimrc<CR>
 	nnoremap <Leader>prc :tabnew<CR>:e .printrc.vim<CR>
-"	nnoremap <Leader>tkh :tabnew<CR>:e /sdcard/mysys/keyhac/config.py<CR>
-"	nnoremap <Leader>vkh :vs /sdcard/mysys/keyhac/config.py<CR>
-"	nnoremap <Leader>skh :sp /sdcard/mysys/keyhac/config.py<CR>
-"	nnoremap <Leader>hkh :e /sdcard/mysys/keyhac/config.py<CR>
+	nnoremap <Leader>tkh :tabnew<CR>:e $HOME/Dropbox/mysys/keyhac/config.py<CR>
+	nnoremap <Leader>vkh :vs $HOME/Dropbox/mysys/keyhac/config.py<CR>
+	nnoremap <Leader>skh :sp $HOME/Dropbox/mysys/keyhac/config.py<CR>
+	nnoremap <Leader>hkh :e $HOME/Dropbox/mysys/keyhac/config.py<CR>
 else
 	nnoremap <Leader>grc :tabnew<CR>:e /sdcard/mysys/portvim/.gvimrc<CR>
 	nnoremap <Leader>trc :tabnew<CR>:e /sdcard/mysys/portvim/.vimrc<CR>
