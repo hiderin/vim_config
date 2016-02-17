@@ -73,6 +73,7 @@ NeoBundle 'git://github.com/vim-jp/vimdoc-ja'
 NeoBundle 'git://github.com/itchyny/calendar.vim'
 NeoBundle 'git://github.com/Sunitha/SkypeShell.git'
 NeoBundle 'git://github.com/tpope/vim-surround'
+NeoBundle 'git://github.com/Shougo/vinarise'
 "NeoBundle ''
 
 "----- vim.org Plugins -----
