@@ -193,8 +193,9 @@ if !has('unix')
 	"let mygrepprg='C:/cygwin/bin/grep'
 	let mygrepprg='findstr'
 	"set grepprg=c:/cygwin/bin/grep\ -nH
+	set grepprg=$VIMRUNTIME/../cygwin/bin/grep\ -nH
 	"set grepprg=grep\ -nH
-	set grepprg=findstr\ /n
+	"set grepprg=findstr\ /n
 	"set grepprg=jvgrep
 	"let Grep_Path = 'C:/DropBox/GnuWin32/bin/grep.exe'
 	"let Fgrep_Path = 'C:/DropBox/GnuWin32/bin/grep.exe -F'
