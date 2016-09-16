@@ -56,22 +56,22 @@ NeoBundle 'https://github.com/Shougo/neomru.vim'
 NeoBundle 'https://github.com/cohama/agit.vim'
 "NeoBundle 'https://github.com/jlanzarotta/bufexplorer'
 "NeoBundle 'https://github.com/gregsexton/gitv'
-NeoBundle 'https://github.com/thinca/vim-poslist'
+"NeoBundle 'https://github.com/thinca/vim-poslist'
 "NeoBundle 'https://github.com/tyru/skk.vim'
-NeoBundle 'https://github.com/tyru/eskk.vim'
+"NeoBundle 'https://github.com/tyru/eskk.vim'
 NeoBundle 'https://github.com/vim-scripts/taglist.vim'
 "NeoBundle 'git://github.com/tsaleh/vim-align.git'
 NeoBundle 'https://github.com/tpope/vim-fugitive'
 NeoBundle 'https://github.com/thinca/vim-visualstar'
 NeoBundle 'https://github.com/thinca/vim-ref'
 NeoBundle 'https://github.com/tyru/vim-altercmd'
-NeoBundle 'https://github.com/mattn/webapi-vim'
-NeoBundle 'https://github.com/mattn/excitetranslate-vim'
-NeoBundle 'https://github.com/vim-scripts/EasyGrep'
+"NeoBundle 'https://github.com/mattn/webapi-vim'
+"NeoBundle 'https://github.com/mattn/excitetranslate-vim'
+"NeoBundle 'https://github.com/vim-scripts/EasyGrep'
 "NeoBundle 'git://github.com/mbbill/echofunc'
 NeoBundle 'https://github.com/vim-jp/vimdoc-ja'
-NeoBundle 'https://github.com/itchyny/calendar.vim'
-NeoBundle 'https://github.com/Sunitha/SkypeShell.git'
+"NeoBundle 'https://github.com/itchyny/calendar.vim'
+"NeoBundle 'https://github.com/Sunitha/SkypeShell.git'
 NeoBundle 'https://github.com/tpope/vim-surround'
 NeoBundle 'https://github.com/Shougo/vinarise'
 "NeoBundle ''
@@ -107,6 +107,7 @@ else
 endif
 
 syntax on
+set synmaxcol=200
 
 "入力モード時、ステータスラインのカラーを変更
 augroup InsertHook
@@ -193,9 +194,8 @@ if !has('unix')
 	"let mygrepprg='C:/cygwin/bin/grep'
 	let mygrepprg='findstr'
 	"set grepprg=c:/cygwin/bin/grep\ -nH
-	set grepprg=$VIMRUNTIME/../cygwin/bin/grep\ -nH
 	"set grepprg=grep\ -nH
-	"set grepprg=findstr\ /n
+	set grepprg=findstr\ /n
 	"set grepprg=jvgrep
 	"let Grep_Path = 'C:/DropBox/GnuWin32/bin/grep.exe'
 	"let Fgrep_Path = 'C:/DropBox/GnuWin32/bin/grep.exe -F'
@@ -394,11 +394,11 @@ nnoremap <Leader>cmt  :set fenc=utf-8<CR>:wq!<CR>
 
 
 " poslist.vimの設定
-nmap <C-o> <Plug>(poslist-prev-pos)
-nmap <C-i> <Plug>(poslist-next-pos)
-nmap <Leader><C-o> <Plug>(poslist-prev-buf)
-nmap <Leader><C-i> <Plug>(poslist-next-buf)
-let g:poslist_histsize = 1000
+"nmap <C-o> <Plug>(poslist-prev-pos)
+"nmap <C-i> <Plug>(poslist-next-pos)
+"nmap <Leader><C-o> <Plug>(poslist-prev-buf)
+"nmap <Leader><C-i> <Plug>(poslist-next-buf)
+"let g:poslist_histsize = 1000
 
 "QfixHowmの設定
 " キーマップリーダー
@@ -487,19 +487,19 @@ if has('unix')
 endif
 
 "" SKK.vimの辞書設定
-set imdisable
-if !has('unix')
-	let g:eskk#directory = "$VIMRUNTIME/../../skk"
-"	let g:eskk#dictionary = { 'path': "$VIMRUNTIME/../../skk/skki1_5u.dic", 'sorted': 0, 'encoding': 'utf-16le', }
-	let g:eskk#dictionary = { 'path': "$VIMRUNTIME/../../skk/.skk-jisyo", 'sorted': 0, 'encoding': 'sjis', }
-	let g:eskk#large_dictionary = { 'path': "$VIMRUNTIME/../../skk/SKK-JISYO.L", 'sorted': 1, 'encoding': 'euc-jp', }
-else
-	let g:eskk#directory = "~/.eskk"
-"	let g:eskk#dictionary = { 'path': "~/.eskk/skki1_5u.dic", 'sorted': 0, 'encoding': 'utf-16le', }
-	let g:eskk#dictionary = { 'path': "~/.eskk/.skk-jisyo", 'sorted': 0, 'encoding': 'utf-8', }
-	let g:eskk#large_dictionary = { 'path': "~/.eskk/SKK-JISYO.L", 'sorted': 1, 'encoding': 'euc-jp', }
-endif
-let g:eskk#enable_completion = 1
+"set imdisable
+"if !has('unix')
+"	let g:eskk#directory = "$VIMRUNTIME/../../skk"
+""	let g:eskk#dictionary = { 'path': "$VIMRUNTIME/../../skk/skki1_5u.dic", 'sorted': 0, 'encoding': 'utf-16le', }
+"	let g:eskk#dictionary = { 'path': "$VIMRUNTIME/../../skk/.skk-jisyo", 'sorted': 0, 'encoding': 'sjis', }
+"	let g:eskk#large_dictionary = { 'path': "$VIMRUNTIME/../../skk/SKK-JISYO.L", 'sorted': 1, 'encoding': 'euc-jp', }
+"else
+"	let g:eskk#directory = "~/.eskk"
+""	let g:eskk#dictionary = { 'path': "~/.eskk/skki1_5u.dic", 'sorted': 0, 'encoding': 'utf-16le', }
+"	let g:eskk#dictionary = { 'path': "~/.eskk/.skk-jisyo", 'sorted': 0, 'encoding': 'utf-8', }
+"	let g:eskk#large_dictionary = { 'path': "~/.eskk/SKK-JISYO.L", 'sorted': 1, 'encoding': 'euc-jp', }
+"endif
+"let g:eskk#enable_completion = 1
 
 " SKK.vimの辞書設定
 "set imdisable
