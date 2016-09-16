@@ -56,7 +56,7 @@ NeoBundle 'https://github.com/Shougo/neomru.vim'
 NeoBundle 'https://github.com/cohama/agit.vim'
 "NeoBundle 'https://github.com/jlanzarotta/bufexplorer'
 "NeoBundle 'https://github.com/gregsexton/gitv'
-"NeoBundle 'https://github.com/thinca/vim-poslist'
+NeoBundle 'https://github.com/thinca/vim-poslist'
 "NeoBundle 'https://github.com/tyru/skk.vim'
 "NeoBundle 'https://github.com/tyru/eskk.vim'
 NeoBundle 'https://github.com/vim-scripts/taglist.vim'
@@ -142,6 +142,9 @@ set shiftwidth=4
 
 "新しい行を作ったときに高度な自動インデントを行う
 set smartindent
+
+"syntaxの読み込む行を制限(速度向上のため)
+set synmaxcol=200
 
 "=======================日本語入力関係======================
 "日本語入力をリセット
@@ -394,11 +397,11 @@ nnoremap <Leader>cmt  :set fenc=utf-8<CR>:wq!<CR>
 
 
 " poslist.vimの設定
-"nmap <C-o> <Plug>(poslist-prev-pos)
-"nmap <C-i> <Plug>(poslist-next-pos)
-"nmap <Leader><C-o> <Plug>(poslist-prev-buf)
-"nmap <Leader><C-i> <Plug>(poslist-next-buf)
-"let g:poslist_histsize = 1000
+nmap <C-o> <Plug>(poslist-prev-pos)
+nmap <C-i> <Plug>(poslist-next-pos)
+nmap <Leader><C-o> <Plug>(poslist-prev-buf)
+nmap <Leader><C-i> <Plug>(poslist-next-buf)
+let g:poslist_histsize = 1000
 
 "QfixHowmの設定
 " キーマップリーダー
