@@ -732,3 +732,7 @@ endif
 
 " Neo_Lib3への移動
 CAlterCommand neolibdir cd G:\Neo_Lib3\
+
+" ctagsにEchoFuncを用いる
+CAlterCommand ctags !ctags -R --fields=+lS<CR>
+
