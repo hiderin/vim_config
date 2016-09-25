@@ -628,17 +628,19 @@ endif
 ""--------------------------------------------------------------------------------
 if !has('unix')
 	"外部ブラウザ
-"		let g:w3m#external_browser = '"C:\Dropbox\MySys\programfiles\FirefoxPortable\FirefoxPortable.exe"'
-		let g:w3m#external_browser = '$VIMRUNTIME/../../"clnch\clnch.exe" --execute='
-
-	augroup w3mrc
-	"デフォルトのキーマッピングを変更
-	  autocmd FileType w3m call s:w3m_my_settings()
-	augroup END
-	function! s:w3m_my_settings()
-	  nmap <buffer> cr :W3mShowExtenalBrowser<CR>
-	endfunction
+"	let g:w3m#external_browser = '"C:\Dropbox\MySys\programfiles\FirefoxPortable\FirefoxPortable.exe"'
+	let g:w3m#external_browser = '$VIMRUNTIME/../../"clnch\clnch.exe" --execute='
+else
+	let g:w3m#external_browser = '/usr/bin/opera '
 endif
+
+augroup w3mrc
+"デフォルトのキーマッピングを変更
+  autocmd FileType w3m call s:w3m_my_settings()
+augroup END
+function! s:w3m_my_settings()
+  nmap <buffer> br :W3mShowExtenalBrowser<CR>
+endfunction
 
 "--------------------------------------------------------------------------------
 " Calendar.vimの設定
