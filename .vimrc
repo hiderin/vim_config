@@ -74,6 +74,7 @@ NeoBundle 'https://github.com/vim-jp/vimdoc-ja'
 "NeoBundle 'https://github.com/Sunitha/SkypeShell.git'
 NeoBundle 'https://github.com/tpope/vim-surround'
 NeoBundle 'https://github.com/Shougo/vinarise'
+NeoBundle 'https://github.com/fuenor/im_control.vim'
 "NeoBundle ''
 
 "----- vim.org Plugins -----
@@ -163,20 +164,25 @@ let g:loaded_spellfile_plugin = 1
 "日本語入力をリセット
 au BufNewFile,BufRead * set iminsert=0
 
-" 挿入モード時にIME状態を保存しない
-inoremap <silent> <ESC> <ESC>
-inoremap <silent> <C-{> <ESC>
+" 「日本語入力固定モード」の動作モード
+let IM_CtrlMode = 4
+" 「日本語入力固定モード」切替キー
+inoremap <silent> <C-j> <C-^><C-r>=IMState('FixMode')<CR>
 
-"「日本語入力固定モード」の設定
-inoremap <silent> <C-k> <C-^>
+"" 挿入モード時にIME状態を保存しない
+"inoremap <silent> <ESC> <ESC>
+"inoremap <silent> <C-[> <ESC>
+"
+""「日本語入力固定モード」の設定
+"inoremap <silent> <C-k> <C-^>
 
-
-" コマンドモードでのIMEをoffにする。
-let g:IMState = 0
-autocmd InsertEnter * let &iminsert = g:IMState
-autocmd InsertLeave * let g:IMState = &iminsert|set iminsert=0 imsearch=0
-autocmd CmdwinEnter * let g:IMState = &iminsert|set iminsert=0 imsearch=0
-autocmd CmdwinLeave * let g:IMState = &iminsert|set iminsert=0 imsearch=0
+"
+"" コマンドモードでのIMEをoffにする。
+"let g:IMState = 0
+"autocmd InsertEnter * let &iminsert = g:IMState
+"autocmd InsertLeave * let g:IMState = &iminsert|set iminsert=0 imsearch=0
+"autocmd CmdwinEnter * let &iminsert = g:IMState
+"autocmd CmdwinLeave * let g:IMState = &iminsert|set iminsert=0 imsearch=0
 "autocmd CmdwinLeave * let &iminsert = g:IMState
 
 "
