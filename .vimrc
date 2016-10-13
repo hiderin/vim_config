@@ -49,7 +49,7 @@ else
 	NeoBundle 'git://github.com/hiderin/unite.vim.git'
 	NeoBundle 'git://github.com/hiderin/w3m.vim'
 endif
-NeoBundle 'https://github.com/Shougo/neocomplcache.git'
+"NeoBundle 'https://github.com/Shougo/neocomplcache.git'
 NeoBundle 'https://github.com/Shougo/vimproc.git'
 NeoBundle 'https://github.com/Shougo/vimshell.git'
 NeoBundle 'https://github.com/Shougo/neomru.vim'
