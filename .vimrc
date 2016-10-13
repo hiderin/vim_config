@@ -313,8 +313,8 @@ inoremap <C-a>  <Home>
 inoremap <C-e>  <End>
 inoremap <C-b>  <Left>
 inoremap <C-f>  <Right>
-inoremap <C-n>  <Down>
-inoremap <C-p>  <UP>
+"inoremap <C-n>  <Down>
+"inoremap <C-p>  <UP>
 "imap <ESC>< <ESC>ggi
 "imap <ESC>> <ESC>Gi
 
@@ -339,7 +339,7 @@ inoremap <C-p>  <UP>
 ":cnoremap <C-w>	<S-Right>
 
 " 挿入モードでレジスタの文字列の貼り付け
-inoremap <C-p> <ESC>pa
+"inoremap <C-p> <ESC>pa
 "=================================================================================== 
 
 """仮想タブ設定
