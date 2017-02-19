@@ -25,77 +25,44 @@ source $VIMRUNTIME/vimrc_example.vim
 "===============================================================================
 "   プラグインマネージャ
 "===============================================================================
-filetype plugin indent off
+ " Setup dein {{{
+let s:dein_cache_path = expand('$VIMRUNTIME/bundle/dein')
+let s:dein_dir = s:dein_cache_path
+                 \ .'/repos/github.com/Shougo/dein.vim'
 
-if has('vim_starting')
-        set runtimepath+=$VIMRUNTIME/bundle/automatic/neobundle.vim
+if &runtimepath !~ '/dein.vim'
+  if !isdirectory(s:dein_dir)
+    execute '!git clone https://github.com/Shougo/dein.vim' s:dein_dir
+  endif
+  execute 'set runtimepath+=' . fnamemodify(s:dein_dir, ':p')
 endif
 
-call neobundle#begin(expand('$VIMRUNTIME/bundle/automatic'))
+if dein#load_state(s:dein_cache_path)
+	call dein#begin(s:dein_cache_path)
 
-"******************************************
-"*     neobundle で管理するプラグイン     *
-"******************************************
-NeoBundle 'https://github.com/Shougo/neobundle.vim.git'
+"	call dein#add('Shougo/dein.vim')
+"	call dein#add('haya14busa/dein-command.vim')
 
-"----- github Plugins -----
-if !has('unix')
-	NeoBundle 'https://github.com/yuratomo/w3m.vim'
-"	NeoBundle 'https://github.com/Shougo/vimfiler.git'
-	NeoBundle 'https://github.com/Shougo/vimfiler.vim.git'
-	NeoBundle 'https://github.com/Shougo/unite.vim.git'
-else
-	NeoBundle 'git://github.com/hiderin/vimfiler.vim.git'
-	NeoBundle 'git://github.com/hiderin/unite.vim.git'
-	NeoBundle 'git://github.com/hiderin/w3m.vim'
+	let s:toml_dir = s:dein_cache_path . '/toml'
+
+    call dein#load_toml(s:toml_dir . '/vim.toml', {'lazy': 0})
+"    call dein#load_toml(s:toml_dir . '/vimlazy.toml', {'lazy': 1})
+
+"    if has('nvim')
+"        call dein#load_toml(s:toml_dir . '/neovim.toml', {'lazy': 1})
+"    endif
+
+    call dein#end()
+    call dein#save_state()
 endif
-"NeoBundle 'https://github.com/Shougo/neocomplcache.git'
-NeoBundle 'https://github.com/Shougo/vimproc.git'
-NeoBundle 'https://github.com/Shougo/vimshell.git'
-NeoBundle 'https://github.com/Shougo/neomru.vim'
-NeoBundle 'https://github.com/cohama/agit.vim'
-"NeoBundle 'https://github.com/jlanzarotta/bufexplorer'
-"NeoBundle 'https://github.com/gregsexton/gitv'
-NeoBundle 'https://github.com/thinca/vim-poslist'
-"NeoBundle 'https://github.com/tyru/skk.vim'
-"NeoBundle 'https://github.com/tyru/eskk.vim'
-NeoBundle 'https://github.com/vim-scripts/taglist.vim'
-"NeoBundle 'git://github.com/tsaleh/vim-align.git'
-NeoBundle 'https://github.com/tpope/vim-fugitive'
-NeoBundle 'https://github.com/thinca/vim-visualstar'
-NeoBundle 'https://github.com/thinca/vim-ref'
-NeoBundle 'https://github.com/tyru/vim-altercmd'
-"NeoBundle 'https://github.com/mattn/webapi-vim'
-"NeoBundle 'https://github.com/mattn/excitetranslate-vim'
-"NeoBundle 'https://github.com/vim-scripts/EasyGrep'
-"NeoBundle 'git://github.com/mbbill/echofunc'
-NeoBundle 'https://github.com/vim-jp/vimdoc-ja'
-"NeoBundle 'https://github.com/itchyny/calendar.vim'
-"NeoBundle 'https://github.com/Sunitha/SkypeShell.git'
-NeoBundle 'https://github.com/tpope/vim-surround'
-NeoBundle 'https://github.com/Shougo/vinarise'
-NeoBundle 'https://github.com/fuenor/im_control.vim'
-"NeoBundle ''
 
-"----- vim.org Plugins -----
-"NeoBundle 'FuzzyFinder'
-"NeoBundle 'NERD_tree'
+" もし、未インストールものものがあったらインストール
+if dein#check_install()
+  call dein#install()
+endif
 
-"----- Local Plugins -----
-NeoBundleLocal $VIMRUNTIME/bundle/manual
+"}}}
 
-"# [ pathogen ] NeoBundle管理外の自前インストールプラグインはPathogenで管理する
-"NeoBundle 'git://github.com/tpope/vim-pathogen.git'
-"if isdirectory(expand('$VIMRUNTIME/bundle/automatic/vim-pathogen'))
-"        call pathogen#infect('$VIMRUNTIME/bundle/manual')
-"endif
-
-call neobundle#end()
-
-filetype plugin indent on
-"===============================================================================
-let g:neobundle_default_git_protocol="git"
-NeoBundleCheck
 
 let mapleader = ","
 
@@ -375,7 +342,7 @@ if !has('unix')
 	nnoremap <Leader>hkh :e $VIMRUNTIME/../../keyhac/config.py<CR>
 elseif version == 703
 " 印刷用設定ファイルを読み込み
-	:source .printrc.vim
+"	:source .printrc.vim
 	nnoremap <Leader>grc :tabnew<CR>:e $HOME/repos/vim_config/.gvimrc<CR>
 	nnoremap <Leader>trc :tabnew<CR>:e $HOME/repos/vim_config/.vimrc<CR>
 	nnoremap <Leader>vrc :vs $HOME/repos/vim_config/.vimrc<CR>
@@ -557,7 +524,7 @@ endfunction
 "-------------------------------------------------------------------------------
 "Uniteでのmigemoの使用
 nnoremap <silent> g/ :<C-u>Unite -buffer-name=search line -start-insert<CR>
-call unite#custom#source('line', 'matchers', 'matcher_migemo')
+"call unite#custom#source('line', 'matchers', 'matcher_migemo')
 " find の path を設定
 if !has('unix')
 	let g:unite_source_find_command='vimfind.bat'
@@ -580,7 +547,7 @@ nnoremap <silent> <Leader>tbe :Unite buffer_tab<CR>
 " VimFilerの設定
 "-------------------------------------------------------------------------------
 "vimデフォルトのエクスプローラをvimfilerで置き換える
-let g:vimfiler_as_default_explorer = 1
+"let g:vimfiler_as_default_explorer = 1
 "セーフモードを無効にした状態で起動する
 let g:vimfiler_safe_mode_by_default = 0
 "現在開いているバッファのディレクトリを開く
