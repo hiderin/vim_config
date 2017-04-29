@@ -376,11 +376,11 @@ if !has('unix')
 elseif version == 703
 " 印刷用設定ファイルを読み込み
 	:source .printrc.vim
-	nnoremap <Leader>grc :tabnew<CR>:e $HOME/repos/vim_config/.gvimrc<CR>
-	nnoremap <Leader>trc :tabnew<CR>:e $HOME/repos/vim_config/.vimrc<CR>
-	nnoremap <Leader>vrc :vs $HOME/repos/vim_config/.vimrc<CR>
-	nnoremap <Leader>src :sp $HOME/repos/vim_config/.vimrc<CR>
-	nnoremap <Leader>hrc :e $HOME/repos/vim_config/.vimrc<CR>
+	nnoremap <Leader>grc :tabnew<CR>:e $HOME/repos/Vims/vim_config/.gvimrc<CR>
+	nnoremap <Leader>trc :tabnew<CR>:e $HOME/repos/Vims/vim_config/.vimrc<CR>
+	nnoremap <Leader>vrc :vs $HOME/repos/Vims/vim_config/.vimrc<CR>
+	nnoremap <Leader>src :sp $HOME/repos/Vims/vim_config/.vimrc<CR>
+	nnoremap <Leader>hrc :e $HOME/repos/Vims/vim_config/.vimrc<CR>
 	nnoremap <Leader>prc :tabnew<CR>:e .printrc.vim<CR>
 	nnoremap <Leader>tkh :tabnew<CR>:e ~/repos/KeyhacConfig/config.py<CR>
 	nnoremap <Leader>vkh :vs ~/repos/KeyhacConfig/config.py<CR>
