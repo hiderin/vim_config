@@ -45,9 +45,9 @@ if !has('unix')
 	NeoBundle 'https://github.com/Shougo/vimfiler.vim.git'
 	NeoBundle 'https://github.com/Shougo/unite.vim.git'
 else
-	NeoBundle 'git://github.com/hiderin/vimfiler.vim.git'
-	NeoBundle 'git://github.com/hiderin/unite.vim.git'
-	NeoBundle 'git://github.com/hiderin/w3m.vim'
+	NeoBundle 'https://github.com/hiderin/vimfiler.vim.git'
+	NeoBundle 'https://github.com/hiderin/unite.vim.git'
+	NeoBundle 'https://github.com/hiderin/w3m.vim'
 endif
 "NeoBundle 'https://github.com/Shougo/neocomplcache.git'
 NeoBundle 'https://github.com/Shougo/vimproc.git'
