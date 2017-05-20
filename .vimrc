@@ -373,7 +373,7 @@ if !has('unix')
 	nnoremap <Leader>vkh :vs $VIMRUNTIME/../../keyhac/config.py<CR>
 	nnoremap <Leader>skh :sp $VIMRUNTIME/../../keyhac/config.py<CR>
 	nnoremap <Leader>hkh :e $VIMRUNTIME/../../keyhac/config.py<CR>
-elseif version == 703
+elseif version == 704
 " 印刷用設定ファイルを読み込み
 	:source .printrc.vim
 	nnoremap <Leader>grc :tabnew<CR>:e $HOME/repos/Vims/vim_config/.gvimrc<CR>
@@ -622,7 +622,7 @@ endif
 " VimFiler関連付けの設定
 if !has('unix')
 	"ウィンドウズの設定
-elseif version==703
+elseif version==704
 	"Ubuntu(ノートPC)の設定
 	call vimfiler#set_execute_file('xls','wine "/home/user/Wine-Dirs/Program-Files/Microsoft_Office/Office/EXCEL.EXE"')
 else
@@ -727,7 +727,7 @@ inoremap <expr><C-l>     neocomplcache#complete_common_string()
 
 nmap <Leader>sk :VimShellInteractive irb.bat -r skype<CR>
 
-if has('unix') && version ==703
+if has('unix') && version ==704
 	" ビジュアルモードで選択したテキストが&#12289;クリップボードに入るようにする
 	" http://nanasi.jp/articles/howto/editing/clipboard.html
 	set clipboard=autoselect
