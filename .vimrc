@@ -58,7 +58,9 @@ NeoBundle 'https://github.com/cohama/agit.vim'
 "NeoBundle 'https://github.com/gregsexton/gitv'
 NeoBundle 'https://github.com/thinca/vim-poslist'
 "NeoBundle 'https://github.com/tyru/skk.vim'
-"NeoBundle 'https://github.com/tyru/eskk.vim'
+if has('unix') && version==800
+	NeoBundle 'https://github.com/tyru/eskk.vim'
+endif
 NeoBundle 'https://github.com/vim-scripts/taglist.vim'
 "NeoBundle 'git://github.com/tsaleh/vim-align.git'
 NeoBundle 'https://github.com/tpope/vim-fugitive'
