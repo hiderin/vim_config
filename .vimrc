@@ -58,7 +58,9 @@ NeoBundle 'https://github.com/cohama/agit.vim'
 "NeoBundle 'https://github.com/gregsexton/gitv'
 NeoBundle 'https://github.com/thinca/vim-poslist'
 "NeoBundle 'https://github.com/tyru/skk.vim'
-"NeoBundle 'https://github.com/tyru/eskk.vim'
+if has('unix') && version==800
+	NeoBundle 'https://github.com/tyru/eskk.vim'
+endif
 NeoBundle 'https://github.com/vim-scripts/taglist.vim'
 "NeoBundle 'git://github.com/tsaleh/vim-align.git'
 NeoBundle 'https://github.com/tpope/vim-fugitive'
@@ -373,9 +375,11 @@ if !has('unix')
 	nnoremap <Leader>vkh :vs $VIMRUNTIME/../../keyhac/config.py<CR>
 	nnoremap <Leader>skh :sp $VIMRUNTIME/../../keyhac/config.py<CR>
 	nnoremap <Leader>hkh :e $VIMRUNTIME/../../keyhac/config.py<CR>
-elseif version == 704
-" 印刷用設定ファイルを読み込み
-	:source $HOME/.printrc.vim
+else
+	if version == 704
+	" 印刷用設定ファイルを読み込み
+		:source $HOME/.printrc.vim
+	endif
 	nnoremap <Leader>grc :tabnew<CR>:e $HOME/repos/Vims/vim_config/.gvimrc<CR>
 	nnoremap <Leader>trc :tabnew<CR>:e $HOME/repos/Vims/vim_config/.vimrc<CR>
 	nnoremap <Leader>vrc :vs $HOME/repos/Vims/vim_config/.vimrc<CR>
@@ -386,17 +390,6 @@ elseif version == 704
 	nnoremap <Leader>vkh :vs ~/repos/KeyhacConfig/config.py<CR>
 	nnoremap <Leader>skh :sp ~/repos/KeyhacConfig/config.py<CR>
 	nnoremap <Leader>hkh :e ~/repos/KeyhacConfig/config.py<CR>
-else
-	nnoremap <Leader>grc :tabnew<CR>:e /sdcard/mysys/portvim/.gvimrc<CR>
-	nnoremap <Leader>trc :tabnew<CR>:e /sdcard/mysys/portvim/.vimrc<CR>
-	nnoremap <Leader>vrc :vs /sdcard/mysys/portvim/.vimrc<CR>
-	nnoremap <Leader>src :sp /sdcard/mysys/portvim/.vimrc<CR>
-	nnoremap <Leader>hrc :e /sdcard/mysys/portvim/.vimrc<CR>
-	nnoremap <Leader>prc :tabnew<CR>:e /sdcard/mysys/portvim/vim73/macros/printrc.vim<CR>
-	nnoremap <Leader>tkh :tabnew<CR>:e /sdcard/mysys/keyhac/config.py<CR>
-	nnoremap <Leader>vkh :vs /sdcard/mysys/keyhac/config.py<CR>
-	nnoremap <Leader>skh :sp /sdcard/mysys/keyhac/config.py<CR>
-	nnoremap <Leader>hkh :e /sdcard/mysys/keyhac/config.py<CR>
 endif
 "nnoremap <Leader>mru :MRU<CR>
 nnoremap <Leader>cd  :cd %:h<CR>:pwd<CR>
@@ -509,18 +502,18 @@ if has('unix')
 endif
 
 "" SKK.vimの辞書設定
-"set imdisable
-"if !has('unix')
+if has('unix') && version==800
 "	let g:eskk#directory = "$VIMRUNTIME/../../skk"
 ""	let g:eskk#dictionary = { 'path': "$VIMRUNTIME/../../skk/skki1_5u.dic", 'sorted': 0, 'encoding': 'utf-16le', }
 "	let g:eskk#dictionary = { 'path': "$VIMRUNTIME/../../skk/.skk-jisyo", 'sorted': 0, 'encoding': 'sjis', }
 "	let g:eskk#large_dictionary = { 'path': "$VIMRUNTIME/../../skk/SKK-JISYO.L", 'sorted': 1, 'encoding': 'euc-jp', }
 "else
-"	let g:eskk#directory = "~/.eskk"
-""	let g:eskk#dictionary = { 'path': "~/.eskk/skki1_5u.dic", 'sorted': 0, 'encoding': 'utf-16le', }
-"	let g:eskk#dictionary = { 'path': "~/.eskk/.skk-jisyo", 'sorted': 0, 'encoding': 'utf-8', }
-"	let g:eskk#large_dictionary = { 'path': "~/.eskk/SKK-JISYO.L", 'sorted': 1, 'encoding': 'euc-jp', }
-"endif
+	set imdisable
+	let g:eskk#directory = "~/.eskk"
+"	let g:eskk#dictionary = { 'path': "~/.eskk/skki1_5u.dic", 'sorted': 0, 'encoding': 'utf-16le', }
+	let g:eskk#dictionary = { 'path': "~/.eskk/.skk-jisyo", 'sorted': 0, 'encoding': 'utf-8', }
+	let g:eskk#large_dictionary = { 'path': "~/.eskk/SKK-JISYO.L", 'sorted': 1, 'encoding': 'euc-jp', }
+endif
 "let g:eskk#enable_completion = 1
 
 " SKK.vimの辞書設定
