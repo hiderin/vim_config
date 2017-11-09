@@ -410,7 +410,7 @@ if !has('unix')
 else
 	if version == 704
 	" 印刷用設定ファイルを読み込み
-		:source .printrc.vim
+		:source $HOME/.printrc.vim
 	endif
 	nnoremap <Leader>grc :tabnew<CR>:e $HOME/repos/Vims/vim_config/.gvimrc<CR>
 	nnoremap <Leader>trc :tabnew<CR>:e $HOME/repos/Vims/vim_config/.vimrc<CR>
@@ -541,6 +541,7 @@ set imdisable
 "	let g:eskk#dictionary = { 'path': "$VIMRUNTIME/../../skk/.skk-jisyo", 'sorted': 0, 'encoding': 'sjis', }
 "	let g:eskk#large_dictionary = { 'path': "$VIMRUNTIME/../../skk/SKK-JISYO.L", 'sorted': 1, 'encoding': 'euc-jp', }
 "else
+	set imdisable
 	let g:eskk#directory = "~/.eskk"
 "	let g:eskk#dictionary = { 'path': "~/.eskk/skki1_5u.dic", 'sorted': 0, 'encoding': 'utf-16le', }
 	let g:eskk#dictionary = { 'path': "~/.eskk/.skk-jisyo", 'sorted': 0, 'encoding': 'utf-8', }
