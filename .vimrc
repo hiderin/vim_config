@@ -193,16 +193,24 @@ au BufNewFile,BufRead * set iminsert=0
 " 「日本語入力固定モード」の動作モード
 let IM_CtrlMode = 4
 " 「日本語入力固定モード」切替キー
-inoremap <silent> <C-j> <C-^><C-r>=IMState('FixMode')<CR>
+inoremap <silent> <C-^> <C-^><C-r>=IMState('FixMode')<CR>
 
-"" 挿入モード時にIME状態を保存しない
-"inoremap <silent> <ESC> <ESC>
-"inoremap <silent> <C-[> <ESC>
-"
-""「日本語入力固定モード」の設定
-"inoremap <silent> <C-k> <C-^>
+" 挿入モード時にIME状態を保存しない
+inoremap <silent> <ESC> <ESC><ESC>
+inoremap <silent> <C-[> <ESC><ESC>
 
-"
+" 「日本語入力」切替キー
+inoremap <silent> <C-k> <C-^><C-r>=IMState('Toggle')<CR>
+inoremap <silent> <C-j> <C-^><C-r>=IMState('On')<CR>
+
+" 「日本語入力固定モード」のバッファローカルモード
+let b:IM_CtrlBufLocal = 1
+
+" 「日本語入力固定モード」がオンの場合、ステータス行にメッセージ表示
+set statusline+=%{IMStatus('[FixInput]')}
+
+set cmdheight=1
+
 "" コマンドモードでのIMEをoffにする。
 "let g:IMState = 0
 "autocmd InsertEnter * let &iminsert = g:IMState
@@ -366,7 +374,7 @@ inoremap <C-f>  <Right>
 
 " 挿入モードでレジスタの文字列の貼り付け
 "inoremap <C-p> <ESC>pa
-"=================================================================================== 
+"===================================================================================
 
 """仮想タブ設定
 "":let g:miniBufExplMapWindowNavVim = 1
@@ -521,7 +529,7 @@ if has('unix')
 	endfunction
 
 	"終了時に端末表示色を再設定
-	au VimLeave * let saved_t_Co=&t_Co|let &t_Co=1|let &t_Co=saved_t_Co 
+	au VimLeave * let saved_t_Co=&t_Co|let &t_Co=1|let &t_Co=saved_t_Co
 
 endif
 
