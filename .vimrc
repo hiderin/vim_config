@@ -526,8 +526,8 @@ if has('unix')
 endif
 
 "" SKK.vimの辞書設定
-set imdisable
 if has('unix') && version==800
+set imdisable
 "	let g:eskk#directory = "$VIMRUNTIME/../../skk"
 ""	let g:eskk#dictionary = { 'path': "$VIMRUNTIME/../../skk/skki1_5u.dic", 'sorted': 0, 'encoding': 'utf-16le', }
 "	let g:eskk#dictionary = { 'path': "$VIMRUNTIME/../../skk/.skk-jisyo", 'sorted': 0, 'encoding': 'sjis', }
