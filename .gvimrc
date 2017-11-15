@@ -15,7 +15,7 @@ set guifont=MeiryoKe_Console:h10:cSHIFTJIS
 "set whichwrap=b,s,h,l,<,>,[,]
 
 
-highlight StatusLine guifg=#2E4340 guibg=#ccdc90 ctermfg=green ctermbg=blue
+"highlight StatusLine guifg=#2E4340 guibg=#ccdc90 ctermfg=green ctermbg=blue
 
 " メニューの表示名の変更
 :let g:DrChipTopLvlMenu = "{メニューの表示名}"
@@ -32,7 +32,7 @@ set visualbell
 set vb t_vb=
 
 "全角スペースを視覚化
-"highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=#666666
+highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=#666666
 au BufNewFile,BufRead * match ZenkakuSpace /　/
 
 " メニューバー標準で非表示

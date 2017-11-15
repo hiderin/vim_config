@@ -112,6 +112,9 @@ endif
 syntax on
 set synmaxcol=200
 
+"==============================================================================
+"ステータスラインの設定
+
 "入力モード時、ステータスラインのカラーを変更
 augroup InsertHook
 autocmd!
@@ -120,6 +123,27 @@ autocmd InsertLeave * highlight StatusLine guifg=#2E4340 guibg=#ccdc90 ctermfg=g
 augroup END
 
 highlight StatusLine guifg=#2E4340 guibg=#ccdc90 ctermfg=green ctermbg=blue
+
+" ファイル名表示
+set statusline=%F
+" 変更チェック表示
+set statusline+=%m
+" 読み込み専用かどうか表示
+set statusline+=%r
+" ヘルプページなら[HELP]と表示
+set statusline+=%h
+" プレビューウインドウなら[Prevew]と表示
+set statusline+=%w
+" これ以降は右寄せ表示
+set statusline+=%=
+" file encoding
+set statusline+=[ENC=%{&fileencoding}]
+" 現在行数/全行数
+set statusline+=[LOW=%l/%L]
+" ステータスラインを常に表示(0:表示しない、1:2つ以上ウィンドウがある時だけ表示)
+set laststatus=2
+
+"==============================================================================
 
 "カラースキーマの切り替え(印刷時はdeveloperを使用したい)
 nnoremap <silent> <Leader>dv :colorscheme developer<CR> :set guifont=ＭＳ_ゴシック:h10:cSHIFTJIS<CR>
@@ -169,16 +193,24 @@ au BufNewFile,BufRead * set iminsert=0
 " 「日本語入力固定モード」の動作モード
 let IM_CtrlMode = 4
 " 「日本語入力固定モード」切替キー
-inoremap <silent> <C-j> <C-^><C-r>=IMState('FixMode')<CR>
+inoremap <silent> <C-^> <C-^><C-r>=IMState('FixMode')<CR>
 
-"" 挿入モード時にIME状態を保存しない
-"inoremap <silent> <ESC> <ESC>
-"inoremap <silent> <C-[> <ESC>
-"
-""「日本語入力固定モード」の設定
-"inoremap <silent> <C-k> <C-^>
+" 挿入モード時にIME状態を保存しない
+inoremap <silent> <ESC> <ESC><ESC>
+inoremap <silent> <C-[> <ESC><ESC>
 
-"
+" 「日本語入力」切替キー
+inoremap <silent> <C-k> <C-^><C-r>=IMState('Toggle')<CR>
+inoremap <silent> <C-j> <C-^><C-r>=IMState('On')<CR>
+
+" 「日本語入力固定モード」のバッファローカルモード
+let b:IM_CtrlBufLocal = 1
+
+" 「日本語入力固定モード」がオンの場合、ステータス行にメッセージ表示
+set statusline+=%{IMStatus('[FixInput]')}
+
+set cmdheight=1
+
 "" コマンドモードでのIMEをoffにする。
 "let g:IMState = 0
 "autocmd InsertEnter * let &iminsert = g:IMState
@@ -342,7 +374,7 @@ inoremap <C-f>  <Right>
 
 " 挿入モードでレジスタの文字列の貼り付け
 "inoremap <C-p> <ESC>pa
-"=================================================================================== 
+"===================================================================================
 
 """仮想タブ設定
 "":let g:miniBufExplMapWindowNavVim = 1
@@ -378,7 +410,7 @@ if !has('unix')
 else
 	if version == 704
 	" 印刷用設定ファイルを読み込み
-		:source .printrc.vim
+		:source $HOME/.printrc.vim
 	endif
 	nnoremap <Leader>grc :tabnew<CR>:e $HOME/repos/Vims/vim_config/.gvimrc<CR>
 	nnoremap <Leader>trc :tabnew<CR>:e $HOME/repos/Vims/vim_config/.vimrc<CR>
@@ -497,18 +529,19 @@ if has('unix')
 	endfunction
 
 	"終了時に端末表示色を再設定
-	au VimLeave * let saved_t_Co=&t_Co|let &t_Co=1|let &t_Co=saved_t_Co 
+	au VimLeave * let saved_t_Co=&t_Co|let &t_Co=1|let &t_Co=saved_t_Co
 
 endif
 
 "" SKK.vimの辞書設定
-set imdisable
 if has('unix') && version==800
+set imdisable
 "	let g:eskk#directory = "$VIMRUNTIME/../../skk"
 ""	let g:eskk#dictionary = { 'path': "$VIMRUNTIME/../../skk/skki1_5u.dic", 'sorted': 0, 'encoding': 'utf-16le', }
 "	let g:eskk#dictionary = { 'path': "$VIMRUNTIME/../../skk/.skk-jisyo", 'sorted': 0, 'encoding': 'sjis', }
 "	let g:eskk#large_dictionary = { 'path': "$VIMRUNTIME/../../skk/SKK-JISYO.L", 'sorted': 1, 'encoding': 'euc-jp', }
 "else
+	set imdisable
 	let g:eskk#directory = "~/.eskk"
 "	let g:eskk#dictionary = { 'path': "~/.eskk/skki1_5u.dic", 'sorted': 0, 'encoding': 'utf-16le', }
 	let g:eskk#dictionary = { 'path': "~/.eskk/.skk-jisyo", 'sorted': 0, 'encoding': 'utf-8', }
