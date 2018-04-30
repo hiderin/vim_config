@@ -77,6 +77,7 @@ NeoBundle 'https://github.com/vim-jp/vimdoc-ja'
 NeoBundle 'https://github.com/tpope/vim-surround'
 NeoBundle 'https://github.com/Shougo/vinarise'
 NeoBundle 'https://github.com/fuenor/im_control.vim'
+NeoBundle 'https://github.com/mattn/zencoding-vim'
 "NeoBundle ''
 
 "----- vim.org Plugins -----
