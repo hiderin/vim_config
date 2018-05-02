@@ -77,7 +77,7 @@ NeoBundle 'https://github.com/vim-jp/vimdoc-ja'
 NeoBundle 'https://github.com/tpope/vim-surround'
 NeoBundle 'https://github.com/Shougo/vinarise'
 NeoBundle 'https://github.com/fuenor/im_control.vim'
-NeoBundle 'https://github.com/mattn/zencoding-vim'
+NeoBundle 'https://github.com/mattn/emmet-vim'
 "NeoBundle ''
 
 "----- vim.org Plugins -----
@@ -764,6 +764,17 @@ if has('unix') && version ==704
 	set clipboard=unnamedplus
 endif
 
+
+"------------------------------------
+" emmet-vim
+"------------------------------------
+let g:user_emmet_leader_key='<c-e>'
+let g:user_emmet_settings = {
+    \    'variables': {
+    \      'lang': "ja"
+    \    },
+    \   'indentation': '  '
+    \ }
 
 " Neo_Lib3への移動
 CAlterCommand neolibdir cd G:\Neo_Lib3\
