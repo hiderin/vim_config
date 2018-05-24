@@ -720,7 +720,7 @@ inoremap <expr><C-l>     neocomplcache#complete_common_string()
 
 nmap <Leader>sk :VimShellInteractive irb.bat -r skype<CR>
 
-if has('unix') && version ==704
+if has('unix') && version ==800
 	" ビジュアルモードで選択したテキストが&#12289;クリップボードに入るようにする
 	" http://nanasi.jp/articles/howto/editing/clipboard.html
 	set clipboard=autoselect
