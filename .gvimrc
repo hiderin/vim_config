@@ -1,5 +1,5 @@
 "ウィンドウを最大化して起動
-au GUIEnter * simalt ~x
+"au GUIEnter * simalt ~x
 
 " フォントの設定
 "set guifont=ＭＳ_ゴシック:h10:cSHIFTJIS
@@ -15,7 +15,7 @@ set guifont=MeiryoKe_Console:h10:cSHIFTJIS
 "set whichwrap=b,s,h,l,<,>,[,]
 
 
-highlight StatusLine guifg=#2E4340 guibg=#ccdc90 ctermfg=green ctermbg=blue
+"highlight StatusLine guifg=#2E4340 guibg=#ccdc90 ctermfg=green ctermbg=blue
 
 " メニューの表示名の変更
 :let g:DrChipTopLvlMenu = "{メニューの表示名}"
@@ -32,7 +32,7 @@ set visualbell
 set vb t_vb=
 
 "全角スペースを視覚化
-"highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=#666666
+highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=#666666
 au BufNewFile,BufRead * match ZenkakuSpace /　/
 
 " メニューバー標準で非表示
@@ -54,9 +54,9 @@ endfunction
 
 map <silent> <F2> :call MyMenuToggle()<CR>
 
-"ローカル設定の読み込み
-if version >=703
-	source c:/vimLocalSet.vim
-else
-	source vimLocalSet.vim
-endif
+""ローカル設定の読み込み
+"if version >=703
+"	source c:/vimLocalSet.vim
+"else
+"	source vimLocalSet.vim
+"endif
