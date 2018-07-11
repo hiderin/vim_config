@@ -1,5 +1,5 @@
 "ウィンドウを最大化して起動
-"au GUIEnter * simalt ~x
+au GUIEnter * simalt ~x
 
 " フォントの設定
 "set guifont=ＭＳ_ゴシック:h10:cSHIFTJIS
