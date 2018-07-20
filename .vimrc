@@ -67,7 +67,7 @@ NeoBundle 'https://github.com/tpope/vim-fugitive'
 NeoBundle 'https://github.com/thinca/vim-visualstar'
 NeoBundle 'https://github.com/thinca/vim-ref'
 NeoBundle 'https://github.com/tyru/vim-altercmd'
-"NeoBundle 'https://github.com/mattn/webapi-vim'
+NeoBundle 'https://github.com/mattn/webapi-vim'
 "NeoBundle 'https://github.com/mattn/excitetranslate-vim'
 "NeoBundle 'https://github.com/vim-scripts/EasyGrep'
 "NeoBundle 'git://github.com/mbbill/echofunc'
@@ -78,6 +78,11 @@ NeoBundle 'https://github.com/tpope/vim-surround'
 NeoBundle 'https://github.com/Shougo/vinarise'
 NeoBundle 'https://github.com/fuenor/im_control.vim'
 NeoBundle 'https://github.com/mattn/emmet-vim'
+NeoBundle 'https://github.com/tyru/open-browser.vim'
+NeoBundle 'https://github.com/hail2u/vim-css3-syntax'
+NeoBundle 'https://github.com/taichouchou2/html5.vim'
+NeoBundle 'https://github.com/pangloss/vim-javascript'
+NeoBundle 'https://github.com/kchmck/vim-coffee-script'
 "NeoBundle ''
 
 "----- vim.org Plugins -----
@@ -776,9 +781,44 @@ let g:user_emmet_settings = {
     \   'indentation': '  '
     \ }
 
-" Neo_Lib3への移動
-CAlterCommand neolibdir cd G:\Neo_Lib3\
-
 " ctagsにEchoFuncを用いる
 CAlterCommand ctags !ctags -R --fields=+lS<CR>
 
+"------------------------------------
+" open-browser
+"------------------------------------
+" カーソル下のURLをブラウザで開く
+nmap <Leader>o <Plug>(openbrowser-open)
+vmap <Leader>o <Plug>(openbrowser-open)
+" ググる
+nnoremap <Leader>g :<C-u>OpenBrowserSearch<Space><C-r><C-w><Enter>
+
+"------------------------------------
+" sass
+"------------------------------------
+""{{{
+" 編集したファイルから遡るフォルダの最大数
+let g:sass_compile_cdloop = 5
+
+" ファイル保存時に自動コンパイル（1で自動実行）
+let g:sass_compile_auto = 1
+
+" 自動コンパイルを実行する拡張子
+let g:sass_compile_file = ['scss', 'sass']
+
+" cssファイルが入っているディレクトリ名（前のディレクトリほど優先）
+let g:sass_compile_cssdir = ['css', 'stylesheet']
+
+" コンパイル実行前に実行したいコマンドを設定
+" 例：growlnotifyによる通知
+" let g:sass_compile_beforecmd = "growlnotify -t 'sass-compile.vim' -m 'start sass compile.'"
+
+" コンパイル実行後に実行したいコマンドを設定
+" 例：growlnotifyによる通知(${sasscompileresult}は実行結果)
+" let g:sass_compile_aftercmd = "growlnotify -t 'sass-compile.vim' -m ${sasscompileresult}"kj
+
+let g:sass_started_dirs = []
+
+"autocmd FileType less,sass  setlocal sw=3 sts=2 ts=2 et
+"au! BufWritePost * SassCompile
+"}}}
