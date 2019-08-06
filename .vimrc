@@ -1,4 +1,4 @@
- " エンコーディング
+﻿ " エンコーディング
 "source $VIMRUNTIME/encode.vim
 if !has('unix')
 "	scriptencoding cp932
@@ -83,6 +83,9 @@ NeoBundle 'https://github.com/hail2u/vim-css3-syntax'
 "NeoBundle 'https://github.com/taichouchou2/html5.vim'
 NeoBundle 'https://github.com/pangloss/vim-javascript'
 NeoBundle 'https://github.com/kchmck/vim-coffee-script'
+NeoBundle 'https://github.com/AtsushiM/search-parent.vim'
+NeoBundle 'https://github.com/AtsushiM/sass-compile.vim'
+"NeoBundle 'https://github.com/joonty/vdebug'
 "NeoBundle ''
 
 "----- vim.org Plugins -----
@@ -804,7 +807,7 @@ let g:sass_compile_cdloop = 5
 let g:sass_compile_auto = 1
 
 " 自動コンパイルを実行する拡張子
-let g:sass_compile_file = ['scss', 'sass']
+let g:sass_compile_file = ['sass', 'scss']
 
 " cssファイルが入っているディレクトリ名（前のディレクトリほど優先）
 let g:sass_compile_cssdir = ['css', 'stylesheet']
@@ -812,13 +815,21 @@ let g:sass_compile_cssdir = ['css', 'stylesheet']
 " コンパイル実行前に実行したいコマンドを設定
 " 例：growlnotifyによる通知
 " let g:sass_compile_beforecmd = "growlnotify -t 'sass-compile.vim' -m 'start sass compile.'"
+ let g:sass_compile_beforecmd = ""
 
 " コンパイル実行後に実行したいコマンドを設定
 " 例：growlnotifyによる通知(${sasscompileresult}は実行結果)
 " let g:sass_compile_aftercmd = "growlnotify -t 'sass-compile.vim' -m ${sasscompileresult}"kj
+ let g:sass_compile_aftercmd = ""
 
-let g:sass_started_dirs = []
-
+"let g:sass_started_dirs = []
+"
 "autocmd FileType less,sass  setlocal sw=3 sts=2 ts=2 et
 "au! BufWritePost * SassCompile
+"}}}
+"------------------------------------
+" vdebug
+"------------------------------------
+"{{{
+let g:vdebug_force_ascii = 1
 "}}}
