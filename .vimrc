@@ -406,11 +406,11 @@ inoremap <C-f>  <Right>
 nnoremap * *N
 noremap <CR> o<ESC>
 if !has('unix')
-	nnoremap <Leader>grc :tabnew<CR>:e $VIMRUNTIME/../.gvimrc<CR>
-	nnoremap <Leader>trc :tabnew<CR>:e $VIMRUNTIME/../.vimrc<CR>
-	nnoremap <Leader>vrc :vs $VIMRUNTIME/../.vimrc<CR>
-	nnoremap <Leader>src :sp $VIMRUNTIME/../.vimrc<CR>
-	nnoremap <Leader>hrc :e $VIMRUNTIME/../.vimrc<CR>
+	nnoremap <Leader>grc :tabnew<CR>:e $HOME/.gvimrc<CR>
+	nnoremap <Leader>trc :tabnew<CR>:e $HOME/.vimrc<CR>
+	nnoremap <Leader>vrc :vs $HOME/.vimrc<CR>
+	nnoremap <Leader>src :sp $HOME/.vimrc<CR>
+	nnoremap <Leader>hrc :e $HOME/.vimrc<CR>
 	nnoremap <Leader>prc :tabnew<CR>:e $VIMRUNTIME/macros\printrc.vim<CR>
 	nnoremap <Leader>tkh :tabnew<CR>:e $VIMRUNTIME/../../keyhac/config.py<CR>
 	nnoremap <Leader>vkh :vs $VIMRUNTIME/../../keyhac/config.py<CR>
@@ -762,7 +762,7 @@ inoremap <expr><C-l>     neocomplcache#complete_common_string()
 
 nmap <Leader>sk :VimShellInteractive irb.bat -r skype<CR>
 
-if has('unix') && version ==704
+if has('unix') && version ==800
 	" ビジュアルモードで選択したテキストが&#12289;クリップボードに入るようにする
 	" http://nanasi.jp/articles/howto/editing/clipboard.html
 	set clipboard=autoselect
