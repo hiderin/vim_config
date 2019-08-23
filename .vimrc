@@ -1,4 +1,4 @@
- " エンコーディング
+﻿ " エンコーディング
 "source $VIMRUNTIME/encode.vim
 if !has('unix')
 "	scriptencoding cp932
@@ -67,7 +67,7 @@ NeoBundle 'https://github.com/tpope/vim-fugitive'
 NeoBundle 'https://github.com/thinca/vim-visualstar'
 NeoBundle 'https://github.com/thinca/vim-ref'
 NeoBundle 'https://github.com/tyru/vim-altercmd'
-"NeoBundle 'https://github.com/mattn/webapi-vim'
+NeoBundle 'https://github.com/mattn/webapi-vim'
 "NeoBundle 'https://github.com/mattn/excitetranslate-vim'
 "NeoBundle 'https://github.com/vim-scripts/EasyGrep'
 "NeoBundle 'git://github.com/mbbill/echofunc'
@@ -78,6 +78,14 @@ NeoBundle 'https://github.com/tpope/vim-surround'
 NeoBundle 'https://github.com/Shougo/vinarise'
 NeoBundle 'https://github.com/fuenor/im_control.vim'
 NeoBundle 'https://github.com/mattn/emmet-vim'
+NeoBundle 'https://github.com/tyru/open-browser.vim'
+NeoBundle 'https://github.com/hail2u/vim-css3-syntax'
+"NeoBundle 'https://github.com/taichouchou2/html5.vim'
+NeoBundle 'https://github.com/pangloss/vim-javascript'
+NeoBundle 'https://github.com/kchmck/vim-coffee-script'
+NeoBundle 'https://github.com/AtsushiM/search-parent.vim'
+NeoBundle 'https://github.com/AtsushiM/sass-compile.vim'
+"NeoBundle 'https://github.com/joonty/vdebug'
 "NeoBundle ''
 
 "----- vim.org Plugins -----
@@ -398,11 +406,11 @@ inoremap <C-f>  <Right>
 nnoremap * *N
 noremap <CR> o<ESC>
 if !has('unix')
-	nnoremap <Leader>grc :tabnew<CR>:e $VIMRUNTIME/../.gvimrc<CR>
-	nnoremap <Leader>trc :tabnew<CR>:e $VIMRUNTIME/../.vimrc<CR>
-	nnoremap <Leader>vrc :vs $VIMRUNTIME/../.vimrc<CR>
-	nnoremap <Leader>src :sp $VIMRUNTIME/../.vimrc<CR>
-	nnoremap <Leader>hrc :e $VIMRUNTIME/../.vimrc<CR>
+	nnoremap <Leader>grc :tabnew<CR>:e $HOME/.gvimrc<CR>
+	nnoremap <Leader>trc :tabnew<CR>:e $HOME/.vimrc<CR>
+	nnoremap <Leader>vrc :vs $HOME/.vimrc<CR>
+	nnoremap <Leader>src :sp $HOME/.vimrc<CR>
+	nnoremap <Leader>hrc :e $HOME/.vimrc<CR>
 	nnoremap <Leader>prc :tabnew<CR>:e $VIMRUNTIME/macros\printrc.vim<CR>
 	nnoremap <Leader>tkh :tabnew<CR>:e $VIMRUNTIME/../../keyhac/config.py<CR>
 	nnoremap <Leader>vkh :vs $VIMRUNTIME/../../keyhac/config.py<CR>
@@ -768,7 +776,7 @@ endif
 "------------------------------------
 " emmet-vim
 "------------------------------------
-let g:user_emmet_leader_key='<c-e>'
+let g:user_emmet_leader_key='<c-q>'
 let g:user_emmet_settings = {
     \    'variables': {
     \      'lang': "ja"
@@ -776,9 +784,52 @@ let g:user_emmet_settings = {
     \   'indentation': '  '
     \ }
 
-" Neo_Lib3への移動
-CAlterCommand neolibdir cd G:\Neo_Lib3\
-
 " ctagsにEchoFuncを用いる
 CAlterCommand ctags !ctags -R --fields=+lS<CR>
 
+"------------------------------------
+" open-browser
+"------------------------------------
+" カーソル下のURLをブラウザで開く
+nmap <Leader>o <Plug>(openbrowser-open)
+vmap <Leader>o <Plug>(openbrowser-open)
+" ググる
+nnoremap <Leader>g :<C-u>OpenBrowserSearch<Space><C-r><C-w><Enter>
+
+"------------------------------------
+" sass
+"------------------------------------
+""{{{
+" 編集したファイルから遡るフォルダの最大数
+let g:sass_compile_cdloop = 5
+
+" ファイル保存時に自動コンパイル（1で自動実行）
+let g:sass_compile_auto = 1
+
+" 自動コンパイルを実行する拡張子
+let g:sass_compile_file = ['sass', 'scss']
+
+" cssファイルが入っているディレクトリ名（前のディレクトリほど優先）
+let g:sass_compile_cssdir = ['css', 'stylesheet']
+
+" コンパイル実行前に実行したいコマンドを設定
+" 例：growlnotifyによる通知
+" let g:sass_compile_beforecmd = "growlnotify -t 'sass-compile.vim' -m 'start sass compile.'"
+ let g:sass_compile_beforecmd = ""
+
+" コンパイル実行後に実行したいコマンドを設定
+" 例：growlnotifyによる通知(${sasscompileresult}は実行結果)
+" let g:sass_compile_aftercmd = "growlnotify -t 'sass-compile.vim' -m ${sasscompileresult}"kj
+ let g:sass_compile_aftercmd = ""
+
+"let g:sass_started_dirs = []
+"
+"autocmd FileType less,sass  setlocal sw=3 sts=2 ts=2 et
+"au! BufWritePost * SassCompile
+"}}}
+"------------------------------------
+" vdebug
+"------------------------------------
+"{{{
+let g:vdebug_force_ascii = 1
+"}}}
