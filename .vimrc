@@ -404,7 +404,6 @@ inoremap <C-f>  <Right>
 
 " ちょっと便利系キーマップ
 nnoremap * *N
-noremap <CR> o<ESC>
 if !has('unix')
 	nnoremap <Leader>grc :tabnew<CR>:e $VIMRUNTIME/../.gvimrc<CR>
 	nnoremap <Leader>trc :tabnew<CR>:e $VIMRUNTIME/../.vimrc<CR>
