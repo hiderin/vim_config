@@ -54,9 +54,9 @@ endfunction
 
 map <silent> <F2> :call MyMenuToggle()<CR>
 
-""ローカル設定の読み込み
-"if version >=703
-"	source c:/vimLocalSet.vim
-"else
-"	source vimLocalSet.vim
-"endif
+"ローカル設定の読み込み
+if version >=703
+	source c:/vimLocalSet.vim
+else
+	source vimLocalSet.vim
+endif
