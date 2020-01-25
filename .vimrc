@@ -367,7 +367,7 @@ inoremap <C-f>  <Right>
 " 一文字戻る
 :cnoremap <C-B>		<Left>
 " カーソルの下の文字を削除
-:cnoremap <C-D>		<Del>
+":cnoremap <C-D>		<Del>
 " 行末へ移動
 :cnoremap <C-E>		<End>
 " 一文字進む
