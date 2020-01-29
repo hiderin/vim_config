@@ -104,6 +104,7 @@ NeoBundleLocal $VIMRUNTIME/bundle/manual
 call neobundle#end()
 
 filetype plugin indent on
+packadd! matchit
 "===============================================================================
 let g:neobundle_default_git_protocol="git"
 NeoBundleCheck
