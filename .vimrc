@@ -405,11 +405,11 @@ inoremap <C-f>  <Right>
 " ちょっと便利系キーマップ
 nnoremap * *N
 if !has('unix')
-	nnoremap <Leader>grc :tabnew<CR>:e $HOME/.gvimrc<CR>
-	nnoremap <Leader>trc :tabnew<CR>:e $HOME/.vimrc<CR>
-	nnoremap <Leader>vrc :vs $HOME/.vimrc<CR>
-	nnoremap <Leader>src :sp $HOME/.vimrc<CR>
-	nnoremap <Leader>hrc :e $HOME/.vimrc<CR>
+	nnoremap <Leader>grc :tabnew<CR>:e $CONFDIR/.gvimrc<CR>
+	nnoremap <Leader>trc :tabnew<CR>:e $CONFDIR/.vimrc<CR>
+	nnoremap <Leader>vrc :vs $CONFDIR/.vimrc<CR>
+	nnoremap <Leader>src :sp $CONFDIR/.vimrc<CR>
+	nnoremap <Leader>hrc :e $CONFDIR/.vimrc<CR>
 	nnoremap <Leader>prc :tabnew<CR>:e $VIMRUNTIME/macros\printrc.vim<CR>
 	nnoremap <Leader>tkh :tabnew<CR>:e $VIMRUNTIME/../../keyhac/config.py<CR>
 	nnoremap <Leader>vkh :vs $VIMRUNTIME/../../keyhac/config.py<CR>
