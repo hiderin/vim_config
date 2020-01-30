@@ -104,7 +104,12 @@ NeoBundleLocal $VIMRUNTIME/bundle/manual
 call neobundle#end()
 
 filetype plugin indent on
-packadd! matchit
+if version ==800
+	packadd! matchit
+else
+	filetype plugin on
+	runtime macros/matchit.vim
+endif
 "===============================================================================
 let g:neobundle_default_git_protocol="git"
 NeoBundleCheck
