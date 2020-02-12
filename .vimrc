@@ -201,6 +201,8 @@ let g:loaded_spellfile_plugin = 1
 "let g:loaded_vimballPlugin = 1
 "let g:loaded_zipPlugin = 1
 
+"16進数,10進数のインクリメントのみ有効
+set nrformats=hex
 "=======================日本語入力関係======================
 "日本語入力をリセット
 au BufNewFile,BufRead * set iminsert=0
