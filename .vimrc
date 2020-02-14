@@ -85,6 +85,7 @@ NeoBundle 'https://github.com/pangloss/vim-javascript'
 NeoBundle 'https://github.com/kchmck/vim-coffee-script'
 NeoBundle 'https://github.com/AtsushiM/search-parent.vim'
 NeoBundle 'https://github.com/AtsushiM/sass-compile.vim'
+NeoBundle 'https://github.com/tpope/vim-abolish'
 "NeoBundle 'https://github.com/joonty/vdebug'
 "NeoBundle ''
 
