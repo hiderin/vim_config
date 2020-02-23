@@ -361,30 +361,30 @@ autocmd FileType * set comments=
 "imap <C-d> <ESC>xi
 
 " 移動
-inoremap <C-a>  <Home>
-inoremap <C-e>  <End>
-inoremap <C-b>  <Left>
-inoremap <C-f>  <Right>
+"inoremap <C-a>  <Home>
+"inoremap <C-e>  <End>
+"inoremap <C-b>  <Left>
+"inoremap <C-f>  <Right>
 "inoremap <C-n>  <Down>
 "inoremap <C-p>  <UP>
 "imap <ESC>< <ESC>ggi
 "imap <ESC>> <ESC>Gi
 
-"コマンドラインでのキーバインドを Emacs スタイルにします: >
-" 行頭へ移動
-:cnoremap <C-A>		<Home>
-" 一文字戻る
-:cnoremap <C-B>		<Left>
-" カーソルの下の文字を削除
-":cnoremap <C-D>		<Del>
-" 行末へ移動
-:cnoremap <C-E>		<End>
-" 一文字進む
-:cnoremap <C-F>		<Right>
-" コマンドライン履歴を一つ進む
-:cnoremap <C-N>		<Down>
-" コマンドライン履歴を一つ戻る
-:cnoremap <C-p>		<Up>
+""コマンドラインでのキーバインドを Emacs スタイルにします: >
+"" 行頭へ移動
+":cnoremap <C-A>		<Home>
+"" 一文字戻る
+":cnoremap <C-B>		<Left>
+"" カーソルの下の文字を削除
+"":cnoremap <C-D>		<Del>
+"" 行末へ移動
+":cnoremap <C-E>		<End>
+"" 一文字進む
+":cnoremap <C-F>		<Right>
+"" コマンドライン履歴を一つ進む
+":cnoremap <C-N>		<Down>
+"" コマンドライン履歴を一つ戻る
+":cnoremap <C-p>		<Up>
 " 前の単語へ移動
 ":cnoremap <C-v>	<S-Left>
 " 次の単語へ移動
