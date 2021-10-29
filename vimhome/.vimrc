@@ -85,7 +85,6 @@ NeoBundle 'https://github.com/pangloss/vim-javascript'
 NeoBundle 'https://github.com/kchmck/vim-coffee-script'
 NeoBundle 'https://github.com/AtsushiM/search-parent.vim'
 NeoBundle 'https://github.com/AtsushiM/sass-compile.vim'
-NeoBundle 'https://github.com/tpope/vim-abolish'
 NeoBundle 'https://github.com/tpope/vim-speeddating'
 "NeoBundle 'https://github.com/joonty/vdebug'
 "NeoBundle ''
@@ -203,8 +202,6 @@ let g:loaded_spellfile_plugin = 1
 "let g:loaded_vimballPlugin = 1
 "let g:loaded_zipPlugin = 1
 
-"16進数,10進数のインクリメントのみ有効
-set nrformats=hex
 "=======================日本語入力関係======================
 "日本語入力をリセット
 au BufNewFile,BufRead * set iminsert=0
@@ -362,26 +359,26 @@ autocmd FileType * set comments=
 "imap <C-d> <ESC>xi
 
 " 移動
-"inoremap <C-a>  <Home>
-"inoremap <C-e>  <End>
-"inoremap <C-b>  <Left>
-"inoremap <C-f>  <Right>
+inoremap <C-a>  <Home>
+inoremap <C-e>  <End>
+inoremap <C-b>  <Left>
+inoremap <C-f>  <Right>
 "inoremap <C-n>  <Down>
 "inoremap <C-p>  <UP>
 "imap <ESC>< <ESC>ggi
 "imap <ESC>> <ESC>Gi
 
-""コマンドラインでのキーバインドを Emacs スタイルにします: >
-"" 行頭へ移動
-":cnoremap <C-A>		<Home>
-"" 一文字戻る
-":cnoremap <C-B>		<Left>
-"" カーソルの下の文字を削除
-"":cnoremap <C-D>		<Del>
-"" 行末へ移動
-":cnoremap <C-E>		<End>
-"" 一文字進む
-":cnoremap <C-F>		<Right>
+"コマンドラインでのキーバインドを Emacs スタイルにします: >
+" 行頭へ移動
+:cnoremap <C-A>		<Home>
+" 一文字戻る
+:cnoremap <C-B>		<Left>
+" カーソルの下の文字を削除
+":cnoremap <C-D>		<Del>
+" 行末へ移動
+:cnoremap <C-E>		<End>
+" 一文字進む
+:cnoremap <C-F>		<Right>
 " コマンドライン履歴を一つ進む
 :cnoremap <C-N>		<Down>
 " コマンドライン履歴を一つ戻る
@@ -842,6 +839,7 @@ let g:sass_compile_cssdir = ['css', 'stylesheet']
 "{{{
 let g:vdebug_force_ascii = 1
 "}}}
+
 "------------------------------------
 " speeddating 日付のｲﾝｸﾘﾒﾝﾄ
 "------------------------------------
