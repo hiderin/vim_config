@@ -840,9 +840,3 @@ let g:sass_compile_cssdir = ['css', 'stylesheet']
 let g:vdebug_force_ascii = 1
 "}}}
 
-"------------------------------------
-" speeddating 日付のｲﾝｸﾘﾒﾝﾄ
-"------------------------------------
-"{{{
-SpeedDatingFormat %Y/%m/%d
-"}}}
