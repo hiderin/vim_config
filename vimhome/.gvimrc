@@ -66,5 +66,5 @@ endif
 "------------------------------------
 "{{{
 SpeedDatingFormat %Y/%m/%d
-SpeedDatingFormat %Y/%m/%d%H%M
+SpeedDatingFormat %Y%m%d%H%M
 "}}}
