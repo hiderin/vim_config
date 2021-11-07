@@ -86,6 +86,7 @@ NeoBundle 'https://github.com/kchmck/vim-coffee-script'
 NeoBundle 'https://github.com/AtsushiM/search-parent.vim'
 NeoBundle 'https://github.com/AtsushiM/sass-compile.vim'
 NeoBundle 'https://github.com/tpope/vim-speeddating'
+NeoBundle 'https://github.com/easymotion/vim-easymotion'
 "NeoBundle 'https://github.com/joonty/vdebug'
 "NeoBundle ''
 
@@ -840,3 +841,7 @@ let g:sass_compile_cssdir = ['css', 'stylesheet']
 let g:vdebug_force_ascii = 1
 "}}}
 
+"------------------------------------
+" easynotion
+"------------------------------------
+map <Leader> <Plug>(easymotion-prefix)
