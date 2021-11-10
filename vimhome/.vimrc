@@ -87,6 +87,7 @@ NeoBundle 'https://github.com/AtsushiM/search-parent.vim'
 NeoBundle 'https://github.com/AtsushiM/sass-compile.vim'
 NeoBundle 'https://github.com/tpope/vim-speeddating'
 NeoBundle 'https://github.com/Lokaltog/vim-easymotion'
+NeoBundle 'https://github.com/junegunn/vim-easy-align'
 "NeoBundle 'https://github.com/joonty/vdebug'
 "NeoBundle ''
 
@@ -857,4 +858,12 @@ omap <Leader>e <Plug>(easymotion-bd-el)
 
 nmap <Leader>s <Plug>(easymotion-s2)
 xmap <Leader>s <Plug>(easymotion-s2)
+"}}}
+
+""=======================================
+" vim-easy-align
+"=======================================
+"{{{
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)}}}
 "}}}
