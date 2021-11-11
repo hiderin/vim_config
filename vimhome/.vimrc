@@ -857,4 +857,6 @@ omap <Leader>e <Plug>(easymotion-bd-el)
 
 nmap <Leader>s <Plug>(easymotion-s2)
 xmap <Leader>s <Plug>(easymotion-s2)
+nmap ; <Plug>(easymotion-next)
+nmap <Leader>, <Plug>(easymotion-prev)
 "}}}
