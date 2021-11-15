@@ -2,15 +2,17 @@
 "source $VIMRUNTIME/encode.vim
 if !has('unix')
 "	scriptencoding cp932
-	:set encoding=cp932
-	:set fileencodings=ucs-bom,iso-2022-jp-3,iso-2022-jp,euc-jp,eucjp-ms,euc-jisx0213,euc-jp,sjis,utf-8,cp932
+	let $LANG='ja_JP.UTF-8'
+	set encoding=utf-8
+	":set encoding=cp932
+	":set fileencodings=ucs-bom,iso-2022-jp-3,iso-2022-jp,euc-jp,eucjp-ms,euc-jisx0213,euc-jp,sjis,utf-8,cp932
 else
 "	scriptencoding utf-8
 	:set encoding=utf-8
-	:set fileencodings=ucs-bom,iso-2022-jp-3,iso-2022-jp,eucjp-ms,euc-jisx0213,euc-jp,sjis,cp932,utf-8
 	set mouse=a
 	let $LANG='ja_JP.UTF-8'
 endif
+:set fileencodings=ucs-bom,iso-2022-jp-3,iso-2022-jp,eucjp-ms,euc-jisx0213,euc-jp,sjis,cp932,utf-8
 
 set nocompatible
 source $VIMRUNTIME/vimrc_example.vim
@@ -412,12 +414,11 @@ inoremap <C-f>  <Right>
 ":let g:showmarks_enable = 0
 
 " ちょっと便利系キーマップ
-nnoremap * *N
+"nnoremap * *N
 if !has('unix')
 	nnoremap <Leader>grc :tabnew<CR>:e $CONFDIR/.gvimrc<CR>
 	nnoremap <Leader>trc :tabnew<CR>:e $CONFDIR/.vimrc<CR>
 	nnoremap <Leader>vrc :vs $CONFDIR/.vimrc<CR>
-	nnoremap <Leader>src :sp $CONFDIR/.vimrc<CR>
 	nnoremap <Leader>hrc :e $CONFDIR/.vimrc<CR>
 	nnoremap <Leader>prc :tabnew<CR>:e $VIMRUNTIME/macros\printrc.vim<CR>
 	nnoremap <Leader>tkh :tabnew<CR>:e $VIMRUNTIME/../../keyhac/config.py<CR>
@@ -432,7 +433,6 @@ else
 	nnoremap <Leader>grc :tabnew<CR>:e $HOME/repos/Vims/vim_config/.gvimrc<CR>
 	nnoremap <Leader>trc :tabnew<CR>:e $HOME/repos/Vims/vim_config/.vimrc<CR>
 	nnoremap <Leader>vrc :vs $HOME/repos/Vims/vim_config/.vimrc<CR>
-	nnoremap <Leader>src :sp $HOME/repos/Vims/vim_config/.vimrc<CR>
 	nnoremap <Leader>hrc :e $HOME/repos/Vims/vim_config/.vimrc<CR>
 	nnoremap <Leader>prc :tabnew<CR>:e .printrc.vim<CR>
 	nnoremap <Leader>tkh :tabnew<CR>:e ~/repos/KeyhacConfig/config.py<CR>
@@ -846,19 +846,19 @@ let g:vdebug_force_ascii = 1
 " easy motion
 "------------------------------------
 "{{{
-map f <Plug>(easymotion-fl)
-map t <Plug>(easymotion-tl)
-map F <Plug>(easymotion-Fl)
-map T <Plug>(easymotion-Tl)
+map <Leader>f <Plug>(easymotion-fl)
+map <Leader>t <Plug>(easymotion-tl)
+map <Leader>F <Plug>(easymotion-Fl)
+map <Leader>T <Plug>(easymotion-Tl)
 "map f <Plug>(easymotion-bd-fl)
 "map t <Plug>(easymotion-bd-tl)
 
-omap <Leader>w <Plug>(easymotion-bd-wl)
-omap <Leader>e <Plug>(easymotion-bd-el)
+map <Leader>w <Plug>(easymotion-bd-wl)
+map <Leader>e <Plug>(easymotion-bd-el)
 
 nmap <Leader>s <Plug>(easymotion-s2)
 xmap <Leader>s <Plug>(easymotion-s2)
-nmap ; <Plug>(easymotion-next)
+nmap <Leader>; <Plug>(easymotion-next)
 nmap <Leader>, <Plug>(easymotion-prev)
 "}}}
 
