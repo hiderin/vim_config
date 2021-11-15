@@ -2,17 +2,15 @@
 "source $VIMRUNTIME/encode.vim
 if !has('unix')
 "	scriptencoding cp932
-	let $LANG='ja_JP.UTF-8'
-	set encoding=utf-8
-	":set encoding=cp932
-	":set fileencodings=ucs-bom,iso-2022-jp-3,iso-2022-jp,euc-jp,eucjp-ms,euc-jisx0213,euc-jp,sjis,utf-8,cp932
+	:set encoding=cp932
+	:set fileencodings=ucs-bom,iso-2022-jp-3,iso-2022-jp,euc-jp,eucjp-ms,euc-jisx0213,euc-jp,sjis,utf-8,cp932
 else
 "	scriptencoding utf-8
 	:set encoding=utf-8
+	:set fileencodings=ucs-bom,iso-2022-jp-3,iso-2022-jp,eucjp-ms,euc-jisx0213,euc-jp,sjis,cp932,utf-8
 	set mouse=a
 	let $LANG='ja_JP.UTF-8'
 endif
-:set fileencodings=ucs-bom,iso-2022-jp-3,iso-2022-jp,eucjp-ms,euc-jisx0213,euc-jp,sjis,cp932,utf-8
 
 set nocompatible
 source $VIMRUNTIME/vimrc_example.vim
@@ -88,8 +86,6 @@ NeoBundle 'https://github.com/kchmck/vim-coffee-script'
 NeoBundle 'https://github.com/AtsushiM/search-parent.vim'
 NeoBundle 'https://github.com/AtsushiM/sass-compile.vim'
 NeoBundle 'https://github.com/tpope/vim-speeddating'
-NeoBundle 'https://github.com/Lokaltog/vim-easymotion'
-NeoBundle 'https://github.com/junegunn/vim-easy-align'
 "NeoBundle 'https://github.com/joonty/vdebug'
 "NeoBundle ''
 
@@ -844,28 +840,3 @@ let g:sass_compile_cssdir = ['css', 'stylesheet']
 let g:vdebug_force_ascii = 1
 "}}}
 
-"------------------------------------
-" easy motion
-"------------------------------------
-"{{{
-map f <Plug>(easymotion-fl)
-map t <Plug>(easymotion-tl)
-map F <Plug>(easymotion-Fl)
-map T <Plug>(easymotion-Tl)
-"map f <Plug>(easymotion-bd-fl)
-"map t <Plug>(easymotion-bd-tl)
-
-omap <Leader>w <Plug>(easymotion-bd-wl)
-omap <Leader>e <Plug>(easymotion-bd-el)
-
-nmap <Leader>s <Plug>(easymotion-s2)
-xmap <Leader>s <Plug>(easymotion-s2)
-"}}}
-
-""=======================================
-" vim-easy-align
-"=======================================
-"{{{
-xmap ga <Plug>(EasyAlign)
-nmap ga <Plug>(EasyAlign)}}}
-"}}}
