@@ -1,7 +1,7 @@
 
 " ƒtƒHƒ“ƒg‚Ìİ’è
-set guifont=Ricty_Diminished:h13:cSHIFTJIS:qDRAFT
-"set guifont=HackGen_Console:h13:cSHIFTJIS
+"set guifont=Ricty_Diminished:h13:cSHIFTJIS:qDRAFT
+set guifont=HackGen_Console:h12:cSHIFTJIS
 set renderoptions=type:directx,renmode:5
 set antialias
 

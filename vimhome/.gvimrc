@@ -60,6 +60,7 @@ if version >=703
 else
 	source vimLocalSet.vim
 endif
+set ambiwidth=double
 
 "------------------------------------
 " speeddating 日付のｲﾝｸﾘﾒﾝﾄ
