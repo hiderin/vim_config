@@ -869,3 +869,5 @@ nmap <Leader>, <Plug>(easymotion-prev)
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)}}}
 "}}}
+
+autocmd BufNewFile,BufRead *.twig set filetype=htmljinja
