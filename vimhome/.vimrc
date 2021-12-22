@@ -158,6 +158,8 @@ set statusline+=%w
 set statusline+=%=
 " file encoding
 set statusline+=[ENC=%{&fileencoding}]
+" file format
+set statusline+=[FF=%{&fileformat}]
 " 現在行数/全行数
 set statusline+=[LOW=%l/%L]
 " ステータスラインを常に表示(0:表示しない、1:2つ以上ウィンドウがある時だけ表示)
