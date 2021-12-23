@@ -1,0 +1,33 @@
+## fugitive
+#[[plugins]]
+#repo = 'tpope/vim-fugitive'
+# Agit
+[[plugins]]
+repo = 'cohama/agit.vim'
+# poslist
+[[plugins]]
+repo = 'thinca/vim-poslist'
+##vimproc
+#[[plugins]]
+#repo = 'Shougo/vimproc.vim'
+#hook_post_update = '''
+#  if has('win32')
+#    let cmd = 'tools\\update-dll-mingw'
+#  elseif has('win32unix') " for Cygwin
+#    let cmd = 'make -f make_cygwin.mak'
+#  elseif executable('gmake')
+#    let cmd = 'gmake'
+#  else
+#    let cmd = 'make'
+#  endif
+#  let g:dein#plugin.build = cmd
+#'''
+##unite
+#[[plugins]]
+#repo = 'Shougo/unite.vim.git'
+##vimfiler
+#[[plugins]]
+#repo = 'Shougo/vimfiler.vim.git'
+#
+#[[plugins]]
+#repo = 'Shougo/denite.nvim'

@@ -19,11 +19,56 @@ source $VIMRUNTIME/vimrc_example.vim
 "source $VIMRUNTIME/mswin.vim
 "behave mswin
 
+"===============================================================================
+"   プラグインマネージャ
+"===============================================================================
+"dein Scripts-----------------------------
+if &compatible
+  set nocompatible               " Be iMproved
+endif
+
+" Required:
+set runtimepath+=$HOME/.cache/dein/repos/github.com/Shougo/dein.vim
+
+" Required:
+call dein#begin($HOME . '/.cache/dein')
+
+" Let dein manage dein
+" Required:
+call dein#add($HOME . '/.cache/dein/repos/github.com/Shougo/dein.vim')
+
+" Add or remove your plugins here like this:
+"call dein#add('Shougo/neosnippet.vim')
+"call dein#add('Shougo/neosnippet-snippets')
+
+" ~~~ ここからtomlファイルを利用するための設定 ~~~
+  " 導入するプラグインを記載したtomlファイルのパスを記載する
+   let s:toml      = $HOME . '/.vim/toml/dein.toml'
+   let s:lazy_toml = $HOME . '/.vim/toml/dein_lazy.toml'
+  
+   " tomlファイルをキャッシュしておくための記述
+   call dein#load_toml(s:toml,      {'lazy': 0})
+   call dein#load_toml(s:lazy_toml, {'lazy': 1})
+  " ~~~ tomlのための設定はここまで ~~~
+
+" Required:
+call dein#end()
+
+" Required:
+filetype plugin indent on
+syntax enable
+
+" If you want to install not installed plugins on startup.
+if dein#check_install()
+  call dein#install()
+endif
+
+"End dein Scripts-------------------------
 
 "if has('gui_running') && !has('unix')
 "  set encoding=utf-8
 "endif
-"
+
 "===============================================================================
 "   プラグインマネージャ
 "===============================================================================
@@ -55,10 +100,10 @@ endif
 NeoBundle 'https://github.com/Shougo/vimproc.git'
 NeoBundle 'https://github.com/Shougo/vimshell.git'
 NeoBundle 'https://github.com/Shougo/neomru.vim'
-NeoBundle 'https://github.com/cohama/agit.vim'
+"NeoBundle 'https://github.com/cohama/agit.vim'
 "NeoBundle 'https://github.com/jlanzarotta/bufexplorer'
 "NeoBundle 'https://github.com/gregsexton/gitv'
-NeoBundle 'https://github.com/thinca/vim-poslist'
+"NeoBundle 'https://github.com/thinca/vim-poslist'
 "NeoBundle 'https://github.com/tyru/skk.vim'
 if has('unix') && version==800
 	NeoBundle 'https://github.com/tyru/eskk.vim'
@@ -419,7 +464,7 @@ inoremap <C-f>  <Right>
 "nnoremap * *N
 if !has('unix')
 	nnoremap <Leader>grc :tabnew<CR>:e $CONFDIR/.gvimrc<CR>
-	nnoremap <Leader>trc :tabnew<CR>:e $CONFDIR/.vimrc<CR>
+	nnoremap <Leader>trc :tabnew<CR>:e $CONFDIR/.vimrc<CR>:vs $HOME/.vim/toml/dein.toml<CR>:sp $HOME/.vim/toml/dein_lazy.toml<CR>
 	nnoremap <Leader>vrc :vs $CONFDIR/.vimrc<CR>
 	nnoremap <Leader>hrc :e $CONFDIR/.vimrc<CR>
 	nnoremap <Leader>prc :tabnew<CR>:e $VIMRUNTIME/macros\printrc.vim<CR>

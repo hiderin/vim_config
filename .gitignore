@@ -25,10 +25,13 @@ vimhome/.bash_history
 runtime/
 switches/
 vim81/
-vimhome/.vim/
+vimhome/.vim/*
 vimhome/.vim_w3m_hist
 vimhome/.viminfo
 vimhome/.gitconfig
 vim74/
 w3m.EXE.log
 CHANGES.txt
+!vimhome/.vim/toml/
+vimhome/.vim/toml/*
+!vimhome/.vim/toml/*.toml
