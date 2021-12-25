@@ -1,0 +1,10 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='C:/MySys/portvim/vim81'
+let g:netrw_dirhist_2='C:/MySys/portvim/vim81/bundle'
+let g:netrw_dirhist_3='C:/MySys/portvim/vim81/bundle/automatic'
+let g:netrw_dirhist_4='C:/MySys/portvim/vim81/bundle/automatic/vimproc'
+let g:netrw_dirhist_5='C:/MySys/portvim/vim81'
+let g:netrw_dirhist_6='C:/MySys/portvim/vim81/bundle'
+let g:netrw_dirhist_7='C:/MySys/portvim/vim81/bundle/automatic'
+let g:netrw_dirhist_8='C:/MySys/portvim/vim81/bundle/automatic/vimproc'
