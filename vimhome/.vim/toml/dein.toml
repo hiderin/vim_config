@@ -1,12 +1,3 @@
-## fugitive
-#[[plugins]]
-#repo = 'tpope/vim-fugitive'
-# Agit
-[[plugins]]
-repo = 'cohama/agit.vim'
-# poslist
-[[plugins]]
-repo = 'thinca/vim-poslist'
 ##vimproc
 #[[plugins]]
 #repo = 'Shougo/vimproc.vim'

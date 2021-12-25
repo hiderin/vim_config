@@ -1,0 +1,10 @@
+## fugitive
+#[[plugins]]
+#repo = 'tpope/vim-fugitive'
+#rev = 'v3.0'
+# Agit
+[[plugins]]
+repo = 'cohama/agit.vim'
+# poslist
+[[plugins]]
+repo = 'thinca/vim-poslist'
