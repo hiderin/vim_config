@@ -26,6 +26,8 @@ runtime/
 switches/
 vim81/
 vimhome/.vim/*
+vim82/
+vimhome/.vim/
 vimhome/.vim_w3m_hist
 vimhome/.viminfo
 vimhome/.gitconfig
