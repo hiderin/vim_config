@@ -22,3 +22,7 @@
 #
 #[[plugins]]
 #repo = 'Shougo/denite.nvim'
+
+# fern
+[[plugins]]
+repo = 'lambdalisue/fern.vim'
