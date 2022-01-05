@@ -61,69 +61,19 @@ Plug 'https://github.com/junegunn/vim-github-dashboard.git'
 
 " Plugin outside ~/.vim/plugged with post-update hook
 "Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
+
+Plug 'lambdalisue/fern.vim'
+Plug 'cohama/agit.vim'
+Plug 'thinca/vim-poslist'
 
 " Unmanaged plugin (manually installed and updated)
 "Plug '~/my-prototype-plugin'
 
 " Initialize plugin system
 call plug#end()
-
-"===============================================================================
-"   プラグインマネージャ
-"===============================================================================
-"dein Scripts-----------------------------
-if &compatible
-  set nocompatible               " Be iMproved
-endif
-
-" Required:
-set runtimepath+=$HOME/.cache/dein/repos/github.com/Shougo/dein.vim
-
-" Required:
-call dein#begin($HOME . '/.cache/dein')
-
-" Let dein manage dein
-" Required:
-call dein#add($HOME . '/.cache/dein/repos/github.com/Shougo/dein.vim')
-
-" Add or remove your plugins here like this:
-"call dein#add('Shougo/neosnippet.vim')
-"call dein#add('Shougo/neosnippet-snippets')
-
-call dein#add('Shougo/denite.nvim')
-call dein#add('Shougo/defx.nvim')
-if !has('nvim')
-  call dein#add('roxma/nvim-yarp')
-  call dein#add('roxma/vim-hug-neovim-rpc')
-endif
-
-" ~~~ ここからtomlファイルを利用するための設定 ~~~
-  " 導入するプラグインを記載したtomlファイルのパスを記載する
-   let s:toml      = $HOME . '/.vim/toml/dein.toml'
-   let s:lazy_toml = $HOME . '/.vim/toml/dein_lazy.toml'
-  
-   " tomlファイルをキャッシュしておくための記述
-   call dein#load_toml(s:toml,      {'lazy': 0})
-   call dein#load_toml(s:lazy_toml, {'lazy': 1})
-  " ~~~ tomlのための設定はここまで ~~~
-
-" Required:
-call dein#end()
-
-" Required:
-filetype plugin indent on
-syntax enable
-
-" If you want to install not installed plugins on startup.
-if dein#check_install()
-  call dein#install()
-endif
-
-"End dein Scripts-------------------------
-
-"if has('gui_running') && !has('unix')
-"  set encoding=utf-8
-"endif
 
 "===============================================================================
 "   プラグインマネージャ
@@ -520,7 +470,7 @@ inoremap <C-f>  <Right>
 "nnoremap * *N
 if !has('unix')
 	nnoremap <Leader>grc :tabnew<CR>:e $CONFDIR/.gvimrc<CR>
-	nnoremap <Leader>trc :tabnew<CR>:e $CONFDIR/.vimrc<CR>:vs $HOME/.vim/toml/dein.toml<CR>:sp $HOME/.vim/toml/dein_lazy.toml<CR>
+	nnoremap <Leader>trc :tabnew<CR>:e $CONFDIR/.vimrc<CR>:vs<CR>
 	nnoremap <Leader>vrc :vs $CONFDIR/.vimrc<CR>
 	nnoremap <Leader>hrc :e $CONFDIR/.vimrc<CR>
 	nnoremap <Leader>prc :tabnew<CR>:e $VIMRUNTIME/macros\printrc.vim<CR>
