@@ -67,5 +67,6 @@ set ambiwidth=double
 "------------------------------------
 "{{{
 SpeedDatingFormat %Y/%m/%d
+SpeedDatingFormat %Y年%m月%d日
 SpeedDatingFormat %Y%m%d%H%M
 "}}}
