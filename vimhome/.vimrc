@@ -97,6 +97,14 @@ Plug 'AtsushiM/sass-compile.vim'
 Plug 'tpope/vim-speeddating'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'junegunn/vim-easy-align'
+Plug 'hiderin/w3m.vim'
+
+Plug 'https://github.com/hiderin/vimfiler.vim.git'
+Plug 'https://github.com/hiderin/unite.vim.git'
+Plug 'https://github.com/Shougo/vimproc.git', { 'do': 'make' }
+Plug 'https://github.com/Shougo/vimshell.git'
+Plug 'Shougo/neomru.vim'
+
 "Plug 'joonty/vdebug'
 " Unmanaged plugin (manually installed and updated)
 "Plug '~/my-prototype-plugin'
@@ -121,20 +129,20 @@ call neobundle#begin(expand('$VIMRUNTIME/bundle/automatic'))
 NeoBundle 'https://github.com/Shougo/neobundle.vim.git'
 
 "----- github Plugins -----
-if !has('unix')
-	NeoBundle 'https://github.com/yuratomo/w3m.vim'
-"	NeoBundle 'https://github.com/Shougo/vimfiler.git'
-	NeoBundle 'https://github.com/Shougo/vimfiler.vim.git'
-	NeoBundle 'https://github.com/Shougo/unite.vim.git'
-else
-	NeoBundle 'https://github.com/hiderin/vimfiler.vim.git'
-	NeoBundle 'https://github.com/hiderin/unite.vim.git'
-	NeoBundle 'https://github.com/hiderin/w3m.vim'
-endif
-"NeoBundle 'https://github.com/Shougo/neocomplcache.git'
-NeoBundle 'https://github.com/Shougo/vimproc.git'
-NeoBundle 'https://github.com/Shougo/vimshell.git'
-NeoBundle 'https://github.com/Shougo/neomru.vim'
+"if !has('unix')
+""	NeoBundle 'https://github.com/yuratomo/w3m.vim'
+""	NeoBundle 'https://github.com/Shougo/vimfiler.git'
+"	NeoBundle 'https://github.com/Shougo/vimfiler.vim.git'
+"	NeoBundle 'https://github.com/Shougo/unite.vim.git'
+"else
+"	NeoBundle 'https://github.com/hiderin/vimfiler.vim.git'
+"	NeoBundle 'https://github.com/hiderin/unite.vim.git'
+""	NeoBundle 'https://github.com/hiderin/w3m.vim'
+"endif
+""NeoBundle 'https://github.com/Shougo/neocomplcache.git'
+"NeoBundle 'https://github.com/Shougo/vimproc.git'
+"NeoBundle 'https://github.com/Shougo/vimshell.git'
+"NeoBundle 'https://github.com/Shougo/neomru.vim'
 "NeoBundle 'https://github.com/cohama/agit.vim'
 "NeoBundle 'https://github.com/jlanzarotta/bufexplorer'
 "NeoBundle 'https://github.com/gregsexton/gitv'
