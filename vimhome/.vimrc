@@ -97,6 +97,7 @@ Plug 'AtsushiM/sass-compile.vim'
 Plug 'tpope/vim-speeddating'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'junegunn/vim-easy-align'
+Plug 'Shougo/unite-outline'
 "Plug 'joonty/vdebug'
 " Unmanaged plugin (manually installed and updated)
 "Plug '~/my-prototype-plugin'
