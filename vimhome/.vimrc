@@ -129,71 +129,13 @@ call neobundle#begin(expand('$VIMRUNTIME/bundle/automatic'))
 "******************************************
 NeoBundle 'https://github.com/Shougo/neobundle.vim.git'
 
-"----- github Plugins -----
-"if !has('unix')
-""	NeoBundle 'https://github.com/yuratomo/w3m.vim'
-""	NeoBundle 'https://github.com/Shougo/vimfiler.git'
-"	NeoBundle 'https://github.com/Shougo/vimfiler.vim.git'
-"	NeoBundle 'https://github.com/Shougo/unite.vim.git'
-"else
-"	NeoBundle 'https://github.com/hiderin/vimfiler.vim.git'
-"	NeoBundle 'https://github.com/hiderin/unite.vim.git'
-""	NeoBundle 'https://github.com/hiderin/w3m.vim'
-"endif
-""NeoBundle 'https://github.com/Shougo/neocomplcache.git'
-"NeoBundle 'https://github.com/Shougo/vimproc.git'
-"NeoBundle 'https://github.com/Shougo/vimshell.git'
-"NeoBundle 'https://github.com/Shougo/neomru.vim'
-"NeoBundle 'https://github.com/cohama/agit.vim'
-"NeoBundle 'https://github.com/jlanzarotta/bufexplorer'
-"NeoBundle 'https://github.com/gregsexton/gitv'
-"NeoBundle 'https://github.com/thinca/vim-poslist'
-"NeoBundle 'https://github.com/tyru/skk.vim'
 if has('unix') && version==800
 	NeoBundle 'https://github.com/tyru/eskk.vim'
 endif
-"NeoBundle 'https://github.com/vim-scripts/taglist.vim'
-""NeoBundle 'git://github.com/tsaleh/vim-align.git'
 NeoBundle 'https://github.com/tpope/vim-fugitive'
-"NeoBundle 'https://github.com/thinca/vim-visualstar'
-"NeoBundle 'https://github.com/thinca/vim-ref'
-"NeoBundle 'https://github.com/tyru/vim-altercmd'
-"NeoBundle 'https://github.com/mattn/webapi-vim'
-""NeoBundle 'https://github.com/mattn/excitetranslate-vim'
-""NeoBundle 'https://github.com/vim-scripts/EasyGrep'
-""NeoBundle 'git://github.com/mbbill/echofunc'
-"NeoBundle 'https://github.com/vim-jp/vimdoc-ja'
-""NeoBundle 'https://github.com/itchyny/calendar.vim'
-""NeoBundle 'https://github.com/Sunitha/SkypeShell.git'
-"NeoBundle 'https://github.com/tpope/vim-surround'
-"NeoBundle 'https://github.com/Shougo/vinarise'
-"NeoBundle 'https://github.com/fuenor/im_control.vim'
-"NeoBundle 'https://github.com/mattn/emmet-vim'
-"NeoBundle 'https://github.com/tyru/open-browser.vim'
-"NeoBundle 'https://github.com/hail2u/vim-css3-syntax'
-""NeoBundle 'https://github.com/taichouchou2/html5.vim'
-"NeoBundle 'https://github.com/pangloss/vim-javascript'
-"NeoBundle 'https://github.com/kchmck/vim-coffee-script'
-"NeoBundle 'https://github.com/AtsushiM/search-parent.vim'
-"NeoBundle 'https://github.com/AtsushiM/sass-compile.vim'
-"NeoBundle 'https://github.com/tpope/vim-speeddating'
-"NeoBundle 'https://github.com/Lokaltog/vim-easymotion'
-"NeoBundle 'https://github.com/junegunn/vim-easy-align'
-""NeoBundle 'https://github.com/joonty/vdebug'
-""NeoBundle ''
-
-"----- vim.org Plugins -----
-"NeoBundle 'FuzzyFinder'
-"NeoBundle 'NERD_tree'
 
 "----- Local Plugins -----
 NeoBundleLocal $VIMRUNTIME/bundle/manual
-
-"# [ pathogen ] NeoBundle管理外の自前インストールプラグインはPathogenで管理する
-"NeoBundle 'git://github.com/tpope/vim-pathogen.git'
-"if isdirectory(expand('$VIMRUNTIME/bundle/automatic/vim-pathogen'))
-"        call pathogen#infect('$VIMRUNTIME/bundle/manual')
-"endif
 
 call neobundle#end()
 
