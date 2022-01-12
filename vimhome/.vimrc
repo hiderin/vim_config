@@ -100,8 +100,8 @@ Plug 'junegunn/vim-easy-align'
 Plug 'Shougo/unite-outline'
 Plug 'hiderin/w3m.vim'
 
-Plug 'https://github.com/hiderin/vimfiler.vim.git'
-Plug 'https://github.com/hiderin/unite.vim.git'
+Plug 'https://github.com/Shougo/vimfiler.vim.git'
+Plug 'https://github.com/Shougo/unite.vim.git'
 Plug 'https://github.com/Shougo/vimproc.git', { 'do': 'make' }
 Plug 'https://github.com/Shougo/vimshell.git'
 Plug 'Shougo/neomru.vim'
