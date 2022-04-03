@@ -937,3 +937,5 @@ function! s:fern_my_settings()
 endfunction
 
 let g:fern#scheme#bookmark#store#file = "~/.fern/bookmark.json"
+
+set shortmess-=S
